@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway (1)/Raleway-VariableFont_wght.ttf');
+}
+.raleway{
+  font-family: 'Raleway', sans-serif;
+}
+:root {
+  // COLOR BG (theme dark)
+  --color-bg-primary-dark:#121F2F;
+  --color-bg-secondary-dark:#2B324E;
+  --color-bg-terciary-dark:#666F98;
+  --color-bg-quaternary-dark:#01C38E;
+  // COLOR TEXT (theme dark)
+  --color-text-primary-dark:#01C38E;
+  --color-text-secondary-dark:#ffffff;
+  --color-text-terciary-dark:#2F6BE0;
+  --color-text-terciary-dark:#fff;
+  // COLOR SHADOW (theme dark)
+  --color-shadow-primary-dark:#A4A4A4;
+// THEME LIGHT
+  // COLOR BG (theme light)
+  --color-bg-base-light:#717171;
+  --color-bg-primary-light:#EAEAEA;
+  --color-bg-secondary-light:#ffffff;
+  --color-bg-terciary-light:#FAFAFA;
+  --color-bg-quaternary-light:#2F6BE0;
+  --color-bg-quinary-light:#E6E6E6;
+  // COLOR TEXT (theme light)
+  --color-text-primary-light:#01C38E;
+  --color-text-secondary-light:#ffffff;
+  --color-text-terciary-light:#2F6BE0;
+  --color-text-quaternary-light:#FFBB11;
+  --color-text-quintenary-light:#6D6D6D;
+  // COLOR SHADOW (theme light)
+  --color-shadow-primary-light:#FFBB11;
+
+}
+// Mode Dark
+.color-bg-primary-dark{
+  background-color: var(--color-bg-primary-dark);
+}
+.color-bg-secondary-dark{
+  background-color: var(--color-bg-secondary-dark);
+}
+.color-bg-terciary-dark{
+  background-color: var(--color-bg-terciary-dark);
+}
+.color-bg-quaternary-dark{
+  background-color: var(--color-bg-quaternary-dark);
+}
+.color-text-primary-dark{
+  color: var(--color-text-primary-dark);
+}
+.color-text-secondary-dark{
+  color: var(--color-text-secondary-dark);
+}
+.color-text-terciary-dark{
+  color: var(--color-text-terciary-dark);
+}
+.color-shadow-primary-dark{
+  color: var(--color-shadow-primary-dark);
+}
+
+// Mode Light
+.color-bg-base-ligth{
+  background-color: var(--color-bg-base-light);
+}
+.color-bg-primary-ligth{
+  background-color: var(--color-bg-primary-light);
+}
+.color-bg-secondary-ligth{
+  background-color: var(--color-bg-secondary-light);
+}
+.color-bg-terciary-ligth{
+  background-color: var(--color-bg-terciary-light);
+}
+.color-bg-quaternary-ligth{
+  background-color: var(--color-bg-quaternary-light);
+}
+.color-text-primary-ligth{
+  color: var(--color-text-primary-light);
+}
+.color-text-secondary-ligth{
+  color: var(--color-text-secondary-light);
+}
+.color-text-terciary-ligth{
+  color: var(--color-text-terciary-light);
+}
+.color-text-quaternary-ligth{
+  color: var(--color-text-quaternary-light);
+}
+.color-text-quintenary-ligth{
+  color: var(--color-text-quintenary-light);
+}
+.color-shadow-primary-ligth{
+  border: 2px solid var(--color-shadow-primary-light);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+// container will define the max width
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

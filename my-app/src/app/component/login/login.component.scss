@@ -1,0 +1,16 @@
+.inputForm_ligth{
+  outline: none;
+  border: 2px solid #D3D3D3;
+  background-color: #E6E6E6;
+}
+.inputForm_ligth::placeholder{
+  color: var(--color-text-quintenary-light);
+}
+.inputForm_ligth:focus{
+    transition: border 0.2s ease-in-out;
+  border: 2px solid #a0a0a0;
+}
+.inputForm_ligth:-webkit-autofill-highlight {
+  color: #000; /* Cor do texto */
+  background-color: #fff; /* Cor de fundo */
+}
