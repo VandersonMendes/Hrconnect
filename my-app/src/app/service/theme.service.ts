@@ -20,6 +20,9 @@ export class ThemeService {
   toggleDarkMode(isDark: boolean) {
     this.isDarkMode.next(isDark);
     document.body.classList.toggle('dark-mode', isDark);
-    
+    const  classTransition = [ 'animate', 'animate_animated', 'animate__fadeInUp']
+    classTransition.forEach (x => document.body.classList.toggle(x, isDark))
+    localStorage.setItem('theme', isDark ? 'dark' : 'ligth');
+    return 
   }
 }

@@ -11,8 +11,6 @@ import { ThemeService } from 'src/app/service/theme.service';
 export class LoginComponent implements  OnInit {
   constructor (private themeService: ThemeService){}
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.  
     const prefersColorTheme =  window.matchMedia('(prefers-color-scheme: dark)');
     if(prefersColorTheme.matches){
       localStorage.setItem('theme', 'dark')
@@ -24,14 +22,7 @@ export class LoginComponent implements  OnInit {
   }
   isToggleChangeTheme:  boolean = false;
     isClickChangeTheme(){
+      this.isToggleChangeTheme = !this.isToggleChangeTheme
       this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
     }
-  changeTheme(){
-    this.isToggleChangeTheme = !this.isToggleChangeTheme;
-    if(this.isToggleChangeTheme){
-      localStorage.setItem('theme', 'dark')
-    }else{
-      localStorage.setItem('theme', 'ligth')
-    }
-  }
 }
