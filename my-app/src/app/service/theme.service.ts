@@ -12,17 +12,41 @@ export class ThemeService {
   constructor() {
     // Verifique a preferência inicial do sistema operacional
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    // Verificando se já existe uma preferência salva
     const storedPrefereinces = localStorage.getItem('theme');
-    const isDarkFromLocalStorage = storedPrefereinces === 'dark';
-    this.toggleDarkMode(prefersDark.matches || isDarkFromLocalStorage);
+    console.log(prefersDark.matches)
+    // Se não existir uma preferência salva, irá pegar uma preferência do sistema operacional
+    if (!storedPrefereinces) {
+      if (prefersDark.matches) {
+        this.isDarkMode.next(true);
+        localStorage.setItem('theme', 'dark');
+        this.toggleDarkMode(true)
+      } else {
+        this.isDarkMode.next(false);
+        localStorage.setItem('theme', 'ligth');
+      }
+    } else {
+      if (storedPrefereinces === 'dark') {
+        this.isDarkMode.next(true);
+
+      } else {
+        this.isDarkMode.next(false);
+      }
+
+    }
   }
 
   toggleDarkMode(isDark: boolean) {
+    console.log(isDark)
     this.isDarkMode.next(isDark);
-    document.body.classList.toggle('dark-mode', isDark);
-    const  classTransition = [ 'animate', 'animate_animated', 'animate__fadeInUp']
-    classTransition.forEach (x => document.body.classList.toggle(x, isDark))
-    localStorage.setItem('theme', isDark ? 'dark' : 'ligth');
-    return 
+    // document.body.classList.toggle('dark-mode', isDark);
+    // localStorage.setItem('theme', isDark ? 'dark' : 'ligth');
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'ligth');
+    }
   }
 }

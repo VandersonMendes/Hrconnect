@@ -1,11 +1,24 @@
 <section class="animated animate__animated animate__fadeIn raleway color-bg-primary">
   <main [ngClass]="{ 'animate__animated animate__fadeIn': isToggleChangeTheme }" class="container">
-    <div class="flex justify-around items-center  min-h-screen mx-8 max-[900px]:mx-12" >
-    <!-- <button (click)="isClickChangeTheme()">Exemplo darkMode</button> -->
-     <!-- Form -->
+    <div class="flex justify-around items-center  min-h-screen mx-8 max-[900px]:mx-12">
+      <!-- Form -->
       <div>
-        <h1 class="font-semibold text-6xl my-16 text-center"><span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">Log</span><span
-            class="color-text-quaternary">in</span></h1>
+        <div class=" flex items-center">
+          <div class="relative l-20">
+            <button class="border p-2 rounded-full" (click)="isClickChangeTheme()">
+              <img class="w-8" src="../../../assets/imgs/theme_mode_icon/dark theme icon/moon.png"
+                alt="Icon theme dark">
+            </button>
+            <button class="border p-2 rounded-full" (click)="isClickChangeTheme()">
+              <img class="w-8" src="../../../assets/imgs/theme_mode_icon/dark theme icon/sun.png"
+                alt="Icon theme ligth">
+            </button>
+          </div>
+          <h1 class="font-semibold text-6xl my-16 m-auto"><span class="color-text-terciary"
+              [ngClass]="{ 'color-text-white': isToggleChangeTheme }">Log</span><span
+              class="color-text-quaternary">in</span></h1>
+        </div>
+
         <form class="flex flex-col w-96">
           <label for="nome" class="my-1 color-text-terciary font-bold ml-1">Nome Completo</label>
           <input type="text" id="nome" placeholder="João da Silva"
@@ -16,16 +29,21 @@
           <label for="empresa" class="my-1 color-text-terciary font-bold ml-1">Nome da Empresa</label>
           <input type="text" id="empresa" placeholder="Nome da Empresa"
             class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary">
-            <button class="buttonAdvance color-bg-quaternary p-2 mb-8 rounded-md text-2xl font-bold color-text-white border-2 mt-5">Avançar</button>
-            <a href="" class="flex justify-center font-extrabold color-text-terciary tracking-normal outline-0 ">JÁ TEM UMA CONTA</a>
+          <button
+            class="buttonAdvance color-bg-quaternary p-2 mb-8 rounded-md text-2xl font-bold color-text-white border-2 mt-5">Avançar</button>
+          <a href="" class="flex justify-center font-extrabold color-text-terciary tracking-normal outline-0 ">JÁ TEM
+            UMA CONTA</a>
         </form>
       </div>
       <!-- IMG -->
       <div class="w-5/12">
-        <img src="../../../assets/imgs/login_ligth_1.svg" alt="imagem login - (theme)"
-          *ngIf="!isToggleChangeTheme" class="animate__animated animate__fadeIn">
-        <img src="../../../assets/imgs/login_dark_1_.svg" alt="imagem login - (theme dark)" *ngIf="isToggleChangeTheme"
-          class="animate__animated animate__fadeIn">
+        <img src="../../../assets/imgs/login_ligth_1.svg" alt="imagem login - (theme)" *ngIf="!isToggleChangeTheme"
+          class="animate__animated animate__fadeIn" dark>
+        <ng-template #dark>
+          <img src="../../../assets/imgs/login_dark_1_.svg" alt="imagem login - (theme dark)"
+            class="animate__animated animate__fadeIn">
+        </ng-template>
+
       </div>
     </div>
   </main>
