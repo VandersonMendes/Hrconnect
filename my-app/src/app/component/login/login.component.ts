@@ -1,30 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/service/theme.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
-  standalone:true,
+  standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports :[CommonModule]
+  imports: [CommonModule, FormsModule]
 })
-export class LoginComponent implements  OnInit {
-  constructor (private themeService: ThemeService){
-    
+export class LoginComponent implements OnInit {
+  constructor(private themeService: ThemeService) {
+    const prefersTheme = localStorage.getItem('theme');
+    if (prefersTheme === 'dark') {
+      this.isToggleChangeTheme = true
+    }
+
   }
   ngOnInit(): void {
-    // const prefersColorTheme =  window.matchMedia('(prefers-color-scheme: dark)');
-    // if(prefersColorTheme.matches){
-    //   localStorage.setItem('theme', 'dark')
-    //   this.isToggleChangeTheme = true;
-    // }else{
-    //   localStorage.setItem('theme', 'ligth')
-    //   this.isToggleChangeTheme = false;
-    // }
-  }
-  isToggleChangeTheme:  boolean = false;
-    isClickChangeTheme(){
-      this.isToggleChangeTheme = !this.isToggleChangeTheme
-      this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
+    const prefersTheme = localStorage.getItem('theme');
+    if (prefersTheme === 'dark') {
+      this.isToggleChangeTheme = true
     }
+  }
+  isToggleChangeTheme: boolean = false;
+  isClickChangeTheme() {
+    this.isToggleChangeTheme = !this.isToggleChangeTheme
+    this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
+  }
+  onSubmit(event: Event) {
+    event.preventDefault();
+  }
 }
