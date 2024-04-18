@@ -9,16 +9,18 @@ import { ThemeService } from 'src/app/service/theme.service';
   imports :[CommonModule]
 })
 export class LoginComponent implements  OnInit {
-  constructor (private themeService: ThemeService){}
+  constructor (private themeService: ThemeService){
+    
+  }
   ngOnInit(): void {
-    const prefersColorTheme =  window.matchMedia('(prefers-color-scheme: dark)');
-    if(prefersColorTheme.matches){
-      localStorage.setItem('theme', 'dark')
-      this.isToggleChangeTheme = true;
-    }else{
-      localStorage.setItem('theme', 'ligth')
-      this.isToggleChangeTheme = false;
-    }
+    // const prefersColorTheme =  window.matchMedia('(prefers-color-scheme: dark)');
+    // if(prefersColorTheme.matches){
+    //   localStorage.setItem('theme', 'dark')
+    //   this.isToggleChangeTheme = true;
+    // }else{
+    //   localStorage.setItem('theme', 'ligth')
+    //   this.isToggleChangeTheme = false;
+    // }
   }
   isToggleChangeTheme:  boolean = false;
     isClickChangeTheme(){
