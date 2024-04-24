@@ -24,7 +24,7 @@ import { AdvanceLoginComponent } from './component/login/advance-login/advance-l
 
   ],
   providers: [
-  ThemeService
+  ThemeService,
   ],
   bootstrap: [AppComponent],
 })
