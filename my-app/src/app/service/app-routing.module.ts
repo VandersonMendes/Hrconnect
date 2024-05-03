@@ -5,8 +5,8 @@ import { AdvanceLoginComponent } from '../../app/component/login/advance-login/a
 import { advanceLoginGuard } from '../../app/guard/advance-login.guard';
 
 const routes: Routes = [
-      {path : 'login', component: LoginComponent},
-      {path: 'login/advance', component: AdvanceLoginComponent, canActivate: [advanceLoginGuard]} 
+      {path : '', component: LoginComponent},
+      {path: 'login', component: AdvanceLoginComponent, canActivate: [advanceLoginGuard]} 
 ];
 
 @NgModule({

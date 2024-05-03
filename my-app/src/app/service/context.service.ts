@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ConnectableObservable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })

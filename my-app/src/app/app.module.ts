@@ -12,8 +12,7 @@ import { AdvanceLoginComponent } from './component/login/advance-login/advance-l
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdvanceLoginComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +20,7 @@ import { AdvanceLoginComponent } from './component/login/advance-login/advance-l
     AppRoutingModule,
     LoginComponent,
     BrowserAnimationsModule,
+    AdvanceLoginComponent,
 
   ],
   providers: [
