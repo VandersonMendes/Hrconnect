@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, retry } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,28 +21,26 @@ export class ThemeService {
         this.isDarkMode.next(true);
         localStorage.setItem('theme', 'dark');
         this.toggleDarkMode(true)
-        return
       } else {
         this.isDarkMode.next(false);
         localStorage.setItem('theme', 'ligth');
-        return
       }
-      // Se existir uma preferência salva, irá pegar a preferência salva
     } else {
       if (storedPrefereinces === 'dark') {
         this.isDarkMode.next(true);
 
-      } else if(storedPrefereinces === 'ligth') {
+      } else {
         this.isDarkMode.next(false);
-      }else{
-        this.isDarkMode.next(true);
-        return
       }
+
     }
   }
 
   toggleDarkMode(isDark: boolean) {
+    console.log(isDark)
     this.isDarkMode.next(isDark);
+    // document.body.classList.toggle('dark-mode', isDark);
+    // localStorage.setItem('theme', isDark ? 'dark' : 'ligth');
     if (isDark) {
       document.body.classList.add('dark-mode');
       localStorage.setItem('theme', 'dark');
