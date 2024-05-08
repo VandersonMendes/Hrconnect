@@ -6,10 +6,10 @@ import { ContextService } from 'src/app/service/context.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
-  standalone: true,
+  standalone:true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [CommonModule, FormsModule]
+  imports :[CommonModule]
 })
 export class LoginComponent implements OnInit {
   name: string = '';
