@@ -5,11 +5,10 @@ export const advanceLoginGuard: CanActivateFn = (route: ActivatedRouteSnapshot, 
   // const router = inject(Router);
   // const contextService = inject(ContextService);
   // if(contextService.advanceLogin){
-
   //   return true
   // }else{
-  //   router.navigate(['/login'])
   //   return false
   // }
   return true
+
 };
