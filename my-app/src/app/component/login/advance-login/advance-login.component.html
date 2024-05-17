@@ -1,9 +1,9 @@
 <section class="animated animate__animated animate__fadeIn raleway color-bg-primary">
   <main [ngClass]="{ 'animate__animated animate__fadeIn': isToggleChangeTheme }" class="container">
-    <div class="flex justify-around items-center  min-h-screen mx-8 max-[900px]:mx-12">
+    <div class="flex justify-around items-center gap-6 min-h-screen mx-8 max-lg:mx-12 max-[400px]:mx-0 containerLogin">
       <!-- Form -->
       <div>
-        <div class=" flex items-center">
+        <div class=" flex items-center titleText">
           <div class="relative l-20">
             <button class=" p-1 rounded-full" (click)="isClickChangeTheme()"
               *ngIf="isToggleChangeTheme; else light">
@@ -16,33 +16,34 @@
                   alt="Icon theme ligth">
               </button></ng-template>
           </div>
-          <h1 class="font-semibold text-6xl my-16 m-auto"><span class="color-text-terciary"
+          <h1 class="font-semibold max-lg:text-5xl max-md:text-4xl text-6xl my-16 m-auto"><span class="color-text-terciary"
               [ngClass]="{ 'color-text-white': isToggleChangeTheme }">Q</span><span
               class="color-text-quaternary">uas</span><span class="color-text-terciary"
               [ngClass]="{ 'color-text-white': isToggleChangeTheme }">e</span> <span class="color-text-terciary"
               [ngClass]="{ 'color-text-white': isToggleChangeTheme }"> lá</span><span
-              class="color-text-quaternary"> !</span></h1>
+              class="color-text-quaternary"> !</span>
+              </h1>
         </div>
 
-        <form class="flex flex-col w-96" (ngSubmit)="onSubmit($event)">
-          <label for="CNPJ" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer">CNPJ</label>
+        <form class="flex flex-col w-96 max-lg:w-80 containerForm" (ngSubmit)="onSubmit($event)">
+          <label for="CNPJ" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">CNPJ</label>
           <input type="text" id="CNPJ" placeholder=" XX. XXX. XXX/0001-XX" required="required"
-            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary" [(ngModel)]="cpnj" name="name"> 
-          <label for="senha" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer">Senha</label>
+            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="cpnj" name="name"> 
+          <label for="senha" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Senha</label>
           <input type="text" id="senha" placeholder="*************"
-            class="inputForm text:sm color-text-quintenary mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary" [(ngModel)]="senha" name="senha">
-          <label for="senhaConfirm" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer">Confirme sua senha</label>
+            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="senha" name="senha">
+          <label for="senhaConfirm" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Confirme sua senha</label>
             <input type="password" id="senhaConfirm" placeholder="*************"
-              class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary"  [(ngModel)]="senhaConfirm" name="senhaConfirm">
+              class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs"  [(ngModel)]="senhaConfirm" name="senhaConfirm">
             <p *ngIf="errorForm" class="text-center text-red-600 font-bold animated animate__animated animate__fadeIn">{{errorMessage}}</p>
           <button
-            class="buttonAdvance color-bg-quaternary p-2 mb-8 rounded-md text-2xl font-bold color-text-white border-2 mt-5">Avançar</button>
-          <a href="" class="flex justify-center font-extrabold color-text-terciary contCreate" >JÁ TEM
+            class="buttonAdvance color-bg-quaternary p-2 max:md:p-1 mb-8 rounded-md text-2xl max-md:text-xl font-bold color-text-white border-2 mt-5">Avançar</button>
+          <a href="" class="flex justify-center font-extrabold color-text-terciary contCreate max-md:text-xs" >JÁ TEM
             UMA CONTA</a>
         </form>
       </div>
       <!-- IMG -->
-      <div class="w-6/12 mt-14">
+      <div class="w-6/12 max-lg:7/12 mt-14 imgFlex">
         <img src="../../../../assets/imgs/advace_login_ligth.svg" alt="imagem login - (theme: light)"
           *ngIf="!isToggleChangeTheme;else dark" class="animate__animated animate__fadeIn" dark>
         <ng-template #dark>
