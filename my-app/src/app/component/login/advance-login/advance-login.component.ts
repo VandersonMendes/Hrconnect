@@ -11,11 +11,12 @@ import { FormsModule } from '@angular/forms';
 
 })
 export class AdvanceLoginComponent {
-  cpnj: string = '';
+  cnpj: string = '';
   senha: string = '';
   senhaConfirm: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
+  buttonDisabled: boolean = false;
   constructor(private themeService: ThemeService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
@@ -37,10 +38,26 @@ export class AdvanceLoginComponent {
   }
   onSubmit(event: Event) {
     event.preventDefault();
- 
+    if(this.cnpj.length === 0 || this.senha.length === 0 || this.senhaConfirm.length === 0){
+      this.errorForm = true
+      this.errorMessage = 'Preencha todos os campos'
+      return
+    }else if(this.cnpj.length < 15){
+     this.errorForm = true;
+     this.errorMessage = 'CNPJ invalido'
+      }else if(this.senha !== this.senhaConfirm)
+      {
+        this.errorForm = true
+        this.errorMessage = 'As senhas devem ser iguais'
+        return
+      }
+      else{
+        this.errorForm = false
+      }
+
   }
 
   onChangeForm(event: Event) {
-
+    this.cnpj = this.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
   }
 }

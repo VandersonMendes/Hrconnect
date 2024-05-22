@@ -28,13 +28,13 @@
         <form class="flex flex-col w-96 max-lg:w-80 containerForm" (ngSubmit)="onSubmit($event)">
           <label for="CNPJ" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">CNPJ</label>
           <input type="text" id="CNPJ" placeholder=" XX. XXX. XXX/0001-XX" required="required"
-            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="cpnj" name="name"> 
+            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="cnpj" name="name" (ngModelChange)="onChangeForm($event)" (disabled)="buttonDisabled" maxlength="15"> 
           <label for="senha" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Senha</label>
           <input type="text" id="senha" placeholder="*************"
             class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="senha" name="senha">
           <label for="senhaConfirm" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Confirme sua senha</label>
             <input type="password" id="senhaConfirm" placeholder="*************"
-              class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs"  [(ngModel)]="senhaConfirm" name="senhaConfirm">
+              class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs"  [(ngModel)]="senhaConfirm" name="senhaConfirm" >
             <p *ngIf="errorForm" class="text-center text-red-600 font-bold animated animate__animated animate__fadeIn">{{errorMessage}}</p>
           <button
             class="buttonAdvance color-bg-quaternary p-2 max:md:p-1 mb-8 rounded-md text-2xl max-md:text-xl font-bold color-text-white border-2 mt-5">Avançar</button>
