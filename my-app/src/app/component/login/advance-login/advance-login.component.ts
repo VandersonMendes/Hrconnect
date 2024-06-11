@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/service/theme.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContextService } from 'src/app/service/context.service';
 @Component({
   selector: 'app-advance-login',
   standalone: true,
@@ -10,20 +11,18 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
 
 })
-export class AdvanceLoginComponent {
+export class AdvanceLoginComponent  {
   cnpj: string = '';
   senha: string = '';
   senhaConfirm: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
   buttonDisabled: boolean = false;
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private context: ContextService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
     }
-
-
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');

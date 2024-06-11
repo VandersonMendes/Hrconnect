@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DateLogin } from '../interfaces/dateLogin';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,9 +9,7 @@ export class ContextService {
     console.log(this.advanceLogin)
   }
   advanceLogin: boolean = false
-  dateLogin: any = {
-    name: '',
-    email: '',
-    company: ''
+  saveDateLogin(dateLogin: DateLogin) {
+    sessionStorage.setItem('dateLogin', JSON.stringify(dateLogin));
   }
 }
