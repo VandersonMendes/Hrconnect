@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/service/theme.service';
 import { FormsModule } from '@angular/forms';
-import { BoundElementProperty } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { ContextService } from 'src/app/service/context.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,14 +23,17 @@ export class LoginComponent implements OnInit {
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
     }
-
-
+    sessionStorage.removeItem('dateLogin');
+    this.context.advanceLogin = false;
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
+      sessionStorage.removeItem('dateLogin');
+      this.context.advanceLogin = false;
       this.isToggleChangeTheme = true
     }
+
   }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme() {
@@ -40,19 +43,25 @@ export class LoginComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     const regexEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-     console.log(regexEmailValidation.test(this.email))
-      if (this.name.length === 0 || this.email.length === 0 || this.company.length === 0) {
+    console.log(regexEmailValidation.test(this.email))
+    if (this.name.length === 0 || this.email.length === 0 || this.company.length === 0) {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
       return
-    }else if(!regexEmailValidation.test(this.email)){
+    } else if (!regexEmailValidation.test(this.email)) {
       this.errorForm = true
       this.errorMessage = 'Email invalido'
       return
-      }else{
+    } else {
       this.errorForm = false
     }
-    if(!this.errorForm){
+    if (!this.errorForm) {
+      const dateLogin = {
+        name: this.name,
+        email: this.email,
+        company: this.company
+      }
+      this.context.saveDateLogin(dateLogin)
       this.router.navigate(['login/advance'])
       this.context.advanceLogin = true;
       return
