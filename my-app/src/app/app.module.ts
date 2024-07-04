@@ -1,5 +1,5 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';a
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app/service/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +29,8 @@ export function appInitializer(context: ContextService) {
     LostPasswordComponent,
     LostPasswordConfirmComponent,
     LostPasswordEmailComponent,
-    AcountAcessComponent
+    AccountCreateComponent
+
 
   ],
   providers: [
