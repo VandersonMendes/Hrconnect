@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/service/theme.service';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ContextService } from 'src/app/service/context.service';
-
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Console } from 'console';
 @Component({
-  selector: 'app-login',
+  selector: 'app-lost-password-confirm',
   standalone: true,
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './lost-password-confirm.component.html',
+  styleUrls: ['./lost-password-confirm.component.scss'],
   imports: [CommonModule, FormsModule]
 })
-export class LoginComponent implements OnInit {
-  name: string = '';
-  email: string = '';
-  company: string = '';
+export class LostPasswordConfirmComponent {
+ email: string = '';
+  senha: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
+  toggleButtonVisiblePassword: boolean = false;
+  srcIconCheckboxPassword: string = ''
   constructor(private themeService: ThemeService, private context: ContextService, private router: Router) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
@@ -40,11 +41,17 @@ export class LoginComponent implements OnInit {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
+  OnChangeCheckBox(event: Event){
+    event.preventDefault();
+    this.toggleButtonVisiblePassword = !this.toggleButtonVisiblePassword;
+  
+  }
   onSubmit(event: Event) {
+    
     event.preventDefault();
     const regexEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     console.log(regexEmailValidation.test(this.email))
-    if (this.name.length === 0 || this.email.length === 0 || this.company.length === 0) {
+    if (this.email.length === 0 || this.senha.length === 0) {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
       return
@@ -57,14 +64,13 @@ export class LoginComponent implements OnInit {
     }
     if (!this.errorForm) {
       const dateLogin = {
-        name: this.name,
         email: this.email,
-        company: this.company
+        company: this.senha
       }
-      this.context.saveDateLogin(dateLogin)
-      this.router.navigate(['registrar/advance']);
+      // this.context.saveDateLogin(dateLogin)
+      this.router.navigate(['login/advance'])
       this.context.advanceLogin = true;
-      console.log(this.context.advanceLogin)
+      return
     }
 
   }

@@ -7,8 +7,8 @@ export const advanceLoginGuard: CanActivateFn = (route: ActivatedRouteSnapshot, 
   if(contextService.advanceLogin){
     return true
   }else{
+    router.navigate(['login'])
     return false
-    return router.navigate(['login'])
   }
   // return true
 

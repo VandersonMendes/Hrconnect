@@ -1,20 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/service/theme.service';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ContextService } from 'src/app/service/context.service';
 import { Router } from '@angular/router';
-import * as e from 'express';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Console } from 'console';
+import { LostPasswordConfirmComponent } from './lost-password-confirm/lost-password-confirm.component';
+import { LostPasswordEmailComponent } from './lost-password-email/lost-password-email.component';
 @Component({
-  selector: 'app-advance-login',
+  selector: 'app-lost-password',
   standalone: true,
-  templateUrl: './advance-login.component.html',
-  styleUrls: ['./advance-login.component.scss'],
-  imports: [CommonModule, FormsModule],
-
+  templateUrl: './lost-password.component.html',
+  styleUrls: ['./lost-password.component.scss'],
+  imports: [CommonModule, FormsModule, LostPasswordEmailComponent, LostPasswordConfirmComponent]
 })
-export class AdvanceLoginComponent implements OnInit, OnDestroy {
-  cnpj: string = '';
+export class LostPasswordComponent {
+   cnpj: string = '';
   senha: string = '';
   senhaConfirm: string = '';
   errorForm: boolean = false;
@@ -31,10 +32,6 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
     }
-  }
-    ngOnDestroy(): void {
-    // Cleanup and resource disposal code goes here
-    console.log('Component destroyed');
   }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme() {
@@ -70,17 +67,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
   }
 
   onChangeForm(event: Event) {
-    const number = Number(this.cnpj);
-    if(Number.isNaN(number)){
-        this.cnpj = ''
-        this.errorForm = true
-        this.errorMessage = 'Digite somente numeros'
-    }else{
-      this.errorForm = false
-    }
-    console.log(number)
     this.cnpj = this.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
     console.log(event)
   }
-
 }
