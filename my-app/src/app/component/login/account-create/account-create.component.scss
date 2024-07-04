@@ -3,13 +3,6 @@
   border: 1px solid #D3D3D3;
   background-color: transparent;
 }
-.inputForm::placeholder{
-  color: var(--color-text-quintenary);
-}
-.inputForm:focus{
-    transition: border 0.2s ease-in-out;
-  border: 2px solid #a0a0a0;
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -19,6 +12,13 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px #23232329;
+}
+.inputForm::placeholder{
+  color: var(--color-text-quintenary);
+}
+.inputForm:focus{
+    transition: border 0.2s ease-in-out;
+  border: 2px solid #a0a0a0;
 }
 .inputForm:-webkit-autofill-highlight {
   color: #000; /* Cor do texto */
@@ -31,6 +31,13 @@ input:-webkit-autofill:active{
 .buttonAdvance:hover{
   opacity: 1.1;
   transform: scale3d(1.03, 1.03, 1.03) rotate(0.3deg);
+}
+// MEDIA QUERY
+@media (max-width: 900px){
+  .imgFlex{
+    display: none;
+  }
+  
 }
 @media  (max-width: 400px){
   .inputForm, .buttonAdvance{
@@ -47,7 +54,9 @@ input:-webkit-autofill:active{
   .containerForm{
     width: 16rem;
   }
-
+  .titleText{
+    gap: 1rem;
+  }
 }
 @media  (max-width: 350px){
   .inputForm, .buttonAdvance{

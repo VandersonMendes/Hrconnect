@@ -4,16 +4,15 @@ import { ThemeService } from 'src/app/service/theme.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContextService } from 'src/app/service/context.service';
-
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  imports: [CommonModule, FormsModule]
+  selector: 'app-account-create',
+  standalone:true,
+  templateUrl: './account-create.component.html',
+  styleUrls: ['./account-create.component.scss'],
+  imports:[CommonModule, FormsModule]
 })
-export class LoginComponent implements OnInit {
-  name: string = '';
+export class AccountCreateComponent implements OnInit {
+name: string = '';
   email: string = '';
   company: string = '';
   errorForm: boolean = false;
@@ -62,9 +61,9 @@ export class LoginComponent implements OnInit {
         company: this.company
       }
       this.context.saveDateLogin(dateLogin)
-      this.router.navigate(['login/advance'])
+      this.router.navigate(['registrar/advance']);
       this.context.advanceLogin = true;
-      return
+      console.log(this.context.advanceLogin)
     }
 
   }
