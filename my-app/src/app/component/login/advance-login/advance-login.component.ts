@@ -33,8 +33,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     }
   }
     ngOnDestroy(): void {
-    // Cleanup and resource disposal code goes here
-    console.log('Component destroyed');
+  
   }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme() {
