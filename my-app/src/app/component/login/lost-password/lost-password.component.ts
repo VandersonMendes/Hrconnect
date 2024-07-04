@@ -4,7 +4,6 @@ import { ContextService } from 'src/app/service/context.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Console } from 'console';
 import { LostPasswordConfirmComponent } from './lost-password-confirm/lost-password-confirm.component';
 import { LostPasswordEmailComponent } from './lost-password-email/lost-password-email.component';
 @Component({
