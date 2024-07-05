@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
-import * as e from 'express';
+import { ValidationDataService } from 'src/app/services/validation-data.service';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-advance-login',
   standalone: true,
@@ -20,7 +21,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
   errorForm: boolean = false;
   errorMessage: string = '';
   buttonDisabled: boolean = false;
-  constructor(private themeService: ThemeService, private context: ContextService, private router: Router) {
+  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
@@ -40,6 +41,19 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
+    onChangeForm(event: Event) {
+    const numberCpnj = Number(this.cnpj);
+    if(Number.isNaN(numberCpnj)){
+        this.errorForm = true
+        this.errorMessage = 'Digite somente numeros'
+    }else{
+      this.errorForm = false
+    }
+
+    this.cnpj = this.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+    console.log(event)
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
     if (this.cnpj.length === 0 || this.senha.length === 0 || this.senhaConfirm.length === 0) {
@@ -60,7 +74,9 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     if (!this.errorForm) {
       const dateLogin = sessionStorage.getItem('dateLogin')
       if (dateLogin) {
-        const dateLoginObject = JSON.parse(dateLogin);
+        const dataLoginObject = JSON.parse(dateLogin);
+         const data = {...dataLoginObject, cnpj: this.cnpj, password: this.senha}
+        //  this.apiService.
       } else {
         this.context.advanceLogin = false
         this.router.navigate(['login']);
@@ -68,18 +84,5 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  onChangeForm(event: Event) {
-    const number = Number(this.cnpj);
-    if(Number.isNaN(number)){
-        this.cnpj = ''
-        this.errorForm = true
-        this.errorMessage = 'Digite somente numeros'
-    }else{
-      this.errorForm = false
-    }
-    console.log(number)
-    this.cnpj = this.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-    console.log(event)
-  }
 
 }
