@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemeService } from 'src/app/service/theme.service';
+import { ThemeService } from 'src/app/services/theme.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ContextService } from 'src/app/service/context.service';
+import { ContextService } from 'src/app/services/context.service';
 @Component({
   selector: 'app-account-create',
   standalone:true,

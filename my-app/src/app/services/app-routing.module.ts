@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvanceLoginComponent } from '../component/login/advance-login/advance-login.component'
-import { advanceLoginGuard } from '../../app/guard/advance-login.guard';
+import { advanceLoginGuard } from '../guard/advance-login.guard';
 import { AcountAcessComponent } from '../component/login/acount-acess/acount-acess.component';
 import { LostPasswordComponent } from '../component/login/lost-password/lost-password.component';
 import { AccountCreateComponent } from '../component/login/account-create/account-create.component';
