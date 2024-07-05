@@ -11,6 +11,7 @@ import { LostPasswordComponent } from './component/login/lost-password/lost-pass
 import { LostPasswordConfirmComponent } from './component/login/lost-password/lost-password-confirm/lost-password-confirm.component';
 import { LostPasswordEmailComponent } from './component/login/lost-password/lost-password-email/lost-password-email.component';
 import { AccountCreateComponent } from './component/login/account-create/account-create.component';
+import { ValidationDataService } from './services/validation-data.service';
 export function appInitializer(context: ContextService) {
   return () => context.appInitializerRouter();
 }
@@ -39,6 +40,9 @@ export function appInitializer(context: ContextService) {
       multi: true,
     },
     ThemeService,
+    ContextService,
+    ValidationDataService
+
   ],
   bootstrap: [AppComponent],
 })

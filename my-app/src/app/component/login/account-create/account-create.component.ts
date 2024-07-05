@@ -4,6 +4,8 @@ import { ThemeService } from 'src/app/services/theme.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContextService } from 'src/app/services/context.service';
+import { ValidationDataService } from 'src/app/services/validation-data.service';
+import { database } from 'firebase-admin';
 @Component({
   selector: 'app-account-create',
   standalone:true,
@@ -17,7 +19,7 @@ name: string = '';
   company: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
-  constructor(private themeService: ThemeService, private context: ContextService, private router: Router) {
+  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
@@ -41,13 +43,11 @@ name: string = '';
   }
   onSubmit(event: Event) {
     event.preventDefault();
-    const regexEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(regexEmailValidation.test(this.email))
-    if (this.name.length === 0 || this.email.length === 0 || this.company.length === 0) {
+    if (this.name === '' || this.email === '' || this.company === '') {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
       return
-    } else if (!regexEmailValidation.test(this.email)) {
+    } else if (this.validationService.emailValidation(this.email)) {
       this.errorForm = true
       this.errorMessage = 'Email invalido'
       return
