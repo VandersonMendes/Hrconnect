@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ThemeService } from 'src/app/service/theme.service';
+import { ThemeService } from 'src/app/services/theme.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ContextService } from 'src/app/service/context.service';
+import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import * as e from 'express';
 @Component({

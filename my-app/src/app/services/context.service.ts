@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DateLogin } from '../interfaces/dateLogin';
+import { DateCreate } from '../interfaces/dateLogin';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,11 @@ export class ContextService {
     console.log(this.advanceLogin)
   }
   advanceLogin: boolean = false
-  saveDateLogin(dateLogin: DateLogin) {
+  saveDateLogin(dateLogin: DateCreate) {
     sessionStorage.setItem('dateLogin', JSON.stringify(dateLogin));
   }
 
   appInitializerRouter(){
-    // this.router.navigate(['l/create']);
-    // if()
+    //  fazer logica JWT, para fazer o login automatico caso se o usuario possui token
   }
 }
