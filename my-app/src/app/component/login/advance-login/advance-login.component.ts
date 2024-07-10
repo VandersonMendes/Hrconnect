@@ -44,17 +44,14 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
     onChangeForm(event: Event) {
-    const numberCpnj = Number(this.cnpj);
-    if(Number.isNaN(numberCpnj)){
+      const hasNumber = /[a-zA-Z]/;
+      if(hasNumber.test(this.cnpj)){
         this.errorForm = true
-        this.errorMessage = 'Digite somente numeros'
-    }else{
-      this.errorForm = false
+         this.errorMessage = 'CNPJ inválido'
+      }
+  
     }
 
-    this.cnpj = this.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-    console.log(event)
-  }
 
   onSubmit(event: Event) {
     event.preventDefault();
@@ -62,19 +59,21 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
       return
-    } else if (this.cnpj.length < 15) {
-      this.errorForm = true;
-      this.errorMessage = 'CNPJ invalido'
-    } else if (this.senha !== this.senhaConfirm) {
+    }  else if (this.senha !== this.senhaConfirm) {
       this.errorForm = true
       this.errorMessage = 'As senhas devem ser iguais'
       return
-    }
-    else {
+    }else if(this.cnpj.length < 14 || this.cnpj.length > 14) {
+      this.errorForm = true
+      this.errorMessage = 'CNPJ inválido'
+      }else {
       this.errorForm = false
     }
+
+    
     if (!this.errorForm) {
       const dateLogin = sessionStorage.getItem('dateLogin')
+      console.log(this.cnpj)
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
          const data = {...dataLoginObject, cnpj: this.cnpj, password: this.senha}

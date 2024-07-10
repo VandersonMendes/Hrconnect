@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DateCreate } from '../interfaces/dateLogin';
+import { DataCreate } from '../interfaces/dateLogin';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ContextService {
     console.log(this.advanceLogin)
   }
   advanceLogin: boolean = false
-  saveDateLogin(dateLogin: DateCreate) {
+  saveDateLogin(dateLogin: DataCreate) {
     sessionStorage.setItem('dateLogin', JSON.stringify(dateLogin));
   }
 
