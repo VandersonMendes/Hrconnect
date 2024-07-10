@@ -14,7 +14,7 @@
 
 ## 🔧 Tools
 
-- [Angula](https://angular.dev/) 🧡
+- [Angular](https://angular.dev/) 🧡
 - [Taiwilnd ](https://tailwindcss.com/).
 - [SCSS ](https://sass-lang.com/).
 
