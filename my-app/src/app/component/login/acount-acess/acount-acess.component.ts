@@ -4,13 +4,14 @@ import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-acount-acess',
   standalone: true,
   templateUrl: './acount-acess.component.html',
   styleUrls: ['./acount-acess.component.scss'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, HeaderComponent]
 })
 export class AcountAcessComponent {
   email: string = '';

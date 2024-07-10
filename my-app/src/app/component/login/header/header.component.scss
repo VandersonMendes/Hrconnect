@@ -1,16 +1,39 @@
+nav {
+  a {
+    text-decoration: none; 
+    position: relative; 
+    overflow: hidden; 
+    display: inline-block;
+  }
 
-@media (max-width: 400px) {
-  .navLinks{
-  a{
-    font-size: 14px;
-    margin-top: 3px;
+  a::after {
+    content: "";
+    position: absolute; 
+    left: 0; 
+    bottom: 0; 
+    width: 0; 
+    height: 2px; 
+    background-color: var(--color-bg-quaternary ); 
+    transition: width 0.5s ease-in-out; 
+    visibility: hidden; 
+  }
+
+  a:hover::after {
+    width:90%; /* Expand the width on hover */
+    visibility: visible; /* Make the underline visible */
   }
 }
-// .iconUser{
-//   width: 15px
-// }
-  .logoHeader{
+@media (max-width: 400px) {
+  .navLinks {
+    a {
+      font-size: 14px;
+      margin-top: 3px;
+    }
+  }
+  .iconUser {
+    width: 19px;
+  }
+  .logoHeader {
     font-size: 24px;
   }
-
 }
