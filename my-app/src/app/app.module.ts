@@ -12,12 +12,16 @@ import { LostPasswordConfirmComponent } from './component/login/lost-password/lo
 import { LostPasswordEmailComponent } from './component/login/lost-password/lost-password-email/lost-password-email.component';
 import { AccountCreateComponent } from './component/login/account-create/account-create.component';
 import { ValidationDataService } from './services/validation-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './component/login/header/header.component';
 export function appInitializer(context: ContextService) {
   return () => context.appInitializerRouter();
 }
 @NgModule({
+
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ export function appInitializer(context: ContextService) {
     LostPasswordComponent,
     LostPasswordConfirmComponent,
     LostPasswordEmailComponent,
-    AccountCreateComponent
+    AccountCreateComponent,
+    HttpClientModule,
+    HeaderComponent,
 
 
   ],
@@ -42,7 +48,6 @@ export function appInitializer(context: ContextService) {
     ThemeService,
     ContextService,
     ValidationDataService
-
   ],
   bootstrap: [AppComponent],
 })

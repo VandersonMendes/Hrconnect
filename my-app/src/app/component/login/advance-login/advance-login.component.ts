@@ -6,12 +6,14 @@ import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
 import { ApiService } from 'src/app/services/api.service';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-advance-login',
   standalone: true,
   templateUrl: './advance-login.component.html',
   styleUrls: ['./advance-login.component.scss'],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HeaderComponent],
+
 
 })
 export class AdvanceLoginComponent implements OnInit, OnDestroy {
@@ -76,7 +78,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
          const data = {...dataLoginObject, cnpj: this.cnpj, password: this.senha}
-        //  this.apiService.
+         this.apiService.createUser(data);
       } else {
         this.context.advanceLogin = false
         this.router.navigate(['login']);

@@ -5,6 +5,6 @@ export interface DateCreate {
 }
 
 export interface DateAvance extends DateCreate {
-  cpnj: number;
-  password: string
+  cnpj: number;
+  password: string,
 }

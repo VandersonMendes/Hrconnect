@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContextService } from 'src/app/services/context.service';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
-import { database } from 'firebase-admin';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-account-create',
   standalone:true,
   templateUrl: './account-create.component.html',
   styleUrls: ['./account-create.component.scss'],
-  imports:[CommonModule, FormsModule]
+  imports:[CommonModule, FormsModule, HeaderComponent]
 })
 export class AccountCreateComponent implements OnInit {
 name: string = '';

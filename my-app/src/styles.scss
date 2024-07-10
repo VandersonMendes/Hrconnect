@@ -39,6 +39,7 @@ $my-app-theme: mat.define-light-theme((
 @tailwind utilities;
 // import ultilitarios
 @import "./assets/scss/ultilitarios.scss";
+@import "./assets/scss/fonts.scss";
 // import animate.css
 @import 'animate.css';
 html, body { height: 100%; }

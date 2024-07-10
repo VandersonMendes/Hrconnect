@@ -1,23 +1,28 @@
 <section class="animated animate__animated animate__fadeIn raleway color-bg-primary">
-  <main [ngClass]="
-  isToggleChangeTheme ? 'animated animate__animated animate__bounceIn' : 'animated animate__animated animate__fadeInDown'" class="container">
+  <app-header></app-header>
+  <main
+    [ngClass]="
+  isToggleChangeTheme ? 'animated animate__animated animate__bounceIn' : 'animated animate__animated animate__fadeInDown'"
+    class="container">
     <div class="flex justify-around items-center gap-6 min-h-screen mx-8 max-lg:mx-12 max-[400px]:mx-0 containerLogin">
       <div>
+        <div class="mt-16 mb-4">
+          <button class=" p-1 rounded-full" (click)="isClickChangeTheme()" *ngIf="isToggleChangeTheme; else light">
+            <img class="w-6" src="../../../assets/imgs/theme_mode_icon/dark theme icon/moon.svg" alt="Icon theme dark">
+          </button>
+          <ng-template #light>
+            <button class="p-1 rounded-full" (click)="isClickChangeTheme()">
+              <img class="w-6" src="../../../assets/imgs/theme_mode_icon/dark theme icon/sun.svg"
+                alt="Icon theme ligth">
+            </button></ng-template>
+        </div>
         <div class=" flex items-center">
-          <div class="relative l-20">
-            <button class=" p-1 rounded-full" (click)="isClickChangeTheme()" *ngIf="isToggleChangeTheme; else light">
-              <img class="w-6" src="../../../assets/imgs/theme_mode_icon/dark theme icon/moon.svg"
-                alt="Icon theme dark">
-            </button>
-            <ng-template #light>
-              <button class="p-1 rounded-full" (click)="isClickChangeTheme()">
-                <img class="w-6" src="../../../assets/imgs/theme_mode_icon/dark theme icon/sun.svg"
-                  alt="Icon theme ligth">
-              </button></ng-template>
-          </div>
-          <h1 class="font-semibold max-lg:text-5xl text-6xl my-16 m-auto ">
-            <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">Log</span>
-            <span class="color-text-quaternary">in</span>
+          <h1 class="font-semibold max-lg:text-5xl max-sm:text-4xl text-6xl mb-16 m-auto ">
+            <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">Ins</span>
+            <span class="color-text-quaternary">cr</span>
+            <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">eva</span>
+            <span class="color-text-quaternary">-s</span>
+            <span class="color-text-quaternary">e</span>
           </h1>
         </div>
         <!-- Form -->
@@ -40,19 +45,10 @@
             {{errorMessage}}</p>
           <button
             class="buttonAdvance color-bg-quaternary p-2 max:md:p-1 mb-8 rounded-md text-2xl max-md:text-xl font-bold color-text-white border-2 mt-5">Avançar</button>
-          <a href="regist/advance" class=" flex justify-center font-extrabold color-text-terciary contCreate max-md:text-xs ">JÁ TEM
+          <a href="/entrar"
+            class=" flex justify-center font-extrabold color-text-terciary contCreate max-md:text-xs ">JÁ TEM
             UMA CONTA</a>
         </form>
-      </div>
-      <!-- IMG -->
-      <div class="w-5/12 max-lg:w-80  max-md:hidden">
-        <img src="../../../assets/imgs/login_ligth_1.svg" alt="imagem login - (theme)"
-          *ngIf="!isToggleChangeTheme;else dark" class="animate__animated animate__fadeIn" dark>
-        <ng-template #dark>
-          <img src="../../../assets/imgs/login_dark_1_.svg" alt="imagem login - (theme dark)"
-            class="animate__animated animate__fadeIn">
-        </ng-template>
-
       </div>
     </div>
   </main>

@@ -4,13 +4,13 @@ import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Console } from 'console';
+import { HeaderComponent } from '../../header/header.component';
 @Component({
   selector: 'app-lost-password-email',
   standalone: true,
   templateUrl: './lost-password-email.component.html',
   styleUrls: ['./lost-password-email.component.scss'],
-    imports: [CommonModule, FormsModule]
+    imports: [CommonModule, FormsModule, HeaderComponent]
 })
 export class LostPasswordEmailComponent {
 email: string = '';
