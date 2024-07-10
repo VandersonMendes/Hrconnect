@@ -10,11 +10,11 @@
 
 ## 🧾 About
 
-**POKEDEX** é um projeto onde vc consome API [pokedex](https://pokeapi.co/), onde vc pode consultar os pokemons pelo name, ou pelo id e mais sobre eles.
+**Hrconnect** é um projeto voltado para empresas onde elas cadrastam seus funcionarios podendo guarda dados entre outras informações.
 
 ## 🔧 Tools
 
-- [Angula](https://reactjs.org) 💙
+- [Angula](https://angular.dev/) 🧡
 - [Taiwilnd ](https://tailwindcss.com/).
 - [SCSS ](https://sass-lang.com/).
 
