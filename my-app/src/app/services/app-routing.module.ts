@@ -6,13 +6,13 @@ import { AcountAcessComponent } from '../component/login/acount-acess/acount-ace
 import { LostPasswordComponent } from '../component/login/lost-password/lost-password.component';
 import { AccountCreateComponent } from '../component/login/account-create/account-create.component';
 const routes: Routes = [
-      {path : 'registrar', component: AccountCreateComponent},
-      {path: 'registrar/advance', component: AdvanceLoginComponent, canActivate:[advanceLoginGuard]},
+      {path : 'inscrever', component: AccountCreateComponent},
+      {path: 'inscrever/advance', component: AdvanceLoginComponent, canActivate:[advanceLoginGuard]},
       {path: 'entrar', component: AcountAcessComponent},
       {path: 'perdeu-senha', component: LostPasswordComponent},
       // redirectTo, serve para quando o usuario garantir que o usuario vai para uma rota especifica.
-      { path: '', redirectTo: '/registrar', pathMatch: 'full' },
-  { path: '**', redirectTo: '/registrar' }
+      { path: '', redirectTo: '/inscrever', pathMatch: 'full' },
+  { path: '**', redirectTo: '/inscrever' }
 
 ];
 

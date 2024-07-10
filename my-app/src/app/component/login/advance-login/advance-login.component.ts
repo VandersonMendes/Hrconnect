@@ -76,7 +76,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
          const data = {...dataLoginObject, cnpj: this.cnpj, password: this.senha}
-        //  this.apiService.
+         this.apiService.createUser(data);
       } else {
         this.context.advanceLogin = false
         this.router.navigate(['login']);
