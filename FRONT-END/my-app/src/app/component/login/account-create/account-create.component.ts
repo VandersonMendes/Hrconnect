@@ -6,20 +6,21 @@ import { Router } from '@angular/router';
 import { ContextService } from 'src/app/services/context.service';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
 import { HeaderComponent } from '../header/header.component';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-account-create',
-  standalone:true,
+  standalone: true,
   templateUrl: './account-create.component.html',
   styleUrls: ['./account-create.component.scss'],
-  imports:[CommonModule, FormsModule, HeaderComponent]
+  imports: [CommonModule, FormsModule, HeaderComponent]
 })
 export class AccountCreateComponent implements OnInit {
-name: string = '';
+  name: string = '';
   email: string = '';
   company: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
-  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService) {
+  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
@@ -37,7 +38,7 @@ name: string = '';
 
   }
   isToggleChangeTheme: boolean = false;
-  isClickChangeTheme() {
+  isClickChangeTheme(): void {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
@@ -54,17 +55,26 @@ name: string = '';
     } else {
       this.errorForm = false
     }
-    if (!this.errorForm) {
-      const dateLogin = {
-        name: this.name,
-        email: this.email,
-        company: this.company
+
+    this.apiService.verificEmailExist(this.email).subscribe(data => {
+      if (!this.errorForm || data) {
+        this.context.saveDateLogin(dateLogin)
+        this.router.navigate(['registrar/advance']);
+        this.context.advanceLogin = true;
+        return
       }
-      this.context.saveDateLogin(dateLogin)
-      this.router.navigate(['registrar/advance']);
-      this.context.advanceLogin = true;
-      console.log(this.context.advanceLogin)
+    }, (error) => {
+      console.log(error)
+      this.errorMessage = error.error.message
+      this.errorForm = error.error.erro
+      return
+    })
+    const dateLogin = {
+      nome: this.name,
+      email: this.email,
+      company: this.company
     }
+
 
   }
 

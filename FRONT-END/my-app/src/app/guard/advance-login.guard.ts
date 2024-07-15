@@ -10,6 +10,4 @@ export const advanceLoginGuard: CanActivateFn = (route: ActivatedRouteSnapshot, 
     router.navigate(['login'])
     return false
   }
-  // return true
-
 };

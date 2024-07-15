@@ -7,7 +7,7 @@ export class ValidationDataService {
 
   constructor() { }
   emailValidation(email: string): any{
-    const regexEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regexEmailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/;
     if(!regexEmailValidation.test(email)) return true; else return false
   }
 
