@@ -35,22 +35,30 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       this.isToggleChangeTheme = true
     }
   }
-    ngOnDestroy(): void {
-  
+  ngOnDestroy(): void {
+
   }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme() {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
-    onChangeForm(event: Event) {
-      const hasNumber = /[a-zA-Z]/;
-      if(hasNumber.test(this.cnpj)){
-        this.errorForm = true
-         this.errorMessage = 'CNPJ inválido'
-      }
-  
+  onChangeForm(event: Event) {
+    const hasNumber = /[a-zA-Z]/;
+    if (hasNumber.test(this.cnpj)) {
+      this.errorForm = true
+      this.errorMessage = 'CNPJ inválido'
+    } else {
+      this.errorForm = false
     }
+    const value = this.cnpj.replace(/\D/g, ''); // Remove caracteres não numéricos
+    const formattedValue = value.replace(/^(\d{2})(\d)/, '$1.$2')
+      .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+      .replace(/\.(\d{3})(\d{4})/, '.$1/$2')
+      .replace(/(\d{4})(\d{2})$/, '$1-$2');
+    this.cnpj = formattedValue;
+
+  }
 
 
   onSubmit(event: Event) {
@@ -59,25 +67,31 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
       return
-    }  else if (this.senha !== this.senhaConfirm) {
+    } else if (this.senha !== this.senhaConfirm) {
       this.errorForm = true
       this.errorMessage = 'As senhas devem ser iguais'
       return
-    }else if(this.cnpj.length < 14 || this.cnpj.length > 14) {
+    } else if (this.cnpj.length < 18 || this.cnpj.length > 18) {
       this.errorForm = true
       this.errorMessage = 'CNPJ inválido'
-      }else {
+    } else {
       this.errorForm = false
     }
-
-    
     if (!this.errorForm) {
       const dateLogin = sessionStorage.getItem('dateLogin')
       console.log(this.cnpj)
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
-         const data = {...dataLoginObject, cnpj: this.cnpj, password: this.senha}
-         this.apiService.createUser(data);
+        const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha };
+        this.apiService.createUser(data).then(data => {
+          data.subscribe(data => {
+            console.log(data)
+          })
+        }).catch(error => {
+          this.errorMessage = error.error.message
+          this.errorForm = true;
+
+        })
       } else {
         this.context.advanceLogin = false
         this.router.navigate(['login']);

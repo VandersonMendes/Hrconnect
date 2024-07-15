@@ -29,9 +29,9 @@
         <form class="flex flex-col w-96 max-lg:w-80 containerForm" (ngSubmit)="onSubmit($event)">
           <label for="CNPJ" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">CNPJ</label>
           <input type="text" id="CNPJ" placeholder=" XX. XXX. XXX/0001-XX" required="required"
-            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="cnpj" name="name" (ngModelChange)="onChangeForm($event)" (disabled)="buttonDisabled" maxlength="15"> 
+            class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="cnpj" name="name" (ngModelChange)="onChangeForm($event)" (disabled)="buttonDisabled" maxlength="18"> 
           <label for="senha" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Senha</label>
-          <input type="text" id="senha" placeholder="*************"
+          <input type="current-password" id="senha" placeholder="*************"
             class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs" [(ngModel)]="senha" name="senha">
           <label for="senhaConfirm" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Confirme sua senha</label>
             <input type="password" id="senhaConfirm" placeholder="*************"

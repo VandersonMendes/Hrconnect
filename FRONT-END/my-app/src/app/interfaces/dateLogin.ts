@@ -1,5 +1,5 @@
 export interface DataCreate {
-  name: string;
+  nome: string;
   email: string;
   company: string;
 }
