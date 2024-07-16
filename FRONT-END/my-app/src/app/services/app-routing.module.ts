@@ -9,7 +9,8 @@ const routes: Routes = [
       {path : 'registrar', component: AccountCreateComponent},
       {path: 'registrar/advance', component: AdvanceLoginComponent, canActivate:[advanceLoginGuard]},
       {path: 'entrar', component: AcountAcessComponent},
-      {path: 'perdeu-senha', component: LostPasswordComponent},
+      // FAZER pagina de recuperacao de Senha
+      // {path: 'perdeu-senha', component: LostPasswordComponent},
       // redirectTo, serve para quando o usuario garantir que o usuario vai para uma rota especifica.
       { path: '', redirectTo: '/registrar', pathMatch: 'full' },
   { path: '**', redirectTo: '/registrar' }
