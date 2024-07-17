@@ -23,3 +23,17 @@ exports.resetPassword = (req, res) =>{
       return res.status(500).json(err);
     }
 }
+exports.login = (req, res) =>{
+    // try{
+    //   return res.status(200).json('Login efetuado com sucesso');
+    // }catch (err) {
+    //   return res.status(500).json(err);
+    // }
+}
+exports.token = (req, res) =>{
+    try{
+      return res.status(200).json('Token gerado com sucesso');
+    }catch (err) {
+      return res.status(500).json(err);
+    }
+}
