@@ -56,14 +56,14 @@ export class AccountCreateComponent implements OnInit {
       this.errorForm = false
     }
 
-    this.apiService.verificEmailExist(this.email).subscribe(data => {
+    this.apiService.verificEmailExist(this.email).subscribe((data: any) => {
       if (!this.errorForm || data) {
         this.context.saveDateLogin(dateLogin)
         this.router.navigate(['registrar/advance']);
         this.context.advanceLogin = true;
         return
       }
-    }, (error) => {
+    }, (error: any) => {
       console.log(error)
       this.errorMessage = error.error.message
       this.errorForm = error.error.erro
