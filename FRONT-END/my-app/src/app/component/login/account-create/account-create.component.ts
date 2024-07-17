@@ -38,7 +38,7 @@ export class AccountCreateComponent implements OnInit {
 
   }
   isToggleChangeTheme: boolean = false;
-  isClickChangeTheme(): void {
+  protected isClickChangeTheme(): void {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
