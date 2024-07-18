@@ -9,7 +9,7 @@ import { LoadingService } from 'src/app/services/loading.service';
   imports: [CommonModule]
 })
 export class LoadingComponent {
-  loading$:boolean = false
+  loading$:boolean = false;
 
   constructor(private loadingService: LoadingService) {
  this.loadingService.loading$.subscribe((loading:boolean) =>{
