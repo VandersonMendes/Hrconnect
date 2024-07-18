@@ -8,7 +8,8 @@ const token = require('../middleware/tokenJWT');
 router.post('/register', validadateCreateUser, userController.registerUser);
 router.post('/checkEmail', verificEmailExist, userController.existEmail);
 router.post('/login', login, userController.login);
-router.post('/token', token, userController.token);
+router.get('/token', token, userController.token);
+
 // router.post('/forgot-password', resetPassword, verificEmailExist, userController.resetPassword);
 // router.post('/reset-password/:token', resetPassword, verificEmailExist, userController.resetPassword);
  module.exports = router

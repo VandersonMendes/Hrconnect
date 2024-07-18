@@ -80,6 +80,7 @@ export class AcountAcessComponent implements OnDestroy {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
           this.autoLoginService.autoLogin()
+          this.context.getAcessInicioValue()
         })
       })
     }

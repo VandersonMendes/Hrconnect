@@ -3,21 +3,19 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = (req, res, next) => {
-  const token = req.headers.authorization;
+  
+  const token = req.header('Authorization').replace('Bearer ', '');
   if(!token) {
     return res.status(401).json({
-      message: 'Token inválido',
+      message: token,
       error: true
     })
   }
-
-  jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
-    if(err) {
-      return res.status(401).json({
-        message: 'Token inválido',
-        error: true
-      })
-    }
-    return res.status(200).json(decoded)
-  })
+  try {
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Token inválido' });
+  }
 }

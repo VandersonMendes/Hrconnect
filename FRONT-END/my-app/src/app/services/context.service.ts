@@ -19,6 +19,9 @@ export class ContextService {
   notAdvance(){
     this.advanceLogin.next(false);
   }
+  getAcessLoginValue(){
+  return this.advanceLogin.getValue();
+  }
   private advanceInicio = new BehaviorSubject<boolean>(false);
   advanceInicio$ = this.advanceInicio.asObservable();
   advanceStart() {
@@ -27,7 +30,9 @@ export class ContextService {
   notAdvanceStart() {
             this.router.navigate(['inicio']);
     this.advanceInicio.next(false);
-
+  }
+  getAcessInicioValue(){
+  return this.advanceInicio.getValue();
   }
   
   saveDateLogin(dateLogin: DataCreate) {
