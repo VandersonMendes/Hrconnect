@@ -26,7 +26,7 @@ export class AccountCreateComponent implements OnInit {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
-    localStorage.removeItem('token');
+        localStorage.removeItem('token');
     this.context.notAdvance()
   }
   ngOnInit(): void {

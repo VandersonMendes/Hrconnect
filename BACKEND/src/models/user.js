@@ -9,7 +9,6 @@ const UserSchema = new mongoose.Schema({
   },
   cnpj: {
     type: String,
-    unique: true
   },
   company: String,
   password: String,
