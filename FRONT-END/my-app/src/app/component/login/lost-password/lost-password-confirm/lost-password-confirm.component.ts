@@ -25,13 +25,13 @@ export class LostPasswordConfirmComponent {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
-    this.context.advanceLogin = false;
+    this.context.notAdvance();
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
-      this.context.advanceLogin = false;
+      this.context.notAdvance();
       this.isToggleChangeTheme = true
     }
 
@@ -69,7 +69,7 @@ export class LostPasswordConfirmComponent {
       }
       // this.context.saveDateLogin(dateLogin)
       this.router.navigate(['login/advance'])
-      this.context.advanceLogin = true;
+      this.context.advance()
       return
     }
 

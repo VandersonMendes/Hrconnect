@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 export const advanceLoginGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state:RouterStateSnapshot) => {
   const router = inject(Router);
   const contextService = inject(ContextService);
-  if(contextService.advanceLogin){
+  if(contextService.advanceLogin$.subscribe(data => data.valueOf)){
     return true
   }else{
     router.navigate(['login'])

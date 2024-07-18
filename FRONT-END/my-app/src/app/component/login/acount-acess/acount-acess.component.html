@@ -35,13 +35,13 @@
                 class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Email</label>
               <input type="email" id="email" placeholder="joaosilva@gmail.com"
                 class="inputForm text:sm color-text-quintenary mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:placeholder:text-xs"
-                [(ngModel)]="email" name="email" autocomplete="off">
+                [(ngModel)]="email" name="email">
               <label for="company" class="my-1 color-text-terciary font-bold ml-1 cursor-pointer max-sm:text-sm">Digite
                 sua senha</label>
       
                 <input type="password" id="senha" placeholder="**********"
                   class="inputForm mb-5 py-3 pl-3 rounded-lg placeholder:text-sm font-bold text-sm color-text-quintenary max-sm:text-sm max-sm:placeholder:text-xs"
-                  [(ngModel)]="senha" name="senha"  autocomplete="off">
+                  [(ngModel)]="senha" name="senha" >
                   
                 
               <p *ngIf="errorForm"

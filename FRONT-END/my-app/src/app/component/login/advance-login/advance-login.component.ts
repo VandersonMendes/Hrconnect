@@ -51,7 +51,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
     } else {
       this.errorForm = false
     }
-    const value = this.cnpj.replace(/\D/g, ''); // Remove caracteres não numéricos
+    const value = this.cnpj.replace(/\D/g, ''); 
     const formattedValue = value.replace(/^(\d{2})(\d)/, '$1.$2')
       .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
       .replace(/\.(\d{3})(\d{4})/, '.$1/$2')
@@ -93,7 +93,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
 
         })
       } else {
-        this.context.advanceLogin = false
+        this.context.notAdvance()
         this.router.navigate(['login']);
       }
     }

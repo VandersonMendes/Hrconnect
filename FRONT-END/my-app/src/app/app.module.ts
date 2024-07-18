@@ -15,13 +15,14 @@ import { ValidationDataService } from './services/validation-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './component/login/header/header.component';
 import { InicioComponent } from './component/home/inicio/inicio.component';
+import { LoadingComponent } from './component/loading/loading.component';
 export function appInitializer(context: ContextService) {
   return () => context.appInitializerRouter();
 }
 @NgModule({
 
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ export function appInitializer(context: ContextService) {
     AccountCreateComponent,
     HttpClientModule,
     HeaderComponent,
-    InicioComponent
+    InicioComponent,
+        LoadingComponent
   ],
   providers: [
     {

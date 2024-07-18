@@ -26,13 +26,14 @@ export class AccountCreateComponent implements OnInit {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
-    this.context.advanceLogin = false;
+    localStorage.removeItem('token');
+    this.context.notAdvance()
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
-      this.context.advanceLogin = false;
+      this.context.notAdvance();
       this.isToggleChangeTheme = true
     }
 
@@ -60,7 +61,7 @@ export class AccountCreateComponent implements OnInit {
       if (!this.errorForm || data) {
         this.context.saveDateLogin(dateLogin)
         this.router.navigate(['registrar/advance']);
-        this.context.advanceLogin = true;
+        this.context.advance()
         return
       }
     }, (error: any) => {
@@ -75,10 +76,6 @@ export class AccountCreateComponent implements OnInit {
       company: this.company
     }
 
-
-  }
-
-  onChangeForm(event: Event) {
 
   }
 }
