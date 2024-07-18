@@ -25,6 +25,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
   errorForm: boolean = false;
   errorMessage: string = '';
   buttonDisabled: boolean = false;
+  userCreate: boolean = false
   constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService, private loadingService: LoadingService, private autoLoginService: AutoLoginService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
@@ -65,7 +66,6 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
 
   onSubmit(event: Event) {
     event.preventDefault();
-         this.loadingService.show();
     if (this.cnpj.length === 0 || this.senha.length === 0 || this.senhaConfirm.length === 0) {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
@@ -81,31 +81,25 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       this.errorForm = false
     }
     if (!this.errorForm) {
-      this.loadingService.show();
       const dateLogin = sessionStorage.getItem('dateLogin')
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
         const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha };
         this.apiService.createUser(data).then(data => {
           data.subscribe(data => {
-            console.log(data)
-            this.loadingService.show();
-             setTimeout(() => {
-               this.router.navigate(['entrar']);
-               this.loadingService.hide();
-             }, 2000)
-          }, error => {
-            console.log(error)
-          })
+            this.userCreate = true
+          setTimeout(() => {
+            this.userCreate = false
+          }, 2000)
+          });
         }).catch(error => {
-          
+          this.errorForm = true
+          this.errorMessage = error.error.message
         })
       } else {
         this.context.notAdvance()
-        this.router.navigate(['login']);
+        this.router.navigate(['registrar']);
       }
     }
   }
-
-
 }
