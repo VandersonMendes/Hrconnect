@@ -35,7 +35,8 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
-const routes = require('./routes/auth');
+const routesAuth = require('./routes/auth');
+const routesHome = require('./routes/home')
 const db = require('./config/db');
 const cors = require('cors');
 
@@ -52,4 +53,5 @@ app.listen(PORT, () =>{
   console.log('Servidor está rodando na porta localhost',{PORT});
 })
 
-app.use('/auth', routes);
+app.use('/auth', routesAuth);
+app.use('/home', routesHome);
