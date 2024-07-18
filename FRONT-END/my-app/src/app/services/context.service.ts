@@ -2,15 +2,34 @@ import { Injectable } from '@angular/core';
 import { DataCreate } from '../interfaces/dataLogin';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ContextService {
 
   constructor(private router: Router, private http: HttpClient) {
-    console.log(this.advanceLogin)
+    this.advanceInicio$.subscribe(data => console.log(data.valueOf()));
   }
-  advanceLogin: boolean = false
+  private advanceLogin= new BehaviorSubject<boolean>(false);
+  advanceLogin$ = this.advanceLogin.asObservable();
+  advance() {
+     this.advanceLogin.next(true);
+  }
+  notAdvance(){
+    this.advanceLogin.next(false);
+  }
+  private advanceInicio = new BehaviorSubject<boolean>(false);
+  advanceInicio$ = this.advanceInicio.asObservable();
+  advanceStart() {
+    this.advanceInicio.next(true);
+  }
+  notAdvanceStart() {
+            this.router.navigate(['inicio']);
+    this.advanceInicio.next(false);
+
+  }
+  
   saveDateLogin(dateLogin: DataCreate) {
     sessionStorage.setItem('dateLogin', JSON.stringify(dateLogin));
   }
@@ -18,10 +37,5 @@ export class ContextService {
   appInitializerRouter(){
     //  fazer logica JWT, para fazer o login automatico caso se o usuario possui token
   }
-    // validate_token(token: string) {
-    // const headers = new HttpHeaders({
-    //   'Authorization': `": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5N2QzMjYyYjIyYWY4MDdhZmM5N2JmIn0sImlhdCI6MTcyMTIyNzk4NiwiZXhwIjoxNzIxMjMxNTg2fQ.Ggajx8gAUWBYZx0cHOnlppKDEoTumYUW76`
-    // });
-    // return this.http.get('https://api-jwt-alpha.vercel.app/token', { headers });
-  // }
+
 }
