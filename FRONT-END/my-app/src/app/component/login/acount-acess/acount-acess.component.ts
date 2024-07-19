@@ -42,8 +42,8 @@ export class AcountAcessComponent implements OnDestroy {
 
   }
   ngOnDestroy(): void {
-    this.context.notAdvanceStart();
-    this.context.notAdvance();
+    // this.context.notAdvanceStart();
+    // this.context.notAdvance();
   }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme(): void {

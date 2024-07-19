@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { HeaderComponent } from '../header/header.component';
 import { LoadingService } from 'src/app/services/loading.service';
 import { AutoLoginService } from 'src/app/services/auto-login.service';
+
 @Component({
   selector: 'app-advance-login',
   standalone: true,
@@ -87,10 +88,21 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
         const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha };
         this.apiService.createUser(data).then(data => {
           data.subscribe(data => {
+            this.apiService.login(dataLoginObject.email, this.senha).then(data => {
+              this.loadingService.show()
+               data.subscribe((data: any) => {
+                 if(data.token){
+                   localStorage.setItem('token', JSON.stringify(data.token));
+                   this.autoLoginService.autoLogin();
+                 }
+               })
+            })
             this.userCreate = true
+            this.errorMessage = 'Cadrastro realizado'
           setTimeout(() => {
-            this.userCreate = false
-          }, 2000)
+            this.userCreate = false;
+            
+          }, 4000)
           });
         }).catch(error => {
           this.errorForm = true

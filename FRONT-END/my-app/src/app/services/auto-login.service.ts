@@ -15,10 +15,19 @@ export class AutoLoginService {
       this.router.navigate(['entrar']);
       return;
     }
-    await this.api.validate_token(token).then(data => {
+ try{
+   await this.api.validate_token(token).then(data => {
+      console.log(data)
       data.subscribe((data: any) => {
+          if(data.error){
+          localStorage.removeItem('token');
+          this.router.navigate(['/entrar']);
+          this.loadingService.hide();
+          this.context.notAdvanceStart()
+          return;
+        }
         if(data.error){
-          console.log(data.error)
+         
           localStorage.removeItem('token');
           this.router.navigate(['/entrar']);
           this.loadingService.hide();
@@ -32,7 +41,11 @@ export class AutoLoginService {
          
       }, 3000);
      
-      })
+      }
+      )
     })
+ }catch(error){
+      
+ }
   }
 }
