@@ -16,7 +16,7 @@ export class ApiService {
    async login(email: string, password: string): Promise<any> {
     return await this.http.post(`${this.urlBaseAuth}/login`,{ email, password})
    }
-    async validate_token(token: string): Promise<any> {
+    async validate_token(token: string) {
     const tokenString = JSON.parse(token);
     console.log(tokenString)
     const headers = new HttpHeaders({

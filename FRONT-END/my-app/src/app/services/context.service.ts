@@ -28,7 +28,6 @@ export class ContextService {
     this.advanceInicio.next(true);
   }
   notAdvanceStart() {
-            this.router.navigate(['inicio']);
     this.advanceInicio.next(false);
   }
   getAcessInicioValue(){
