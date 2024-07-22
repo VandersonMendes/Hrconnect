@@ -28,7 +28,6 @@ module.exports = async function login(req, res, next) {
       const payload = {
             user: {
                 id: user.id,
-                email: user.email
             }
         };
         jwt.sign(
