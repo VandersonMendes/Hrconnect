@@ -12,10 +12,10 @@ module.exports = (req, res, next) => {
     })
   }
   try {
-    const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET)
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ error: 'Token inválido' });
+    res.json({ error: 'Token inválido' });
   }
 }

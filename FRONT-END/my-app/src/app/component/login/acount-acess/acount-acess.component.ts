@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/services/theme.service';
 import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ import { AutoLoginService } from 'src/app/services/auto-login.service';
   styleUrls: ['./acount-acess.component.scss'],
   imports: [CommonModule, FormsModule, HeaderComponent]
 })
-export class AcountAcessComponent implements OnDestroy {
+export class AcountAcessComponent  {
   email: string = '';
   senha: string = '';
   errorForm: boolean = false;
@@ -41,10 +41,7 @@ export class AcountAcessComponent implements OnDestroy {
     }
 
   }
-  ngOnDestroy(): void {
-    // this.context.notAdvanceStart();
-    // this.context.notAdvance();
-  }
+
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme(): void {
     this.isToggleChangeTheme = !this.isToggleChangeTheme

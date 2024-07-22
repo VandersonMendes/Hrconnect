@@ -1,5 +1,5 @@
 const verificEmailExist = require("../login/verificEmailExist");
-const user = require("../../models/user");
+const User = require("../../models/user");
 const bcrypt = require('bcrypt');
 module.exports = async function validateCreateUser(req, res, next) {
   const { nome, email, password, cnpj, company } = req.body;
@@ -17,15 +17,8 @@ module.exports = async function validateCreateUser(req, res, next) {
     });
     }
   });
-  //  const userData = user.findOne({ cnpj: cnpj })
-  //   if (userData) {
-  //     return res.status(401).json({
-  //       message: "CNPJ ja existe",
-  //       erro: true,
-  //     });
-  //   }
        const hashedPassword = await bcrypt.hash(password, 10);
-    const userNew = new user({
+    const userNew = new User({
       nome, email, cnpj, company, password: hashedPassword
     })
   await userNew.save();
