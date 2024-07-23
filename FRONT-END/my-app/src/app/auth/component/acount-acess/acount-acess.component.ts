@@ -28,18 +28,18 @@ export class AcountAcessComponent  {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
-    localStorage.removeItem('token');
-    this.context.notAdvance();
+    this.context.notAdvanceRegister();
+    this.context.notAdvanceStartHome();
+    console.log(this.context.getAcessHomeValue().valueOf())
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
-      this.context.notAdvance();
-      this.context.notAdvanceStart();
+      this.context.notAdvanceRegister();
+      this.context.notAdvanceStartHome();
       this.isToggleChangeTheme = true
     }
-
   }
 
   isToggleChangeTheme: boolean = false;
@@ -77,7 +77,6 @@ export class AcountAcessComponent  {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
           this.autoLoginService.autoLogin()
-          this.context.getAcessInicioValue()
         })
       })
     }

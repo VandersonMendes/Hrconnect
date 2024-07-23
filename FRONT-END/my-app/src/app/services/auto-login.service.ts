@@ -12,45 +12,37 @@ export class AutoLoginService {
   async autoLogin(){
     const  token = localStorage.getItem('token');
     if(!token){
-      this.router.navigate(['entrar']);
+      // this.router.navigate(['registrar']);
       return;
     }
  try{
    await this.api.validate_token(token).then(data => {
-      console.log(data)
+    this.loadingService.show();
       data.subscribe((data: any) => {
-          if(data.error){
-          localStorage.removeItem('token');
-          this.router.navigate(['/entrar']);
-          this.loadingService.hide();
-          this.context.notAdvanceStart()
-          return;
-        }
+        console.log(data)
         if(data.error){
-         
           localStorage.removeItem('token');
-          this.router.navigate(['/entrar']);
+          this.router.navigate(['/registrar']);
           this.loadingService.hide();
-          this.context.notAdvanceStart()
+          this.context.notAdvanceStartHome();
           return;
         }
       setTimeout(() => {
-        this.context.advanceStart();
+        this.context.advanceStartHome();
         this.loadingService.hide()
-         this.router.navigate(['/inicio']);
-         
+         this.router.navigate(['/painel']);
       }, 3000);
      
       }
       )
     })
  }catch(error){
-      console.log(error)
-      localStorage.removeItem('token');
-      this.router.navigate(['/entrar']);
-      this.loadingService.hide();
-      this.context.notAdvanceStart()
-      return
+      // console.log(error)
+      // localStorage.removeItem('token');
+      // this.router.navigate(['/entrar']);
+      // this.loadingService.hide();
+      // this.context.notAdvanceStart()
+      // return
  }
   }
 }

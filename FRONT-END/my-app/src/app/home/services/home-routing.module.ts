@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PainelComponent } from '../component/painel/painel.component';
+import { advanceHomeGuard } from './guard/advance-home.guard';
 const routes: Routes = [
-  { path: 'home', component: PainelComponent }
+  { path: 'painel', component: PainelComponent, canActivate: [advanceHomeGuard] }
 ];
 
 @NgModule({
