@@ -4,15 +4,13 @@ import { AppRoutingModule } from './services/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemeService } from './services/theme.service';
-import { ContextService } from './services/context.service';
+import { AutoLoginService } from './services/auto-login.service';
 import { ValidationDataService } from './services/validation-data.service';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './auth/component/header/header.component';
 import { LoadingComponent } from './component/loading/loading.component';
 import { AuthModule } from './auth/auth.module';
-export function appInitializer(context: ContextService) {
-  return () => context.appInitializerRouter();
-}
+import { HomeModule } from './home/home.module';
+
 @NgModule({
 
   declarations: [
@@ -23,21 +21,15 @@ export function appInitializer(context: ContextService) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HomeModule,
     AuthModule,
     HttpClientModule,
-    HeaderComponent,
     LoadingComponent
 
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      deps: [ContextService],
-      multi: true,
-    },
     ThemeService,
-    ContextService,
+    AutoLoginService,
     ValidationDataService
   ],
   bootstrap: [AppComponent],

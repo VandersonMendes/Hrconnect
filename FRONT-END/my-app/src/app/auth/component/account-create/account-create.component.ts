@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/services/theme.service';
 import { FormsModule } from '@angular/forms';
@@ -20,20 +20,17 @@ export class AccountCreateComponent implements OnInit {
   company: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
-  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService) {
+  constructor(private themeService: ThemeService,  private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
-        localStorage.removeItem('token');
-    this.context.notAdvance()
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
-      this.context.notAdvance();
       this.isToggleChangeTheme = true
     }
 
@@ -61,7 +58,7 @@ export class AccountCreateComponent implements OnInit {
       if (!this.errorForm || data) {
         this.context.saveDateLogin(dateLogin)
         this.router.navigate(['registrar/advance']);
-        this.context.advance()
+        this.context.advanceRegister()
         return
       }
     }, (error: any) => {
@@ -75,7 +72,5 @@ export class AccountCreateComponent implements OnInit {
       email: this.email,
       company: this.company
     }
-
-
   }
 }
