@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from 'src/app/services/theme.service';
+import { ThemeService } from '../../../services/theme/theme.service';
 import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { ApiService } from 'src/app/services/api.service';
 import { LoadingService } from 'src/app/services/loading.service';
-import { AutoLoginService } from 'src/app/services/auto-login.service';
+import { AutoLoginService } from '../../../services/auto-login/auto-login.service';
 @Component({
   selector: 'app-acount-acess',
   standalone: true,
@@ -38,13 +38,13 @@ export class AcountAcessComponent  {
       sessionStorage.removeItem('dateLogin');
       this.context.notAdvanceRegister();
       this.context.notAdvanceStartHome();
-      this.isToggleChangeTheme = true
+      this.isToggleChangeTheme = true;
     }
   }
 
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme(): void {
-    this.isToggleChangeTheme = !this.isToggleChangeTheme
+    this.isToggleChangeTheme = !this.isToggleChangeTheme;
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
   }
   OnChangeCheckBox(event: Event): void {
@@ -77,8 +77,8 @@ export class AcountAcessComponent  {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
           this.autoLoginService.autoLogin()
-        })
-      })
+        });
+      });
     }
   }
 }

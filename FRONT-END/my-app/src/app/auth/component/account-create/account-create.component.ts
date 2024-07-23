@@ -1,6 +1,6 @@
 import { Component, OnInit, Optional} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemeService } from 'src/app/services/theme.service';
+import { ThemeService } from '../../../services/theme/theme.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContextService } from 'src/app/services/context.service';

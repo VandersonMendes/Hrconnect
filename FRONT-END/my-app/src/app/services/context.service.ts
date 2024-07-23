@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataCreate } from '../interfaces/dataLogin';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient} from "@angular/common/http";
 import { BehaviorSubject } from 'rxjs';
-import { AutoLoginService } from './auto-login.service';
 @Injectable({
   providedIn: 'root'
 })
