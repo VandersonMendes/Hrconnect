@@ -45,7 +45,12 @@ export class AutoLoginService {
       )
     })
  }catch(error){
-      
+      console.log(error)
+      localStorage.removeItem('token');
+      this.router.navigate(['/entrar']);
+      this.loadingService.hide();
+      this.context.notAdvanceStart()
+      return
  }
   }
 }

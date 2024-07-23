@@ -1,6 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { Observable, fromEvent } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 import { ThemeService } from 'src/app/services/theme.service';
 import { CommonModule } from '@angular/common';
 @Component({

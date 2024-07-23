@@ -6,7 +6,7 @@ import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
 import { ApiService } from 'src/app/services/api.service';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderComponent } from '../../../auth/component/header/header.component';
 import { LoadingService } from 'src/app/services/loading.service';
 import { AutoLoginService } from 'src/app/services/auto-login.service';
 
