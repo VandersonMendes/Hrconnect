@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
+import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
-import { LoadingService } from './loading.service';
-import { ContextService } from './context.service';
+import { LoadingService } from '../loading.service';
+import { ContextService } from '../context.service';
 @Injectable({
   providedIn: 'root'
 })
