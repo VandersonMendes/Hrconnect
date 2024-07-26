@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from '../../../services/serviceApi/api.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { AutoLoginService } from '../../../services/auto-login/auto-login.service';
 @Component({
@@ -76,7 +76,7 @@ export class AcountAcessComponent  {
         data.subscribe((data: any) => {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
-          this.autoLoginService.autoLogin()
+          this.autoLoginService.autoLogin(true)
         });
       });
     }

@@ -24,6 +24,9 @@
   --color-text-white: #ffffff;
   // COLOR SHADOW (theme light)
   --color-shadow-primary: #ffbb11;
+   // BACKGROUND GRADIENT
+  --background-ligth: linear-gradient(to right, #02c2cd, #00b7db, #00a9e9, #0099f0, #0085ef, #0d7aee, #216feb, #3463e7, #2c60eb, #245eef, #185bf2, #0658f6);
+
 }
 :root .dark-mode {
   // COLOR BG (theme dark)
@@ -78,7 +81,9 @@
 .color-shadow-primary {
   border: 2px solid var(--color-shadow-primary);
 }
-
+.bgGradient {
+  background: var(--background-ligth);
+}
 * {
   margin: 0;
   padding: 0;

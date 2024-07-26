@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 import { ContextService } from 'src/app/services/context.service';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
 import { HeaderComponent } from '../header/header.component';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from '../../../services/serviceApi/api.service';
+import { AutoLoginService } from 'src/app/services/auto-login/auto-login.service';
+import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-account-create',
   standalone: true,
@@ -20,14 +22,15 @@ export class AccountCreateComponent implements OnInit {
   company: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
-  constructor(private themeService: ThemeService,  private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService) {
+  constructor(private themeService: ThemeService,  private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService, private autoLoginService: AutoLoginService, private loadingService: LoadingService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
     }
     sessionStorage.removeItem('dateLogin');
   }
-  ngOnInit(): void {
+  ngOnInit() {
+      this.autoLoginService.autoLogin(false);
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
