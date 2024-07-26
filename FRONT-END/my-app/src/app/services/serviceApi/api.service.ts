@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataAvance } from '../interfaces/dataLogin';
+import { DataAvance } from '../../interfaces/dataLogin';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'

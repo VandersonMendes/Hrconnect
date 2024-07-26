@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContextService } from 'src/app/services/context.service';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from '../../../services/serviceApi/api.service';
 import { HeaderComponent } from '../../../auth/component/header/header.component';
 import { LoadingService } from 'src/app/services/loading.service';
 import { AutoLoginService } from '../../../services/auto-login/auto-login.service';
@@ -93,7 +93,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
                data.subscribe((data: any) => {
                  if(data.token){
                    localStorage.setItem('token', JSON.stringify(data.token));
-                   this.autoLoginService.autoLogin();
+                   this.autoLoginService.autoLogin(true);
                  }
                }, (error: any) => {
                  console.log(error)

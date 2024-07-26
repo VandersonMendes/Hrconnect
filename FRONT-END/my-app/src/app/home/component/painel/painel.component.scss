@@ -1,0 +1,92 @@
+.containerPainel {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.containerGradient:hover > .colaboradorText {
+  transition: 200ms ease-in-out letter-spacing;
+  letter-spacing: 0.2px;
+}
+// dados
+.dadosContainer {
+  max-width: 1000px;
+  margin: 5rem auto;
+}
+
+.color-text-card1 {
+  color: rgb(33, 148, 33);
+}
+.color-text-card2 {
+  color: #f26464;
+}
+.color-text-card3 {
+  color: #fab005;
+}
+.color-gray-ligth {
+  color: #bba3a3;
+}
+.dadosContainer > div {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.dadosContainer {
+  .card2 {
+    border-left: 8px solid #f26464;
+  }
+  .card1 {
+    border-left: 8px solid rgb(33, 148, 33);
+  }
+  .card3 {
+    border-left: 8px solid #fab005;
+  }
+}
+
+
+.containerCards > div {
+  max-width: 900px;
+  width: 900px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+  .buttonModalDeletar {
+    display: none;
+  }
+
+.containerCards > div:hover > .buttonModalDeletar {
+  transition: 200ms ease-in-out;
+  display: block;
+  cursor: pointer;
+}
+
+// tarefas
+.containerTarefas {
+  max-width: 1200px;
+  margin: 6rem 2rem;
+}
+.inputCheckbox {
+  display: none;
+}
+
+.svgCheckbox {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: rgb(0, 193, 35);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+.path {
+  width: 20%;
+}
+input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
+.icon {
+  max-width: 30px;
+  width: 100%;
+  min-width: 30px;
+}

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PainelComponent } from './component/painel/painel.component';
 import { HomeRoutingModule } from './services/home-routing.module';
@@ -17,6 +17,6 @@ import { HeaderHomeComponent } from './component/header-home/header-home.compone
   declarations: [
     HomeComponent,
     HeaderHomeComponent, 
-  ]
+  ],
 })
 export class HomeModule { }

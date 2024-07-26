@@ -1,1 +1,98 @@
-<p>painel works!</p>
+<section class="raleway containerPainel">
+  <div id="rota">
+    <div class="flex gap-6 my-12">
+      <img src="../../../../assets/imgs/homeIcon/setaIcon.svg" alt="ICON SETA" class="w-6">
+      <p class="text-2xl color-text-terciary font-bold">Painel</p>
+    </div>
+  </div>
+  <!-- cadrastra colaboradores -->
+  <div class="cadrastarColaboradores my-12" id="colaboradores">
+    <button
+      class="flex bgGradient w-screen max-w-5xl py-9 rounded-xl justify-center items-center gap-4 cursor-pointer hover:opacity-95 transition-opacity containerGradient">
+      <img src="../../../../assets/imgs/homeIcon/adicionar_white.svg" alt="Icon adicionar" class="w-10">
+      <p class="text-white text-3xl font-bold colaboradorText">Cadrastrar novo Colaborador</p>
+    </button>
+  </div>
+  <!-- dados colaboradores -->
+  <div class="dadosContainer flex justify-center gap-10 my-12" id="dados">
+    <div class="flex items-center gap-10 border border-neutral-300 py-4 px-8 rounded-xl card1">
+      <div class="flex flex-col gap-3 ">
+        <p class="text-base color-gray-ligth">Colabores ativos</p>
+        <p class="text-3xl font-sans color-text-card1 font-semibold">30</p>
+      </div>
+      <img src="../../../../assets/imgs/homeIcon/userGrenn.svg" alt="Icon User" class="w-12">
+    </div>
+    <div class="flex items-center gap-10  border border-neutral-300 py-4 px-8 rounded-xl card2">
+      <div class="flex flex-col gap-3 ">
+        <p class="text-base color-gray-ligth">Colabores Afastados</p>
+        <p class="text-3xl font-sans color-text-card2 font-semibold">2</p>
+      </div>
+      <img src="../../../../assets/imgs/homeIcon/userRed.svg" alt="Icon UserRed" class="w-12">
+    </div>
+    <div class="flex items-center gap-10 border border-neutral-300 py-4 px-8 rounded-xl card3">
+      <div class="flex flex-col gap-3 ">
+        <p class="text-base color-gray-ligth">Colabores de Férias</p>
+        <p class="text-3xl font-sans color-text-card3 font-semibold">2</p>
+      </div>
+      <img src="../../../../assets/imgs/homeIcon/sun.svg" alt="Icon Sun" class="w-12">
+    </div>
+  </div>
+  <!-- TAKS -->
+  <div class="containerTarefas flex items-center flex-col gap-16 relative" id="Tarefas">
+    <!-- TEXT -->
+    <div class="">
+      <h2 class="text-5xl color-text-terciary font-bold">Tarefas</h2>
+    </div>
+    <!-- Tarefas -->
+    <div class="flex flex-col gap-6 text-base font-medium mb-10 containerCards cursor-pointer">
+      <div class="flex gap-1 border border-gray-300 p-4 rounded-md relative">
+        <label class='checkbox'>
+          <input type="checkbox" class="inputCheckbox" />
+          <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
+            <path
+              d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+              pathLength="575.0541381835938" class="path"></path>
+          </svg>
+        </label>
+        <p class="inline ml-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo quibusdam nulla ut optio
+          quidem molestiae dolorum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque consequatur, illo
+          cum reiciendis recusandae maxime soluta minima ex expedita! Reiciendis, minima facere. Eum asperiores, nobis
+          pariatur unde dolores soluta vitae?</p>
+        <button class="buttonModalDeletar" (click)="IsModalDeletar()">
+          <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
+            class="w-9 absolute top-2 right-3 bg-slate-300 rounded-lg p-2">
+        </button>
+        <div>
+        </div>
+      </div>
+      <div class="flex gap-1 border border-gray-300 p-4 rounded-md relative containerCard">
+        <label class='checkbox'>
+          <input type="checkbox" class="inputCheckbox" />
+          <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
+            <path
+              d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+              pathLength="575.0541381835938" class="path"></path>
+          </svg>
+        </label>
+        <p class="inline ml-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi Lorem ipsum dolor, sit
+          amet consectetur adipisicing elit. Odio sequi deleniti, sapiente dolores nobis, optio fugit maiores sit,
+          tempore atque blanditiis ut reiciendis quaerat ex consectetur amet explicabo labore magnam! </p>
+        <button class="buttonModalDeletar" (click)="IsModalDeletar()">
+          <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
+            class="w-9 absolute top-2 right-3 bg-slate-300 rounded-lg p-2">
+        </button>
+        <div>
+
+
+        </div>
+      </div>
+
+      <button class="absolute right-0 bottom-0">
+        <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
+          class="w-12"></button>
+      <p class="text-xs opacity-50 text-center">Pode somente <span class="font-sans">5 </span>tarefas*</p>
+    </div>
+  </div>
+  <div>
+  </div>
+</section>

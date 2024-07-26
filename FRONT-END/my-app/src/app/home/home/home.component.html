@@ -1,7 +1,9 @@
-<body class="raleway">
+<body class="raleway" class="">
   <app-header-home></app-header-home>
-  <section>
-    <app-side-bar></app-side-bar>
-    <router-outlet></router-outlet>
-  </section>
+  <main class="min-h-screen containerLogin flex gap-24 color-bg-primary">
+    <app-side-bar class=" flex items-center min-h-screen"></app-side-bar>
+    <div class="containerHomeRotas flex justify-center">
+      <router-outlet class="items-center"></router-outlet>
+    </div>
+  </main>
 </body>
