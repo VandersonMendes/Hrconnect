@@ -38,6 +38,23 @@
     border-left: 8px solid #fab005;
   }
 }
+.dadosContainer.darkMode {
+  .card2 {
+    border-left: 8px solid #f26464;
+  }
+  .card1 {
+    border-left: 8px solid  #8828C9;
+  }
+  .card3 {
+    border-left: 8px solid #fab005;
+  }
+  .color-text-card1 {
+  color: var(--color-text-white);
+}
+.color-text-card3{
+  color: var(--color-text-white);
+}
+}
 
 .containerCards > div {
   max-width: 900px;
@@ -48,7 +65,7 @@
   display: none;
 }
 
-.containerCards > div:hover > .buttonModalDeletar {
+.containerTarefas > div:hover > .buttonModalDeletar {
   transition: 200ms ease-in-out;
   display: block;
   cursor: pointer;
@@ -56,8 +73,16 @@
 
 // tarefas
 .containerTarefas {
-  max-width: 1200px;
-  margin: 6rem 2rem;
+  max-width: 900px;
+  margin: 3rem 2rem;
+}
+.cardTarefa{
+box-shadow: rgba(149, 157, 165, 0.089) 0px 8px 24px;
+}
+.containerTarefas.darkMode{
+  .cardTarefa{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
 }
 .inputCheckbox {
   display: none;

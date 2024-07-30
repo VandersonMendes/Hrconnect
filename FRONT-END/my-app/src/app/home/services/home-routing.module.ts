@@ -6,7 +6,7 @@ import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, children: [
-    { path: 'painel', component: PainelComponent },
+    { path: 'painel', component: PainelComponent, canActivate: [advanceHomeGuard] },
     { path: '', redirectTo: 'painel', pathMatch: 'full' }
   ]},
 ];

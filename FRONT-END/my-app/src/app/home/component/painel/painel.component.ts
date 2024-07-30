@@ -10,14 +10,15 @@ import { ModalComponent } from './modal/modal.component';
   imports: [CommonModule, ModalComponent]
 })
 export class PainelComponent {
-  modalDeletar: boolean = false
   constructor(private themeService: ThemeService) {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     })
   }
   isToggleChangeTheme: boolean = false;
+  modalDeletar: boolean = false
   isToggleModalAddedTaks: boolean = false
+
   IsModalDeletar() {
     this.modalDeletar = !this.modalDeletar
   }
@@ -27,5 +28,8 @@ export class PainelComponent {
   modalAddedTaks(){
     this.isToggleModalAddedTaks = !this.isToggleModalAddedTaks
   }
-
+  modalEventClose(){
+    this.isToggleModalAddedTaks = false
+  }
+  
 }
