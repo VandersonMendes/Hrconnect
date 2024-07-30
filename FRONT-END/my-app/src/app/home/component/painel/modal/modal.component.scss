@@ -10,32 +10,50 @@
   backdrop-filter: blur(2px);
   z-index: 1000;
 }
-.containerModal{
+.containerModal {
   max-width: 900px;
   max-height: 60vh;
   height: 400px;
   width: 100%;
-  box-shadow: 1px 2px 51px -6px rgba(6,88,246,0.82);
--webkit-box-shadow: 1px 2px 51px -6px rgba(6,88,246,0.82);
--moz-box-shadow: 1px 2px 51px -6px rgba(6,88,246,0.82);
+  z-index: 3001;
+  box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
 }
-.textArea{
+
+.textArea {
   width: 700px;
   height: 40px;
   border-bottom: 2px solid #ccc;
   border-radius: 5px;
   transition: 200ms ease-in-out;
   line-height: 26px;
+  background: transparent;
 }
-.textArea:focus{
+.textArea:focus {
   outline: none;
-  border-bottom: 2px solid #17C99A;
+  border-bottom: 2px solid #17c99a;
 }
 
-.buttonCancelar{
-  background-color: #E85744;
+.buttonCancelar {
+  background-color: #e85744;
 }
-.buttonAdicionar{
-  background-color: #17C99A;
+.buttonAdicionar {
+  background-color: #17c99a;
 }
+.modal.darkMode {
+  .containerModal {
+    max-width: 900px;
+    max-height: 60vh;
+    height: 400px;
+    width: 100%;
+    z-index: 3001;
+    box-shadow: 1px 2px 51px -6px #14bf916e;
+    -webkit-box-shadow: 1px 2px 51px -6px #14bf9171;
+    -moz-box-shadow: 1px 2px 51px -6px #14bf9175;
+  }
 
+  .textArea {
+    color: var(--color-text-white);
+  }
+}
