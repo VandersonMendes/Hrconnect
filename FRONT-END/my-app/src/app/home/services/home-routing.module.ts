@@ -5,8 +5,9 @@ import { advanceHomeGuard } from './guard/advance-home.guard';
 import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [advanceHomeGuard], children: [
-    { path: 'painel', component: PainelComponent, canActivate: [advanceHomeGuard] },
+  { path: '', component: HomeComponent, children: [
+    { path: 'painel', component: PainelComponent },
+    { path: '', redirectTo: 'painel', pathMatch: 'full' }
   ]},
 ];
 

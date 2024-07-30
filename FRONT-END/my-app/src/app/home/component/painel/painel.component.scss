@@ -39,15 +39,14 @@
   }
 }
 
-
 .containerCards > div {
   max-width: 900px;
   width: 900px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-  .buttonModalDeletar {
-    display: none;
-  }
+.buttonModalDeletar {
+  display: none;
+}
 
 .containerCards > div:hover > .buttonModalDeletar {
   transition: 200ms ease-in-out;

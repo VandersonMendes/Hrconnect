@@ -6,17 +6,20 @@ import { HomeComponent } from './home/home.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
 import { HeaderComponent } from "../auth/component/header/header.component";
 import { HeaderHomeComponent } from './component/header-home/header-home.component';
+import { ModalComponent } from './component/painel/modal/modal.component';
 @NgModule({
   imports: [
     HomeRoutingModule,
     CommonModule,
     SideBarComponent,
     PainelComponent,
-    HeaderComponent
-],
+    HeaderComponent,
+    ModalComponent
+  ],
   declarations: [
     HomeComponent,
-    HeaderHomeComponent, 
+    HeaderHomeComponent,
+
   ],
 })
 export class HomeModule { }

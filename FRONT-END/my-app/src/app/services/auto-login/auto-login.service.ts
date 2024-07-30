@@ -12,38 +12,42 @@ export class AutoLoginService {
     const token = localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['registrar']);
+      console.log('o erro é aqui')
       return;
     }
     try {
       await this.api.validate_token(token).then(data => {
         data.subscribe((data: any) => {
-          console.log(data)
           if (data.error) {
             localStorage.removeItem('token');
             this.router.navigate(['/registrar']);
+            console.log('o erro é aqui')
             this.loadingService.hide();
             this.context.notAdvanceStartHome();
             return;
           }
-          if (intevalTime) {
-            setTimeout(() => {
-              this.context.advanceStartHome();
-              this.loadingService.hide();
-              this.router.navigate(['/painel']);
-            }, 3000)
-          } else {
+          this.context.advanceStartHome();
+          this.loadingService.hide();
+          this.router.navigate(['/painel']); 
+        }
+        )
+        if (intevalTime) {
+          setTimeout(() => {
             this.context.advanceStartHome();
             this.loadingService.hide();
             this.router.navigate(['/painel']);
-          }
-
+          }, 3000)
+        } else {
+          this.context.advanceStartHome();
+          this.loadingService.hide();
+          this.router.navigate(['/painel']);
         }
-        )
       })
     } catch (error) {
       console.log(error)
       localStorage.removeItem('token');
       this.router.navigate(['/entrar']);
+      console.log('o erro é aqui')
       this.loadingService.hide();
       this.context.notAdvanceStartHome();
       return

@@ -6,10 +6,10 @@ import { AdvanceLoginComponent } from '../component/advance-login/advance-login.
 import { advanceLoginGuard } from './guard/advance-login.guard';
 const routes: Routes = [
   { path: 'registrar', component: AccountCreateComponent },
-  {path:'registrar/advance', component: AdvanceLoginComponent, canActivate: [advanceLoginGuard]},
+  { path: 'registrar/advance', component: AdvanceLoginComponent, canActivate: [advanceLoginGuard] },
   { path: 'entrar', component: AcountAcessComponent },
-  // { path: '', redirectTo: '/registrar', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/registrar' }
+  { path: '', redirectTo: '/registrar', pathMatch: 'full' },
+  { path: '**', redirectTo: '/registrar' }
 ];
 
 @NgModule({

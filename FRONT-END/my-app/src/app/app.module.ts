@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './services/routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,12 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './component/loading/loading.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
-
 @NgModule({
 
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,7 @@ import { HomeModule } from './home/home.module';
     HomeModule,
     AuthModule,
     HttpClientModule,
-    LoadingComponent
+    LoadingComponent,
 
   ],
   providers: [

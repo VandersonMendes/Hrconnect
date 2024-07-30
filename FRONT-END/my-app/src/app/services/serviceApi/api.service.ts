@@ -18,7 +18,6 @@ export class ApiService {
    }
     async validate_token(token: string) {
     const tokenString = JSON.parse(token);
-    console.log(tokenString)
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${tokenString}`
     });
