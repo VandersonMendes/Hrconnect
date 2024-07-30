@@ -5,9 +5,10 @@ export const advanceHomeGuard: CanActivateFn = (route: ActivatedRouteSnapshot, s
   const router = inject(Router);
   const contextService = inject(ContextService);
   if(contextService.getAcessHomeValue() == true){
-    return true
+    // return true
   }else{
     router.navigate(['/registrar'])
-    return false
+    // return false
   }
+  return true
 };

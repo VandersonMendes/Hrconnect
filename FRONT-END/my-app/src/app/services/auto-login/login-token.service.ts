@@ -13,7 +13,7 @@ export class LoginTokenService {
     if (!token) {
       this.router.navigate(['registrar']);
       return;
-    }else{
+    } else {
       this.router.navigate(['/painel']);
     }
     try {
@@ -34,7 +34,9 @@ export class LoginTokenService {
     } catch (error) {
       console.log(error)
       localStorage.removeItem('token');
+      console.log('o erro é aqui')
       this.router.navigate(['/entrar']);
+
       this.loadingService.hide();
       this.context.notAdvanceStartHome();
       return

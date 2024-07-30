@@ -1,4 +1,4 @@
-<section class="raleway containerPainel">
+<section class="raleway containerPainel raleway">
   <div id="rota">
     <div class="flex gap-6 my-12">
       <img src="../../../../assets/imgs/homeIcon/setaIcon.svg" alt="ICON SETA" class="w-6">
@@ -54,40 +54,27 @@
               pathLength="575.0541381835938" class="path"></path>
           </svg>
         </label>
-        <p class="inline ml-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo quibusdam nulla ut optio
-          quidem molestiae dolorum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque consequatur, illo
-          cum reiciendis recusandae maxime soluta minima ex expedita! Reiciendis, minima facere. Eum asperiores, nobis
-          pariatur unde dolores soluta vitae?</p>
-        <button class="buttonModalDeletar" (click)="IsModalDeletar()">
+        <p class="inline ml-3 animate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nesciunt modi fuga voluptatum quo est. Hic unde dolorum placeat blanditiis laudantium sint mollitia consequuntur, nulla molestiae facilis consequatur, deleniti temporibus!</p>
+        <button class="buttonModalDeletar " (click)="IsModalDeletar()">
           <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
-            class="w-9 absolute top-2 right-3 bg-slate-300 rounded-lg p-2">
+            class="w-9 absolute top-3 right-4 bg-slate-300 rounded-lg p-2 animated animate__animated animate__fadeIn">
         </button>
         <div>
         </div>
       </div>
-      <div class="flex gap-1 border border-gray-300 p-4 rounded-md relative containerCard">
-        <label class='checkbox'>
-          <input type="checkbox" class="inputCheckbox" />
-          <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
-            <path
-              d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
-              pathLength="575.0541381835938" class="path"></path>
-          </svg>
-        </label>
-        <p class="inline ml-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi Lorem ipsum dolor, sit
-          amet consectetur adipisicing elit. Odio sequi deleniti, sapiente dolores nobis, optio fugit maiores sit,
-          tempore atque blanditiis ut reiciendis quaerat ex consectetur amet explicabo labore magnam! </p>
-        <button class="buttonModalDeletar" (click)="IsModalDeletar()">
-          <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
-            class="w-9 absolute top-2 right-3 bg-slate-300 rounded-lg p-2">
-        </button>
-        <div>
+      <!-- <h1 class="text-5xl font-semibold tracking-wider logoHeader my-28">
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">N</span>
+          <span class="color-text-quaternary">ão</span>
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }"> há </span>
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">n</span>
+          <span class="color-text-quaternary">enh</span>
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">uma </span>
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">t</span>
+          <span class="color-text-quaternary">ar</span>
+          <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">efa...</span>
 
-
-        </div>
-      </div>
-
-      <button class="absolute right-0 bottom-0">
+      </h1> -->
+      <button class="absolute right-0 bottom-0" (click)="addedTaks()">
         <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
           class="w-12"></button>
       <p class="text-xs opacity-50 text-center">Pode somente <span class="font-sans">5 </span>tarefas*</p>
@@ -96,3 +83,4 @@
   <div>
   </div>
 </section>
+<app-modal *ngIf="isToggleModalAddedTaks"></app-modal>

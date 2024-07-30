@@ -55,7 +55,6 @@ export class AcountAcessComponent  {
   onSubmit(event: Event): void {
     event.preventDefault();
     const regexEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(regexEmailValidation.test(this.email))
     if (this.email.length === 0 || this.senha.length === 0) {
       this.errorForm = true
       this.errorMessage = 'Preencha todos os campos'
@@ -79,6 +78,7 @@ export class AcountAcessComponent  {
           this.autoLoginService.autoLogin(true)
         });
       });
+
     }
   }
 }
