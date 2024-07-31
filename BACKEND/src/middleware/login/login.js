@@ -1,7 +1,5 @@
 // const verificEmailExist = require("../login/verificEmailExist");
 const User = require('../../models/user');
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = async function login(req, res, next) {

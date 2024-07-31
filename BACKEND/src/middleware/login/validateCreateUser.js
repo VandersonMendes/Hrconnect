@@ -1,6 +1,4 @@
 const verificEmailExist = require("../login/verificEmailExist");
-const User = require("../../models/user");
-const bcrypt = require('bcrypt');
 module.exports = async function validateCreateUser(req, res, next) {
   const { nome, email, password, cnpj, company } = req.body;
   if (!nome || !email || !password || !cnpj || !company) {
