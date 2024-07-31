@@ -1,8 +1,9 @@
 <section class="flex items-center min-h-screen fixed">
   <nav class=" max-w-44 w-full ml-4 ">
-    <ul class="flex flex-col items-center gap-7 animated animate__animated animate__fadeIn" *ngIf="!isToggleChangeTheme; else ligthIcon">
+    <ul class="flex flex-col items-center gap-7 animated animate__animated animate__fadeIn"
+      *ngIf="!isToggleChangeTheme; else ligthIcon">
       <li>
-        <a href="" >
+        <a href="">
           <img src="../../../../assets/imgs/sideBar/colaboradores.svg" alt="Icon colaboradores"
             class="w-6 cursor-pointer">
         </a>
@@ -38,12 +39,14 @@
           </a>
         </li>
         <li>
-          <a href=""><img src="../../../../assets/imgs/sideBar/configDark.svg" alt="Icon config Dark" class="w-6 cursor-pointer">
+          <a href=""><img src="../../../../assets/imgs/sideBar/configDark.svg" alt="Icon config Dark"
+              class="w-6 cursor-pointer">
           </a>
         </li>
         <li>
           <a href="">
-            <img src="../../../../assets/imgs/sideBar/duvidasDark.svg" alt="Icon duvidas Dark" class="w-6 cursor-pointer">
+            <img src="../../../../assets/imgs/sideBar/duvidasDark.svg" alt="Icon duvidas Dark"
+              class="w-6 cursor-pointer">
           </a>
         </li>
       </ul>
@@ -58,11 +61,14 @@
         <button class="p-1 rounded-full" (click)="isClickChangeTheme()">
           <img class="w-20 iconTheme" src="../../../assets/imgs/theme_mode_icon/dark theme icon/sun.svg"
             alt="Icon theme ligth">
-        </button></ng-template>
-      <img src="../../../../assets/imgs/sideBar/exit.svg" alt="Icon Exit" class="w-6 cursor-pointer"
-        *ngIf="!isToggleChangeTheme; else iconExitDark">
+        </button>
+      </ng-template>
+      <button (click)="logOutService.logOut()">
+        <img src="../../../../assets/imgs/sideBar/exit.svg" alt="Icon Exit" class="w-6 cursor-pointer"
+          *ngIf="!isToggleChangeTheme; else iconExitDark">
+      </button>
       <ng-template #iconExitDark>
-        <img src="../../../../assets/imgs/sideBar/closeDark.svg" alt="Icon Exit" class="w-6 cursor-pointer">
+        <button (click)="logOutService.logOut()"><img src="../../../../assets/imgs/sideBar/closeDark.svg" alt="Icon Exit" class="w-6 cursor-pointer"></button>
       </ng-template>
     </div>
   </nav>
