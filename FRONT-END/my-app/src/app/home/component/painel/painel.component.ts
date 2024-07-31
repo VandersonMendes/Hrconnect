@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { ModalComponent } from './modal/modal.component';
+
 @Component({
   selector: 'app-painel',
   standalone: true,

@@ -105,11 +105,16 @@
       </h1> -->
       <button class="absolute right-0 bottom-0" (click)="addedTaks()">
         <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
-          class="w-12"></button>
-      <p class="text-xs opacity-50 text-center"  [ngClass]="{ 'text-gray-300': isToggleChangeTheme }">Pode somente <span class="font-sans">5 </span>tarefas*</p>
+          class="w-12" *ngIf="!isToggleChangeTheme; else iconGrenn">
+          <ng-template #iconGrenn>
+            <img src="../../../../assets/imgs/homeIcon/adicionar_green_dark.svg" alt="Icon adicionar Dark"
+          class="w-12" ></ng-template>
+          
+          </button>
+      <p class="text-xs opacity-50 text-center"  [ngClass]="{ 'text-gray-300': isToggleChangeTheme }">*Somente <span class="font-sans">5 </span>tarefas*</p>
     </div>
   </div>
   <div>
   </div>
 </section>
-<app-modal [IsModal]='isToggleChangeTheme' *ngIf="isToggleModalAddedTaks" (closeModalEvent)="modalEventClose()"></app-modal>
+<app-modal [IsModal]='isToggleChangeTheme' *ngIf="isToggleModalAddedTaks" (closeModalEvent)="modalEventClose()"  [ngClass]="{  'animated animate__animated animate__fadeOut': !isToggleModalAddedTaks }"></app-modal>
