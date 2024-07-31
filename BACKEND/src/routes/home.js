@@ -1,8 +1,6 @@
 const router = require('express').Router();
-const getUser = require('../middleware/home/getUser');
-const token = require('../middleware/tokenJWT');
-const userConttroller = require('../controllers/userController');
+const homeController = require('../controllers/homeController')
 
-router.get('/user', userConttroller.getUser);
+router.get('/user', homeController.getUser);
 
 module.exports = router

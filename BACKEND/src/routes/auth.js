@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const userController = require('../controllers/userController');
+const userController = require('../controllers/authController');
 const verificEmailExist = require('../middleware/login/verificEmailExist');
 const validadateCreateUser = require('../middleware/login/validateCreateUser');
 const login = require('../middleware/login/login');
-const token = require('../middleware/tokenJWT');
+const token = require('../middleware/login/tokenJWT');
 // const resetPassword = require('../middleware/login/resetPassword');
 router.post('/register', validadateCreateUser, userController.registerUser);
 router.post('/checkEmail', verificEmailExist, userController.existEmail);

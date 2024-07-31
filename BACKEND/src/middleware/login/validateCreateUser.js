@@ -17,10 +17,6 @@ module.exports = async function validateCreateUser(req, res, next) {
     });
     }
   });
-       const hashedPassword = await bcrypt.hash(password, 10);
-    const userNew = new User({
-      nome, email, cnpj, company, password: hashedPassword
-    })
-  await userNew.save();
+
   next();
 }
