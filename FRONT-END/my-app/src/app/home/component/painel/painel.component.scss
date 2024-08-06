@@ -114,3 +114,34 @@ input:checked ~ svg .path {
   width: 100%;
   min-width: 30px;
 }
+@media (max-width: 1200px) {
+  .dadosContainer{
+    max-width: 800px;
+  }
+}
+@media (max-width: 950px) {
+  .dadosContainer {
+  max-width: 400px;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  margin: 5rem auto;
+}
+  .containerTarefas {
+  max-width: 700px;
+  margin: 2rem 0.5rem !important;
+  }
+
+}
+@media (max-width: 400px) {
+  .containerTarefas {
+  max-width: 900px;
+  margin: 2rem 0.5rem !important;
+  }
+  .colaboradorText{
+    font-size: 18px;
+    line-height: 1.5rem;
+  }
+  .dadosContainer > div{
+    margin: 0 1rem;
+  }
+}

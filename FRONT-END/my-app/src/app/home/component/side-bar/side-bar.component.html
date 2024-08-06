@@ -1,5 +1,5 @@
-<section class="flex items-center min-h-screen fixed">
-  <nav class=" max-w-44 w-full ml-4 ">
+<section class="flex items-center min-h-screen fixed sideBar">
+  <nav class=" max-w-44 max w-full ml-4 ">
     <ul class="flex flex-col items-center gap-7 animated animate__animated animate__fadeIn"
       *ngIf="!isToggleChangeTheme; else ligthIcon">
       <li>
@@ -68,7 +68,8 @@
           *ngIf="!isToggleChangeTheme; else iconExitDark">
       </button>
       <ng-template #iconExitDark>
-        <button (click)="logOutService.logOut()"><img src="../../../../assets/imgs/sideBar/closeDark.svg" alt="Icon Exit" class="w-6 cursor-pointer"></button>
+        <button (click)="logOutService.logOut()"><img src="../../../../assets/imgs/sideBar/closeDark.svg"
+            alt="Icon Exit" class="w-6 cursor-pointer"></button>
       </ng-template>
     </div>
   </nav>

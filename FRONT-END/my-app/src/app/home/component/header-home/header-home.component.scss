@@ -25,6 +25,17 @@ nav {
         transition: width 0.3s ease-in; 
   }
 }
+@media (max-width: 800px) {
+  .navLinks {
+    a {
+      font-size: 14px;
+      margin-top: 3px;
+    }
+  }
+  .logoHeader {
+    font-size: 28px;
+  }
+}
 @media (max-width: 400px) {
   .navLinks {
     a {
@@ -36,6 +47,9 @@ nav {
     display: none;
   }
   .logoHeader {
-    font-size: 21px;
+    font-size: 20px;
+  }
+  .companyText{
+    font-size: 12px;
   }
 }

@@ -1,9 +1,9 @@
-import { Component, OnInit, Optional} from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../services/theme/theme.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ContextService } from 'src/app/services/context.service';
+import { ContextService } from '../../../services/context/context.service';
 import { ValidationDataService } from 'src/app/services/validation-data.service';
 import { HeaderComponent } from '../header/header.component';
 import { ApiService } from '../../../services/serviceApi/api.service';
@@ -22,7 +22,7 @@ export class AccountCreateComponent implements OnInit {
   company: string = '';
   errorForm: boolean = false;
   errorMessage: string = '';
-  constructor(private themeService: ThemeService,  private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService, private autoLoginService: AutoLoginService, private loadingService: LoadingService) {
+  constructor(private themeService: ThemeService, private context: ContextService, private router: Router, private validationService: ValidationDataService, private apiService: ApiService, private autoLoginService: AutoLoginService, private loadingService: LoadingService) {
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       this.isToggleChangeTheme = true
@@ -30,7 +30,7 @@ export class AccountCreateComponent implements OnInit {
     sessionStorage.removeItem('dateLogin');
   }
   ngOnInit() {
-      this.autoLoginService.autoLogin(false);
+    this.autoLoginService.autoLogin(false);
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');
@@ -56,24 +56,27 @@ export class AccountCreateComponent implements OnInit {
     } else {
       this.errorForm = false
     }
-
+    // this.router.navigate(['/entrar'], { queryParams: { name: this.name, email: this.email, company: this.company } });
     this.apiService.verificEmailExist(this.email).subscribe((data: any) => {
-      if (!this.errorForm || data) {
-        this.context.saveDateLogin(dateLogin)
-        this.router.navigate(['registrar/advance']);
-        this.context.advanceRegister()
-        return
-      }
+      console.log('estou parando aqui')
     }, (error: any) => {
       console.log(error)
       this.errorMessage = error.error.message
       this.errorForm = error.error.erro
       return
     })
-    const dateLogin = {
+    const data = {
       nome: this.name,
       email: this.email,
       company: this.company
     }
+
+    if (!this.errorForm) {
+      this.context.saveDateLogin(data)
+      this.router.navigate(['registrar/advance']);
+      this.context.advanceRegister()
+      return
+    }
   }
+
 }

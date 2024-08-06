@@ -9,3 +9,10 @@ a{
     transition: transform 0.2s ease-in-out;
   }
 }
+
+@media (max-width:900px) {
+  .sideBar{
+    display: none;
+    gap:0 !important;
+  }
+}

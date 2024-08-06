@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SideBarComponent } from '../component/side-bar/side-bar.component';
-import { AutoLoginService } from 'src/app/services/auto-login/auto-login.service';
+import { AutoLoginService } from '../../services/auto-login/auto-login.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
