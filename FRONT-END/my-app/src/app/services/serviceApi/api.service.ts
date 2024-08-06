@@ -11,7 +11,7 @@ export class ApiService {
     return await this.http.post<DataAvance>(`${this.urlBaseAuth}/register`, user);
   }
     verificEmailExist(email: string): any{
-    return this.http.post(`${this.urlBaseAuth}/checkEmail`,{ email});
+    return this.http.post(`${this.urlBaseAuth}/checkEmail`,{email});
    }
    async login(email: string, password: string): Promise<any> {
     return await this.http.post(`${this.urlBaseAuth}/login`,{ email, password})
@@ -22,5 +22,11 @@ export class ApiService {
       'Authorization': `Bearer ${tokenString}`
     });
     return  await this.http.get(`${this.urlBaseAuth}/token`, { headers });
+  }
+
+
+  urlBaseHome = 'http://localhost:3000/home'
+  async getUser(id: string) {
+    return  this.http.get(`${this.urlBaseHome}/user/${id}`);
   }
 }

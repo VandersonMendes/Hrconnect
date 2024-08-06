@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataCreate } from '../interfaces/dataLogin';
+import { DataCreate } from '../../interfaces/dataLogin';
 import { Router } from '@angular/router';
 import { HttpClient} from "@angular/common/http";
 import { BehaviorSubject } from 'rxjs';
@@ -38,7 +38,16 @@ export class ContextService {
   saveDateLogin(dataLogin: DataCreate) {
     sessionStorage.setItem('dateLogin', JSON.stringify(dataLogin));
   }
-
+  
+   private idUser = new BehaviorSubject<string>('');
+   idUser$ = this.idUser.asObservable();
+   saveIdUser(id: string) {
+     this.idUser.next(id);
+   }
+   returnIdUser(){
+     console.log(this.idUser.getValue())
+     return this.idUser.getValue();
+   }
 
 
 }

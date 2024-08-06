@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../serviceApi/api.service';
 import { Router } from '@angular/router';
 import { LoadingService } from '../loading.service';
-import { ContextService } from '../context.service';
+import { ContextService } from '../context/context.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,16 +21,18 @@ export class AutoLoginService {
           if (data.error) {
             localStorage.removeItem('token');
             this.router.navigate(['/registrar']);
-            console.log('o erro é aqui')
+
             this.loadingService.hide();
             this.context.notAdvanceStartHome();
             return;
           }
           this.context.advanceStartHome();
           this.loadingService.hide();
-          this.router.navigate(['/painel']); 
+          this.context.saveIdUser(data.user.user.id);
+          this.router.navigate(['/painel']);
         }
         )
+
         if (intevalTime) {
           setTimeout(() => {
             this.context.advanceStartHome();
@@ -45,9 +47,10 @@ export class AutoLoginService {
       })
     } catch (error) {
       console.log(error)
+  
       localStorage.removeItem('token');
       this.router.navigate(['/entrar']);
-      console.log('o erro é aqui')
+
       this.loadingService.hide();
       this.context.notAdvanceStartHome();
       return
