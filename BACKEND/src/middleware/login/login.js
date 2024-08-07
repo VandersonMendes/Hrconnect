@@ -16,9 +16,6 @@ module.exports = async function login(req, res, next) {
         return res.status(400).json({ message: 'Email Invalido' });
       }
 
-   
-
-
   }catch(err){
     return res.status(500).json({
       message: "Erro interno",
