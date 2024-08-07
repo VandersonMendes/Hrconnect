@@ -76,6 +76,10 @@ export class AcountAcessComponent  {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
           this.autoLoginService.autoLogin(true)
+        }, (err: any) => {
+          console.log(err.error);
+          this.errorForm = true
+            this.errorMessage = err.error.message
         });
       });
 

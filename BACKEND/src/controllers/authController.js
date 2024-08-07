@@ -18,7 +18,7 @@ exports.registerUser = async (req, res) => {
   }
 }
 exports.existEmail = async (req, res) =>{
-     await UserModel.findOne({email: req.body.email}).then((user) => {
+     await User.findOne({email: req.body.email}).then((user) => {
     if(user) {
       return res.status(401).json({
         message: 'Email ja existe',
@@ -30,9 +30,9 @@ exports.existEmail = async (req, res) =>{
 exports.login = async (req, res) =>{
     const {email, password } = req.body;
       const user = await User.findOne({ email });
-     const isMatch = bcrypt.compare(password, user.password);
+     const isMatch = bcrypt.compareSync(password, user.password);
       if(!isMatch) {
-        return res.status(400).json({ message: 'Password Invalido' });
+        return res.status(400).json({ message: 'Password Invalido', erro:true });
       }
       const payload = {
             user: {
