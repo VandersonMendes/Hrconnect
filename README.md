@@ -1,25 +1,51 @@
-<h1 align="center">Hrconnect
-</h1>
+# Hrconnect - projeto em andamento
 
-  <a href="https://drive.google.com/file/d/1Rld6e5thlDAF9PVaCXvBQXh6uTXwuwxL/view?usp=sharing" target="_blank">
-    <h2 align="center">
-    Acesse o figma do Projeto
+HRconnect é um serviço desenvolvido para empresas, destinado a organizar e gerenciar seus dados funcionários.
 
-</h1>
-  </a>
+## Acesse [Figma](https://www.figma.com/design/Df020gyyqhPXNHUbaa8noK/Hrconnect?node-id=0-1&t=hMduO0I8340JoVfY-0) 💅
 
-## 🧾 About
+##  🔧 Instalação 
 
-**Hrconnect** é um projeto voltado para empresas onde elas cadrastam seus funcionarios podendo guarda dados entre outras informações.
+#### </> Front-End
 
-## 🔧 Tools
+```sh
+git clone git@github.com:VandersonMendes/Hrconnect.git
+npm install
+cd FRONT-END
+cd my-app
+ng serve --open
+```
 
-- [Angular](https://angular.dev/) 🧡
-- [Taiwilnd ](https://tailwindcss.com/).
-- [SCSS ](https://sass-lang.com/).
+#### 👨‍💻 Backend
+
+```sh
+git clone git@github.com:VandersonMendes/Hrconnect.git
+cd BACKEND
+npm run dev
+```
+
+## 🛠️ Construído com
+
+Mencione as ferramentas que você usou para criar seu projeto
+
+* [Angular](https://angular.dev/) - O framework front-end
+* [TalwindCss](https://tailwindcss.com/) - Estilização
+* [NodeJs](https://nodejs.org/pt) - Ambiente de execução do backend
+* [Express](https://expressjs.com/pt-br/) - O framework backend
+* [MongoDB](https://www.mongodb.com/) - Banco de dados
+* [JWT](https://angular.dev/) - Authenticação por token
+ 
+
+## ✒️ Autores
 
 
+* **Desenvolvedor** - *Trabalho Inicial* - [Desenvolvedor](https://vandersonmendes.github.io/Portf-lio/)
+* **Em desenvolvimento** - *Documentação* - 
 
 
+## 📄 Licença
 
-<p align="center">Done with 💙 by <a href="https://vandersonmendes.github.io/Portf-lio/">Vanderson Dias Mendes</a></p>
+Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/VandersonMendes/Hrconnect/blob/main/LICENSE) para detalhes.
+
+---
+⌨️ com 💙 por [Vanderson Mendes](https://github.com/VandersonMendes) 😊
