@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { ModalComponent } from './modal/modal.component';
 import { UserData } from 'src/app/interfaces/dataUser';
+import { ModalSidebarService } from '../../services/modalSidebar/modal-sidebar.service';
 @Component({
   selector: 'app-painel',
   standalone: true,
@@ -11,7 +12,7 @@ import { UserData } from 'src/app/interfaces/dataUser';
   imports: [CommonModule, ModalComponent],
 })
 export class PainelComponent implements OnInit{
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService) {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     })
@@ -19,6 +20,7 @@ export class PainelComponent implements OnInit{
 
   isToggleChangeTheme: boolean = false;
   modalDeletar: boolean = false
+  menuHamburger: boolean = false;
   isToggleModalAddedTaks: boolean = false;
   protected dataUser: UserData[] = []
 
@@ -35,6 +37,10 @@ export class PainelComponent implements OnInit{
   }
   modalEventClose(){
     this.isToggleModalAddedTaks = false
+  }
+  clickMenuSidebar(){
+    this.menuHamburger = !this.menuHamburger;
+    this.modalSidebar.toggleModal(this.menuHamburger);
   }
   
 }
