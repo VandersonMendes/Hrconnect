@@ -87,7 +87,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
         const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha };
         this.apiService.createUser(data).then(data => {
           data.subscribe((dataO: any) => {
-          console.log(dataO.error)
+      
             this.apiService.login(dataLoginObject.email, this.senha).then(data => {
               this.loadingService.show()
                data.subscribe((data: any) => {
@@ -96,7 +96,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
                    this.autoLoginService.autoLogin(true);
                  }
                }, (error: any) => {
-                 console.log(error)
+        
                })
             })
             this.userCreate = true

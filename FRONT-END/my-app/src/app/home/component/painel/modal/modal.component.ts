@@ -21,7 +21,6 @@ export class ModalComponent {
     this.closeModalEvent.emit(false)
   }
   addTaks(){
-    console.log('add taks')
   }
     isToggleChangeTheme: boolean = false;
   isClickChangeTheme(): void {

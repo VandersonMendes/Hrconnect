@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PainelComponent } from './component/painel/painel.component';
 import { HomeRoutingModule } from './services/rotas/home-routing.module';

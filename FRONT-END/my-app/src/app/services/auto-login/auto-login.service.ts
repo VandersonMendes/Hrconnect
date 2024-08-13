@@ -12,7 +12,6 @@ export class AutoLoginService {
     const token = localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['registrar']);
-      console.log('o erro é aqui')
       return;
     }
     try {
