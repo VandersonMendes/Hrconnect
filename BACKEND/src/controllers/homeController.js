@@ -45,7 +45,6 @@ exports.getStatusEmployee = async (req, res) =>{
   };
 
   for (let employee of collaborator.employees) {
-
     // Contar a quantidade de cada situação
           // AT = ativo
     // AF = Afastados

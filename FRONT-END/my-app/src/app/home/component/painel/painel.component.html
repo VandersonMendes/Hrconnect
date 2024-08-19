@@ -44,7 +44,7 @@
       <div class="flex flex-col gap-3 ">
         <p class="text-base color-gray-ligth max-[400px]:text-sm">Colabores ativos</p>
         <p class="text-3xl max-[400px]:text-2xl font-sans color-text-card1 font-semibold"
-          [ngClass]="{ 'text-white': !isToggleChangeTheme }">30</p>
+          [ngClass]="{ 'text-white': !isToggleChangeTheme }">{{status.ativo}}</p>
       </div>
       <img src="../../../../assets/imgs/homeIcon/userGrenn.svg" alt="Icon User" class="w-12  max-[400px]:w-9"
         *ngIf="!isToggleChangeTheme; else userPurple">
@@ -57,7 +57,7 @@
       class="flex  justify-between items-center gap-10 max-xl:gap-5  border border-neutral-300 py-4 px-8 rounded-xl card2">
       <div class="flex flex-col gap-3 ">
         <p class="text-base max-[400px]:text-sm color-gray-ligth">Colabores Afastados</p>
-        <p class="text-3xl font-sans color-text-card2 font-semibold max-[400px]:text-2xl">2</p>
+        <p class="text-3xl font-sans color-text-card2 font-semibold max-[400px]:text-2xl">{{status.desativado}}</p>
       </div>
       <img src="../../../../assets/imgs/homeIcon/userRed.svg" alt="Icon UserRed" class="w-12 max-[400px]:w-9">
     </div>
@@ -65,7 +65,7 @@
       class="flex justify-between items-center gap-10 max-xl:gap-5 border border-neutral-300 py-4 px-8 rounded-xl card3">
       <div class="flex flex-col gap-3 ">
         <p class="text-base max-[400px]:text-sm color-gray-ligth">Colabores de Férias</p>
-        <p class="text-3xl font-sans color-text-card3 font-semibold max-[400px]:text-2xl">2</p>
+        <p class="text-3xl font-sans color-text-card3 font-semibold max-[400px]:text-2xl">{{status.ferias}}</p>
       </div>
       <img src="../../../../assets/imgs/homeIcon/sun.svg" alt="Icon Sun" class="w-12 max-[400px]:w-9">
     </div>

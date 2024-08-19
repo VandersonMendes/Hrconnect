@@ -24,7 +24,7 @@ module.exports = async function createCollaborator(req, res, next) {
       // AT = ativo
     // AF = Afastados
     // FE = ferias
-    if(employee.situation !== 'AT' && employee.situation !== 'IN' && employee.situation !== 'DE') {
+    if(employee.situation !== 'AT' && employee.situation !== 'AF' && employee.situation !== 'FE') {
       return res.status(400).json({
         message: 'Situacao do colaborador invalida',
         erro: true

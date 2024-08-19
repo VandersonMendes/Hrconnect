@@ -1,9 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { ModalComponent } from './modal/modal.component';
 import { UserData } from 'src/app/interfaces/dataUser';
 import { ModalSidebarService } from '../../services/modalSidebar/modal-sidebar.service';
+import { ContextService } from 'src/app/services/context/context.service';
+import { ApiService } from 'src/app/services/serviceApi/api.service';
+import { Status } from 'src/app/interfaces/status';
 @Component({
   selector: 'app-painel',
   standalone: true,
@@ -12,7 +15,7 @@ import { ModalSidebarService } from '../../services/modalSidebar/modal-sidebar.s
   imports: [CommonModule, ModalComponent],
 })
 export class PainelComponent implements OnInit{
-  constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService) {
+  constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService, private context: ContextService, private apiService: ApiService) {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     })
@@ -22,9 +25,20 @@ export class PainelComponent implements OnInit{
   modalDeletar: boolean = false
   menuHamburger: boolean = false;
   isToggleModalAddedTaks: boolean = false;
+  protected status: any
   protected dataUser: UserData[] = []
 
   ngOnInit(): void {
+    this.context.idUser$.subscribe((id: string) => {
+      this.apiService.getStatus(id).then((data: any) => {
+        data.subscribe((data: any) => {
+          this.status = data.statusCount
+          console.log(this.status)
+          
+        })
+      })
+    })
+
   }
   IsModalDeletar() {
     this.modalDeletar = !this.modalDeletar
