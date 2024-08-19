@@ -29,4 +29,7 @@ export class ApiService {
   async getUser(id: string) {
     return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
+  async getStatus(id: string) {
+    return  this.http.get(`${this.urlBaseHome}/statusEmployee/${id}`);
+  }
 }
