@@ -84,10 +84,11 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       const dateLogin = sessionStorage.getItem('dateLogin')
       if (dateLogin) {
         const dataLoginObject = JSON.parse(dateLogin);
-        const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha };
+        const collaborator: any = []
+        const data = { ...dataLoginObject, cnpj: this.cnpj, password: this.senha, collaborator };
         this.apiService.createUser(data).then(data => {
-          data.subscribe((dataO: any) => {
-      
+          data.subscribe((data: any) => {
+  
             this.apiService.login(dataLoginObject.email, this.senha).then(data => {
               this.loadingService.show()
                data.subscribe((data: any) => {

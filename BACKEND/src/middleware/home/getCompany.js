@@ -1,5 +1,5 @@
-const User = require('../../models/user');
-module.exports = async function getUser(req, res, next) {
+const User = require('../../models/company');
+module.exports = async function getCompany(req, res, next) {
   try{
     const id = req.params.id
     if(!id) {
@@ -21,5 +21,5 @@ module.exports = async function getUser(req, res, next) {
       erro: true
     })
   }
-        next();
+  next();
 }

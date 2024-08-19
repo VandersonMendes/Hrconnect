@@ -3,22 +3,28 @@ const dotenv = require('dotenv');
 dotenv.config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const Company = require('../models/company');
+const Collaborator = require('../models/collaborator');
 exports.registerUser = async (req, res) => {
   const {nome, email, cnpj, company, password } = req.body;
   try{
-         const hashedPassword = await bcrypt.hash(password, 10);
-    const userNew = new User({
-      nome, email, cnpj, company, password: hashedPassword
+    const hashedPassword = await bcrypt.hash(password, 10);
+  const CompanyNew =  new Company({
+      nome, email, cnpj, company, password: hashedPassword 
     })
-  await userNew.save();
-  res.status(200).json('Usuário criado');
+  if(CompanyNew){
+    const newListCollaborator = new Collaborator({idCompany: CompanyNew._id, employees: []})
+         newListCollaborator.save();
+       CompanyNew.save();
+  }
+
+   res.status(200).json({message: 'Usário criado com sucesso!'});
   } catch (err) {
     res.status(500).json(err);
   }
 }
 exports.existEmail = async (req, res) =>{
-     await User.findOne({email: req.body.email}).then((user) => {
+     await Company.findOne({email: req.body.email}).then((user) => {
     if(user) {
       return res.status(401).json({
         message: 'Email ja existe',
@@ -29,7 +35,7 @@ exports.existEmail = async (req, res) =>{
 }
 exports.login = async (req, res) =>{
     const {email, password } = req.body;
-      const user = await User.findOne({ email });
+      const user = await Company.findOne({ email });
      const isMatch = bcrypt.compareSync(password, user.password);
       if(!isMatch) {
         return res.status(400).json({ message: 'Password Invalido', erro:true });
