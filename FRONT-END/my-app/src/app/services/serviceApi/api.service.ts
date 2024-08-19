@@ -27,6 +27,6 @@ export class ApiService {
 
   urlBaseHome = 'http://localhost:3000/home'
   async getUser(id: string) {
-    return  this.http.get(`${this.urlBaseHome}/user/${id}`);
+    return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
 }

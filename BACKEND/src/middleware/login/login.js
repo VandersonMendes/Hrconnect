@@ -1,5 +1,5 @@
 // const verificEmailExist = require("../login/verificEmailExist");
-const User = require('../../models/user');
+const User = require('../../models/company');
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = async function login(req, res, next) {

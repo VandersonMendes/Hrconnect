@@ -36,7 +36,6 @@ export class AccountCreateComponent implements OnInit {
       sessionStorage.removeItem('dateLogin');
       this.isToggleChangeTheme = true
     }
-
   }
   isToggleChangeTheme: boolean = false;
   protected isClickChangeTheme(): void {
