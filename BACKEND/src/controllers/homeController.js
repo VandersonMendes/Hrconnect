@@ -1,5 +1,6 @@
 const Company = require('../models/company');
 const Collaborator = require('../models/collaborator');
+const collaborator = require('../models/collaborator');
 exports.getCompany = async (req, res) =>{
  try{
    const id = req.params.id;
@@ -35,9 +36,35 @@ exports.createCollaborator = async (req, res) =>{
 }
 exports.getStatusEmployee = async (req, res) =>{
   try{
-    const email = req.params.id;
-    const data = await Collaborator.findOne({email: email});
-    return res.status(200).json({data});
+    const id = req.params.id;
+    const collaborator = await Collaborator.findOne({idCompany: id });
+     let statusCount = {
+    ativo: 0,
+    ferias: 0,
+    desativado: 0,
+  };
+
+  for (let employee of collaborator.employees) {
+
+    // Contar a quantidade de cada situação
+          // AT = ativo
+    // AF = Afastados
+    // FE = ferias
+    switch (employee.situation) {
+      case 'AT':
+        statusCount.ativo += 1;
+        break;
+      case 'FE':
+        statusCount.ferias += 1;
+        break;
+      case 'AF':
+        statusCount.desativado += 1;
+        break;
+      default:
+        break;
+    }
+  }
+  return res.status(200).json({statusCount});
   }catch(err){
     return res.status(500).json(err);
   }
