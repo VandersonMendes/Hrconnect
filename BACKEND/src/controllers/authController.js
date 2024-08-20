@@ -13,7 +13,7 @@ exports.registerUser = async (req, res) => {
       nome, email, cnpj, company, password: hashedPassword 
     })
   if(CompanyNew){
-    const newListCollaborator = new Collaborator({idCompany: CompanyNew._id, employees: []})
+    const newListCollaborator = new Collaborator({idCompany: CompanyNew._id, employees: [], task: []})
          newListCollaborator.save();
        CompanyNew.save();
   }
