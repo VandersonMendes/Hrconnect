@@ -10,13 +10,21 @@ const employee =  new mongoose.Schema({
   },
   situation: String,
   position: String
-})
+});
+const task = new mongoose.Schema({
+  taks: {
+    type: String,
+    require 
+  },
+  completed: Boolean
+});
 const createCollaborator = new mongoose.Schema({
   idCompany: {
     type: String,
     unique: true,
   },
-  employees:[employee]
+  employees:[employee],
+  tasks: [task]
 
 
 });

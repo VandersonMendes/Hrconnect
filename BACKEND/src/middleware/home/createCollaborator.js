@@ -6,14 +6,12 @@ module.exports = async function createCollaborator(req, res, next) {
     const {idCompany, nome, email, cpf, situation, position } = req.body;
     const company = await Company.findOne({_id: idCompany});
     const collaborator = await Collaborator.findOne({idCompany: idCompany});
-
     if(!nome || !email || !cpf || !situation || !position) {
         return res.status(400).json({
         message: 'Preencha todos os dados',
         erro: true
       });
     }
-
     if(!company) {
       return res.status(400).json({
         message: 'Company nao encontrada',
@@ -42,8 +40,6 @@ module.exports = async function createCollaborator(req, res, next) {
     })
     }
   }
-  
-
   }catch(err) {
     return res.status(500).json({
       message: 'Erro interno',
