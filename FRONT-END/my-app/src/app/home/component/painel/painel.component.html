@@ -79,48 +79,26 @@
     </div>
     <!-- Tarefas -->
     <div class="flex flex-col gap-6 max-[400px]:gap-2 text-base font-medium mb-10 containerTarefas cursor-pointer">
-      <div class="flex items-start gap-1  p-4 rounded-md relative cardTarefa">
-        <label class='checkbox'>
-          <input type="checkbox" class="inputCheckbox" />
-          <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
-            <path
-              d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
-              pathLength="575.0541381835938" class="path"></path>
-          </svg>
-        </label>
-        <p class="inline ml-3 animate max-[600px]:text-sm" [ngClass]="{ 'text-white': isToggleChangeTheme }">Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Cumque nesciunt modi fuga voluptatum quo est. Hic unde dolorum
-          placeat blanditiis laudantium sint mollitia consequuntur, nulla molestiae facilis consequatur, deleniti
-          temporibus!</p>
-        <button class="buttonModalDeletar " (click)="IsModalDeletar()">
-          <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
-            class="w-9 absolute top-3 right-4 bg-slate-300 rounded-lg p-2 animated animate__animated animate__fadeIn">
-        </button>
-        <div>
-        </div>
-      </div>
-      <div class="flex items-start gap-1  p-4 rounded-md relative cardTarefa">
-        <label class='checkbox'>
-          <input type="checkbox" class="inputCheckbox" />
-          <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
-            <path
-              d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
-              pathLength="575.0541381835938" class="path"></path>
-          </svg>
-        </label>
-        <p class="inline ml-3 animate max-[600px]:text-sm" [ngClass]="{ 'text-white': isToggleChangeTheme }">Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Cumque nesciunt modi fuga voluptatum quo est. Hic unde dolorum
-          placeat blanditiis laudantium sint mollitia consequuntur, nulla molestiae facilis consequatur, deleniti
-          temporibus!</p>
-        <button class="buttonModalDeletar " (click)="IsModalDeletar()">
-          <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
-            class="w-9  absolute top-3 right-4 bg-slate-300 rounded-lg p-2 animated animate__animated animate__fadeIn">
-        </button>
-        <div>
-        </div>
-      </div>
-
-      <!-- <h1 class="text-5xl font-semibold tracking-wider logoHeader my-16">
+  <ng-container *ngIf="listTasks.length > 0; else listNone">
+    <div *ngFor="let item of listTasks" class="flex items-start gap-1 p-4 rounded-md relative cardTarefa">
+      <label class='checkbox'>
+        <input type="checkbox" class="inputCheckbox" />
+        <svg viewBox="0 0 64 64" height="27px" class="svgCheckbox">
+          <path
+            d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+            pathLength="575.0541381835938" class="path"></path>
+        </svg>
+      </label>
+      <p class="inline ml-3 animate max-[600px]:text-sm" [ngClass]="{ 'text-white': isToggleChangeTheme }">{{ item.taks }}</p>
+      <button class="buttonModalDeletar" (click)="IsModalDeletar(item._id)">
+        <img src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg" alt="Icon Lixeira ligth"
+          class="w-9 absolute top-3 right-4 bg-slate-300 rounded-lg p-2 animated animate__animated animate__fadeIn">
+      </button>
+    </div>
+  </ng-container>
+      <ng-template #listNone>
+      
+      <h1 class="text-5xl font-semibold tracking-wider logoHeader my-16">
           <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">N</span>
           <span class="color-text-quaternary">ão</span>
           <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }"> há </span>
@@ -131,7 +109,8 @@
           <span class="color-text-quaternary">ar</span>
           <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">efa...</span>
 
-      </h1> -->
+      </h1></ng-template>
+      
       <button class="absolute right-0 bottom-0" (click)="addedTaks()">
         <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
           class="w-12 max-sm:w-10" *ngIf="!isToggleChangeTheme; else iconGrenn">
@@ -147,5 +126,5 @@
   <div>
   </div>
 </section>
-<app-modal [IsModal]='isToggleChangeTheme' *ngIf="isToggleModalAddedTaks" (closeModalEvent)="modalEventClose()"
+<app-modal [IsModal]='isToggleChangeTheme' *ngIf="isToggleModalAddedTaks" (closeModalEvent)="modalEventClose()" (load)="loadNewTaks()"
   [ngClass]="{  'animated animate__animated animate__fadeOut': !isToggleModalAddedTaks }"></app-modal>

@@ -10,5 +10,6 @@ router.get('/company/:id', getCompany, homeController.getCompany);
 router.put('/create_collaborator', createCollaborator, homeController.createCollaborator)
 router.get('/statusEmployee/:id', getStatusEmployee, homeController.getStatusEmployee);
 router.put('/create_taks', createTask, homeController.createTask);
-router.put('/completedTask',completedTask, homeController.completedTask)
+router.put('/completedTask',completedTask, homeController.completedTask);
+router.get('/get_task/:id', homeController.getTask)
 module.exports = router

@@ -7,6 +7,7 @@ import { SideBarComponent } from './component/side-bar/side-bar.component';
 import { HeaderComponent } from "../auth/component/header/header.component";
 import { HeaderHomeComponent } from './component/header-home/header-home.component';
 import { ModalComponent } from './component/painel/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     HomeRoutingModule,
@@ -16,9 +17,11 @@ import { ModalComponent } from './component/painel/modal/modal.component';
     HeaderComponent,
     ModalComponent,
     HeaderHomeComponent,
+    FormsModule
   ],
   declarations: [
     HomeComponent,
+    
 
   ],
 })

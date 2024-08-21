@@ -72,7 +72,6 @@ exports.getStatusEmployee = async (req, res) =>{
   exports.createTask = async (req, res) =>{
     try{
       const {taks, idCompany} = req.body;
-      // return res.status(200).json({taks});
        const listCollaborator = await Collaborator.findOne({idCompany: idCompany });
        const completed = false;
        listCollaborator.tasks.push({taks, completed});
@@ -89,32 +88,22 @@ exports.getStatusEmployee = async (req, res) =>{
     exports.completedTask = async (req, res) =>{
     try{
        const { completed, idTask, idCompany } = req.body;
-
-    // Encontrar a empresa pelo idCompany
     const company = await Collaborator.findOne({ idCompany: idCompany });
-
-    // Verificar se a empresa foi encontrada
     if (!company) {
       return res.status(404).json({
         message: 'Empresa não encontrada',
         erro: true
       });
     }
-
-    // Encontrar a tarefa dentro da lista de tasks
     const task = company.tasks.find((task) => task._id == idTask);
-
-    // Verificar se a tarefa foi encontrada
     if (task) {
-      task.completed = completed; // Atualizar o campo 'completed'
+      task.completed = completed; 
     } else {
       return res.status(404).json({
         message: 'Tarefa não encontrada',
         erro: true
       });
     }
-
-    // Salvar a empresa com a tarefa atualizada
     await company.save();
 
     return res.status(200).json({
@@ -126,3 +115,24 @@ exports.getStatusEmployee = async (req, res) =>{
       return res.status(500).json('esta aqui');
     }
     }
+
+ exports.getTask = async (req, res) =>{
+    try{
+       const idCompany = req.params.id
+    const company = await Collaborator.findOne({ idCompany: idCompany });
+    if (!company) {
+      return res.status(404).json({
+        message: 'Empresa não encontrada',
+        erro: true
+      });
+    }
+
+
+    return res.status(200).json(
+      company.tasks
+    );
+    }catch(err){
+      return res.status(500).json('esta aqui');
+    }
+    }
+
