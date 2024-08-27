@@ -26,10 +26,24 @@ export class ApiService {
 
 
   urlBaseHome = 'http://localhost:3000/home'
-  async getUser(id: string) {
+   async getUser(id: string) {
     return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
-  async getStatus(id: string) {
+   async getStatus(id: string) {
+    console.log(id)
     return  this.http.get(`${this.urlBaseHome}/statusEmployee/${id}`);
+  }
+  async createTask(idCompany: string, taks: string) {
+    return  this.http.put(`${this.urlBaseHome}/create_taks`, {idCompany, taks});
+  }
+  getTask(idCompany: string) {
+    return  this.http.get(`${this.urlBaseHome}/get_task/${idCompany}`);
+  }
+  deleteTask(idT: string, idC: string) {
+    return  this.http.delete(`${this.urlBaseHome}/delete_task/${idT}/${idC}`);
+  }
+  completedTask(idTask: string, idCompany: string, completed: boolean) {
+    console.log(idCompany, completed, idTask)
+    return  this.http.put(`${this.urlBaseHome}/completedTask`, {completed, idTask, idCompany });
   }
 }

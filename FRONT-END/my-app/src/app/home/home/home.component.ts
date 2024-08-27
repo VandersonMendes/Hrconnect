@@ -7,7 +7,7 @@ import { AutoLoginService } from '../../services/auto-login/auto-login.service';
 })
 export class HomeComponent implements OnInit{
   ngOnInit(): void {
-    this.autoLoginService.autoLogin(false);
+    this.autoLoginService.autoLogin(false, false);
   }
   constructor(private autoLoginService: AutoLoginService) {}
 }

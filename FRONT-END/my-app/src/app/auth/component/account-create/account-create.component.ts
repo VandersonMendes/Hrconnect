@@ -30,7 +30,7 @@ export class AccountCreateComponent implements OnInit {
     sessionStorage.removeItem('dateLogin');
   }
   ngOnInit() {
-    this.autoLoginService.autoLogin(false);
+    this.autoLoginService.autoLogin(true, true);
     const prefersTheme = localStorage.getItem('theme');
     if (prefersTheme === 'dark') {
       sessionStorage.removeItem('dateLogin');

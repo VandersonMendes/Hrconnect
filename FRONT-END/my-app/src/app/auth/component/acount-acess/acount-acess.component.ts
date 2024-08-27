@@ -75,7 +75,7 @@ export class AcountAcessComponent  {
         data.subscribe((data: any) => {
           this.loadingService.show();
           localStorage.setItem('token', JSON.stringify(data.token));
-          this.autoLoginService.autoLogin(true)
+          this.autoLoginService.autoLogin(true, true)
         }, (err: any) => {
           console.log(err.error);
           this.errorForm = true

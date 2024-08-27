@@ -78,42 +78,75 @@
 }
 .cardTarefa {
   box-shadow: rgba(149, 157, 165, 0.089) 0px 8px 24px;
+  width: 900px;
+  max-width: 100%;
 }
 .containerTarefas.darkMode {
   .cardTarefa {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     width: 900px;
+  max-width: 100%;
   }
 }
-.inputCheckbox {
-  display: none;
-}
+.checkbox-wrapper-31:hover .check {
+    stroke-dashoffset: 0;
+  }
 
-.svgCheckbox {
-  overflow: visible;
-}
-
-.path {
-  fill: none;
-  stroke: rgb(0, 193, 35);
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
-  stroke-dasharray: 241 9999999;
-  stroke-dashoffset: 0;
-}
-.path {
-  width: 20%;
-}
-input:checked ~ svg .path {
-  stroke-dasharray: 70.5096664428711 9999999;
-  stroke-dashoffset: -262.2723388671875;
-}
-.icon {
-  max-width: 30px;
-  width: 100%;
-  min-width: 30px;
-}
+  .checkbox-wrapper-31 {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  .checkbox-wrapper-31 .background {
+    fill: #ccc;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper-31 .stroke {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    stroke-dashoffset: 100;
+    stroke-dasharray: 100;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper-31 .check {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    stroke-dashoffset: 22;
+    stroke-dasharray: 22;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper-31 input[type=checkbox] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    opacity: 0;
+    -appearance: none;
+    -webkit-appearance: none;
+  }
+  .checkbox-wrapper-31 input[type=checkbox]:hover {
+    cursor: pointer;
+  }
+  .checkbox-wrapper-31 input[type=checkbox].checkComplet + svg .background {
+    fill: #6cbe45;
+  }
+  .checkbox-wrapper-31 input[type=checkbox].checkComplet + svg .stroke {
+    stroke-dashoffset: 0;
+  }
+  .checkbox-wrapper-31 input[type=checkbox].checkComplet + svg .check {
+    stroke-dashoffset: 0;
+  }
 // menu Hamburger
 .menu-icon.darkMode > div {
   background-color: #ffff;
@@ -185,7 +218,32 @@ input:checked ~ svg .path {
   .menu-icon div {
     display: block;
   }
+  .cardTarefa {
+  box-shadow: rgba(149, 157, 165, 0.089) 0px 8px 24px;
+  width: 600px;
+  max-width: 100%;
 }
+.containerTarefas.darkMode {
+  .cardTarefa {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     width: 600px;
+  max-width: 100%;
+  }
+}
+}
+@media (max-width: 600px) {
+    .cardTarefa {
+  width: 400px;
+  max-width: 100%;
+}
+.containerTarefas.darkMode {
+  .cardTarefa {
+     width: 400px;
+  max-width: 100%;
+  }
+}
+}
+
 @media (max-width: 400px) {
   .containerTarefas {
     max-width: 900px;
@@ -198,4 +256,14 @@ input:checked ~ svg .path {
   .dadosContainer > div {
     margin: 0 1rem;
   }
+      .cardTarefa {
+  width: 250px;
+  max-width: 100%;
+}
+.containerTarefas.darkMode {
+  .cardTarefa {
+     width: 250px;
+  max-width: 100%;
+  }
+}
 }

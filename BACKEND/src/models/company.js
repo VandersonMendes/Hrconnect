@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   nome: String,
   email: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   cnpj: {
     type: String,
@@ -14,4 +14,4 @@ const UserSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('company', UserSchema);

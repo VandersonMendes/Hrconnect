@@ -69,10 +69,54 @@ exports.getStatusEmployee = async (req, res) =>{
   }
 
 }
-  exports.createTask = async (req, res) =>{
+
+ exports.getTask = async (req, res) =>{
+    try{
+       const idCompany = req.params.id
+    const company = await Collaborator.findOne({ idCompany: idCompany });
+    if (!company) {
+      return res.status(404).json({
+        message: 'Empresa não encontrada',
+        erro: true
+      });
+    }
+
+
+    return res.status(200).json(
+      company.tasks
+    );
+    }catch(err){
+      return res.status(500).json('esta aqui');
+    }
+    }
+
+exports.deleteTask =async (req, res) =>{
+ try{
+ // idT = id da tarefa
+  // idC = id da empresa
+  const {idT, idC} = req.params
+  const company = await Collaborator.findOne({idCompany: idC});
+const taskIndex = company.tasks.findIndex((task) => task._id == idT);
+
+   
+    if (taskIndex === -1) {
+      return res.status(404).json({ message: "Tarefa não encontrada" });
+    }
+    company.tasks.splice(taskIndex, 1);
+    await company.save();
+  
+  return res.status(200).json({
+    message: 'Tarefa excluída com sucesso',
+    erro: false
+  });
+ }catch(err){
+   return res.status(500).json(err);
+ }
+}
+
+ exports.createTask = async (req, res) =>{
     try{
       const {taks, idCompany} = req.body;
-      // return res.status(200).json({taks});
        const listCollaborator = await Collaborator.findOne({idCompany: idCompany });
        const completed = false;
        listCollaborator.tasks.push({taks, completed});
@@ -89,32 +133,22 @@ exports.getStatusEmployee = async (req, res) =>{
     exports.completedTask = async (req, res) =>{
     try{
        const { completed, idTask, idCompany } = req.body;
-
-    // Encontrar a empresa pelo idCompany
     const company = await Collaborator.findOne({ idCompany: idCompany });
-
-    // Verificar se a empresa foi encontrada
     if (!company) {
       return res.status(404).json({
         message: 'Empresa não encontrada',
         erro: true
       });
     }
-
-    // Encontrar a tarefa dentro da lista de tasks
     const task = company.tasks.find((task) => task._id == idTask);
-
-    // Verificar se a tarefa foi encontrada
     if (task) {
-      task.completed = completed; // Atualizar o campo 'completed'
+      task.completed = completed; 
     } else {
       return res.status(404).json({
         message: 'Tarefa não encontrada',
         erro: true
       });
     }
-
-    // Salvar a empresa com a tarefa atualizada
     await company.save();
 
     return res.status(200).json({
