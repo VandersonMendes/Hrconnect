@@ -11,5 +11,7 @@ router.put('/create_collaborator', createCollaborator, homeController.createColl
 router.get('/statusEmployee/:id', getStatusEmployee, homeController.getStatusEmployee);
 router.put('/create_taks', createTask, homeController.createTask);
 router.put('/completedTask',completedTask, homeController.completedTask);
-router.get('/get_task/:id', homeController.getTask)
+router.get('/get_task/:id', homeController.getTask);
+router.delete('/delete_task/:idT/:idC', homeController.deleteTask);
+
 module.exports = router

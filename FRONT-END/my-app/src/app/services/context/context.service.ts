@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ContextService {
-
   constructor(private router: Router, private http: HttpClient) { 
     console.log(this.getAcessHomeValue().valueOf())
   }

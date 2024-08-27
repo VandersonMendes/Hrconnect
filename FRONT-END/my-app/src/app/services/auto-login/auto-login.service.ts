@@ -8,7 +8,7 @@ import { ContextService } from '../context/context.service';
 })
 export class AutoLoginService {
   constructor(private api: ApiService, private router: Router, private loadingService: LoadingService, private context: ContextService) { }
-  async autoLogin(intevalTime: boolean) {
+  async autoLogin(intevalTime: boolean, rotaPerfil: boolean) {
     const token = localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['registrar']);
@@ -28,7 +28,9 @@ export class AutoLoginService {
           this.context.advanceStartHome();
           this.loadingService.hide();
           this.context.saveIdUser(data.user.user.id);
-          this.router.navigate(['/painel']);
+          if(rotaPerfil){
+            this.router.navigate(['/painel']);
+          }
         }
         )
 
@@ -36,12 +38,12 @@ export class AutoLoginService {
           setTimeout(() => {
             this.context.advanceStartHome();
             this.loadingService.hide();
-            this.router.navigate(['/painel']);
+            if(rotaPerfil) this.router.navigate(['/painel']);
           }, 3000)
         } else {
           this.context.advanceStartHome();
           this.loadingService.hide();
-          this.router.navigate(['/painel']);
+                if(rotaPerfil) this.router.navigate(['/painel']);
         }
       })
     } catch (error) {

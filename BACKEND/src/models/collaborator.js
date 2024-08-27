@@ -3,7 +3,7 @@ const employee =  new mongoose.Schema({
   nome: String,
   email: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   cpf: {
     type: String,
@@ -21,7 +21,7 @@ const task = new mongoose.Schema({
 const createCollaborator = new mongoose.Schema({
   idCompany: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   employees:[employee],
   tasks: [task]

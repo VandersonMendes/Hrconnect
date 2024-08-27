@@ -39,5 +39,11 @@ export class ApiService {
   getTask(idCompany: string) {
     return  this.http.get(`${this.urlBaseHome}/get_task/${idCompany}`);
   }
-
+  deleteTask(idT: string, idC: string) {
+    return  this.http.delete(`${this.urlBaseHome}/delete_task/${idT}/${idC}`);
+  }
+  completedTask(idTask: string, idCompany: string, completed: boolean) {
+    console.log(idCompany, completed, idTask)
+    return  this.http.put(`${this.urlBaseHome}/completedTask`, {completed, idTask, idCompany });
+  }
 }

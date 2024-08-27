@@ -94,7 +94,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
                data.subscribe((data: any) => {
                  if(data.token){
                    localStorage.setItem('token', JSON.stringify(data.token));
-                   this.autoLoginService.autoLogin(true);
+                   this.autoLoginService.autoLogin(true, false);
                  }
                }, (error: any) => {
         

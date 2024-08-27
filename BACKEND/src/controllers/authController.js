@@ -4,8 +4,7 @@ dotenv.config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Company = require('../models/company');
-const Collaborator = require('../models/collaborator');
-const db = require('../config/db');
+const Collaborator = require('../models/collaborator');;
 exports.registerUser = async (req, res) => {
   const {nome, email, cnpj, company, password } = req.body;
   try{
