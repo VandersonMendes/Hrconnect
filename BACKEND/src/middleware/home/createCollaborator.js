@@ -4,8 +4,11 @@ const Collaborator = require('../../models/collaborator');
 module.exports = async function createCollaborator(req, res, next) {
   try{
     const {idCompany, nome, email, cpf, situation, position } = req.body;
+    // console.log(req.body)
+    console.log(idCompany, nome, email, cpf, situation, position)
     const company = await Company.findOne({_id: idCompany});
     const collaborator = await Collaborator.findOne({idCompany: idCompany});
+    // console.log(company, collaborator)
     if(!nome || !email || !cpf || !situation || !position) {
         return res.status(400).json({
         message: 'Preencha todos os dados',
@@ -22,7 +25,20 @@ module.exports = async function createCollaborator(req, res, next) {
       // AT = ativo
     // AF = Afastados
     // FE = ferias
-    if(employee.situation !== 'AT' && employee.situation !== 'AF' && employee.situation !== 'FE') {
+    switch (situation) {
+  case 'Ativo':
+    situation = 'AT';
+    break;
+  case 'Afastado':
+    situation = 'AF';
+    break;
+  case 'Ferias':
+    situation = 'FE';
+    break;
+  default:
+    break;
+  }
+    if(situation !== 'AT' && situation !== 'AF' && situation !== 'FE') {
       return res.status(400).json({
         message: 'Situacao do colaborador invalida',
         erro: true
@@ -42,7 +58,7 @@ module.exports = async function createCollaborator(req, res, next) {
   }
   }catch(err) {
     return res.status(500).json({
-      message: 'Erro interno',
+      message: 'Erro AQIO',
       erro: true
     });
   }
