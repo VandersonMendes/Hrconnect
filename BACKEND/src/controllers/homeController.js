@@ -160,3 +160,32 @@ const taskIndex = company.tasks.findIndex((task) => task._id == idT);
       return res.status(500).json('esta aqui');
     }
     }
+
+exports.getColaborador =async (req, resp) =>{
+  try{
+    const {id} = req.params;
+  if(!id){
+    return resp.status(400).json({message: 'ID da empresa é necessário'});
+  }
+  const company = await Collaborator.find({idCompany: id});
+  company.forEach((collaborator) => {
+     return resp.status(200).json(collaborator.employees);
+  })
+  
+  }catch(err){
+    return resp.status(500).json(err);
+  }
+  }
+exports.createCollaborator = async (req, res) =>{
+  try{
+    const {idCompany, nome, email, cpf, situation, position} = req.body;
+    const company = await Collaborator.findOne({idCompany: idCompany});
+    company.employees.push({nome, email, cpf, situation, position});
+   await company.save();
+   return res.status(200).json({
+    'message': 'Colaborador criado com sucesso '+nome
+   });
+  }catch(err){
+    return res.status(500).json(err);
+  }
+};
