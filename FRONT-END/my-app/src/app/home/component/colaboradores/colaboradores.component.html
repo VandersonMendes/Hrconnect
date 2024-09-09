@@ -1,4 +1,4 @@
-<section class="containerColaboradores relative animate__animated animate__fadeIn" *ngIf="colaborators">
+<section class="containerColaboradores relative animate__animated animate__fadeIn my-10" *ngIf="colaborators">
     <div class="flex gap-5 my-12 mx-7 max-md:gap-2">
         <img src="../../../../assets/imgs/homeIcon/arrow.svg" alt="ICON SETA" class="w-6 max-md:w-4"
             *ngIf="!isToggleChangeTheme; else ligthIcon">
@@ -33,37 +33,37 @@
                     <thead class="bg-gradient-to-r  text-white" [ngClass]="
 isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-600'">
                         <tr>
-                            <th class="px-4 py-3 text-center text-base font-medium uppercase tracking-wider">Nome</th>
-                            <th class="px-4 py-3 text-center text-base font-medium uppercase tracking-wider">Posição
+                            <th class="px-4 py-3 text-center text-base max-md:text-sm font-medium uppercase tracking-wider">Nome</th>
+                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">Posição
                             </th>
-                            <th class="px-4 py-3 text-center text-base font-medium uppercase tracking-wider">Status</th>
-                            <th class="px-4 py-3 text-center text-base font-medium uppercase tracking-wider">CPF</th>
-                            <th class="px-4 py-3 text-center text-base font-medium uppercase tracking-wider">Action</th>
+                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">Status</th>
+                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">CPF</th>
+                            <th class="px-4 py-3 text-center text-base  max-md:text-sm font-medium uppercase tracking-wider">Action</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200" *ngFor="let colaborador of colaborators">
                         <tr class="hover:bg-gray-50 transition duration-200">
                             <td class="px-4 py-2 whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
-                                <div class="text-sm font-medium text-gray-900 truncate">{{colaborador.nome}}</div>
-                                <div class="text-sm text-gray-500 truncate">{{colaborador.email}}</div>
+                                <div class="text-sm max-md:text-xs font-medium text-gray-900 truncate">{{colaborador.nome}}</div>
+                                <div class="text-sm max-md:text-xs text-gray-500 truncate">{{colaborador.email}}</div>
                             </td>
                             <td
                                 class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
-                                <div class="text-sm text-gray-900 truncate">{{colaborador.position}}</div>
+                                <div class="text-sm max-md:text-xs text-gray-900 truncate">{{colaborador.position}}</div>
                             </td>
                             <td class="px-4 py-2 text-center align-middle">
                                 <span
                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                                     *ngIf="colaborador.situation === 'AT'">Ativo</span>
                                 <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-red-500"
+                                    class="px-2 inline-flex text-xs  leading-5 font-semibold rounded-full bg-green-100 text-red-500"
                                     *ngIf="colaborador.situation === 'AF'">Afastado</span>
                                 <span
                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-yellow-500"
                                     *ngIf="colaborador.situation === 'FE'">Ferias</span>
                             </td>
                             <td
-                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40  overflow-hidden text-ellipsis">
+                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40  overflow-hidden text-ellipsis max-md:text-xs">
                                 {{colaborador.cpf}}</td>
                             <td class="px-4 py-2 text-center align-middle">
                                 <button href="#" class="text-indigo-600 hover:text-indigo-900" (click)="deleteColaborator(colaborador._id)"><img
@@ -76,7 +76,7 @@ isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-60
                 </table>
             </ng-container>
         </div>
-        <button class="absolute right-0 bottom-4" (click)="isToggleModalAddCollaboratores()">
+        <button class="absolute right-0 -bottom-4 buttonOpenModal max-[1000px]:right-16 max-[1000px]:-bottom-10" (click)="isToggleModalAddCollaboratores()">
             <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
                 class="w-12 max-sm:w-10" *ngIf="!isToggleChangeTheme; else iconGrenn">
             <ng-template #iconGrenn>
