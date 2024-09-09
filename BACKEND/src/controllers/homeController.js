@@ -189,3 +189,29 @@ exports.createCollaborator = async (req, res) =>{
     return res.status(500).json(err);
   }
 };
+
+exports.deleteCollaborator = async (req, res) =>{
+ try{
+ // idT = id da tarefa
+  // idC = id da empresa
+  const {idCollaborator, idCompany} = req.params
+  // return console.log(idCollaborator, idCompany)
+  const company = await Collaborator.findOne({idCompany: idCompany});
+  // return console.log(company)
+const taskIndex = company.employees.findIndex((collaborador) => collaborador._id == idCollaborator);
+// return console.log(taskIndex);
+// console.log(company)
+    if (taskIndex === -1) {
+      return res.status(404).json({ message: "Tarefa não encontrada" });
+    }
+    company.employees.splice(taskIndex, 1);
+    await company.save();
+  
+  return res.status(200).json({
+    message: 'Colaborador excluído com sucesso',
+    erro: false
+  });
+ }catch(err){
+   return res.status(500).json('ERRO INTERNO');
+ }
+} 
