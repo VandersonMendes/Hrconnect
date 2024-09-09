@@ -51,11 +51,7 @@ export class ColaboradoresComponent  {
   isToggleModalAddCollaboratores() {
     this.isToggleModalNewCollaborator = !this.isToggleModalNewCollaborator
   }
-  // addCollaboratores() {
-  //     if(this.nome == '' || this.cpf == '' || this.situation == '' || this.email == '' || this.position == ''){
-  //     }
 
-  // }
   modalEventClose(){
     this.isToggleModalNewCollaborator = false
   }
