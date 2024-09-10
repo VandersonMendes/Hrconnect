@@ -4,12 +4,12 @@ import { PainelComponent } from '../../component/painel/painel.component';
 import { advanceHomeGuard } from '../guard/advance-home.guard';
 import { HomeComponent } from '../../home/home.component';
 import { ColaboradoresComponent } from '../../component/colaboradores/colaboradores.component';
+import { ConfigComponent } from '../../component/config/config.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [advanceHomeGuard] , children: [
     { path: 'painel', component: PainelComponent,},
     { path: 'colaboradores', component: ColaboradoresComponent},
-  // { path: '', redirectTo: '/painel', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/painel' }
+    { path: 'config', component: ConfigComponent}
   ]},
 ];
 

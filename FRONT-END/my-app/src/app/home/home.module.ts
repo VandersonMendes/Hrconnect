@@ -9,6 +9,7 @@ import { HeaderHomeComponent } from './component/header-home/header-home.compone
 import { FormsModule } from '@angular/forms';
 import { ColaboradoresComponent } from './component/colaboradores/colaboradores.component';
 import { ModalColaboradoresComponent } from './component/colaboradores/modal-colaboradores/modal-colaboradores.component';
+import { ConfigComponent } from './component/config/config.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ModalColaboradoresComponent } from './component/colaboradores/modal-col
     FormsModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ConfigComponent
     
 
   ],
