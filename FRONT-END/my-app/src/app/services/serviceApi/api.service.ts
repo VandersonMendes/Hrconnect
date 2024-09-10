@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataAvance } from '../../interfaces/dataLogin';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserData } from 'src/app/interfaces/dataUser';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +27,7 @@ export class ApiService {
 
 
   urlBaseHome = 'http://localhost:3000/home'
-   async getUser(id: string) {
+   async getCompany(id: string) {
     return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
    async getStatus(id: string) {
@@ -56,5 +57,8 @@ export class ApiService {
   }
     deleteCollaborator(idCollaborator: string, idCompany: string) {
     return this.http.delete(`${this.urlBaseHome}/delete_collaborator/${idCollaborator}/${idCompany}`);
+  }
+   updateCompany(dataCompany: UserData, idCompany: string) {
+    return this.http.put(`${this.urlBaseHome}/update_company/${idCompany}`, dataCompany);
   }
 }

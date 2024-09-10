@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 export const advanceHomeGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state:RouterStateSnapshot) => {
   const router = inject(Router);
   const contextService = inject(ContextService);
-   if (state.url === '/colaboradores') {
+   if (state.url === '/colaboradores' || state.url === '/config') {
      console.log(state.url)
     return true; // Permite acesso a esta rota
   }

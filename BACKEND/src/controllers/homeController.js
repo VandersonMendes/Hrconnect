@@ -4,7 +4,7 @@ const collaborator = require('../models/collaborator');
 exports.getCompany = async (req, res) =>{
  try{
    const id = req.params.id;
-    const data = await Company.findById(id).select('-password');
+    const data = await Company.findById(id).select('-password').select('-__v');
    return res.status(200).json({data});
  }catch(err){
    return res.status(500).json(err);
@@ -195,12 +195,8 @@ exports.deleteCollaborator = async (req, res) =>{
  // idT = id da tarefa
   // idC = id da empresa
   const {idCollaborator, idCompany} = req.params
-  // return console.log(idCollaborator, idCompany)
   const company = await Collaborator.findOne({idCompany: idCompany});
-  // return console.log(company)
 const taskIndex = company.employees.findIndex((collaborador) => collaborador._id == idCollaborator);
-// return console.log(taskIndex);
-// console.log(company)
     if (taskIndex === -1) {
       return res.status(404).json({ message: "Tarefa não encontrada" });
     }
@@ -215,3 +211,25 @@ const taskIndex = company.employees.findIndex((collaborador) => collaborador._id
    return res.status(500).json('ERRO INTERNO');
  }
 } 
+
+exports.updateCompany = async (req, res) =>{
+  try{
+    const {nome, email, cpnj, company} = req.body;
+    const {idCompany} = req.params;
+    const companyDoc = await Company.findOne({_id: idCompany});
+      companyDoc.nome = nome;
+  companyDoc.email = email;
+  companyDoc.cpnj = cpnj;
+  companyDoc.company = company;
+
+  // Save the updated document
+  await companyDoc.save();
+    return res.status(200).json({
+      'message': 'Colaborador atualizado com sucesso '
+     });
+
+
+  }catch(err){
+    res.status(400).json('ERRO ESTA AQUI');
+  }
+}

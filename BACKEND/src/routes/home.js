@@ -6,7 +6,7 @@ const getStatusEmployee = require('../middleware/home/getStatus');
 const createTask = require('../middleware/home/createTask');
 const completedTask = require('../middleware/home/completedTask');
 const deleteCollaborator = require('../middleware/home/deleteColaborator');
-
+const updateCompany = require('../middleware/home/updateCompany');
 router.get('/company/:id', getCompany, homeController.getCompany);
 // router.get('/colaborador/:id', getDataSituation, homeController.getColaborador);
 router.put('/create_collaborator', createCollaborator, homeController.createCollaborator)
@@ -17,6 +17,7 @@ router.get('/get_task/:id', homeController.getTask);
 router.delete('/delete_task/:idT/:idC', homeController.deleteTask);
 router.get('/getCollaborator/:id', homeController.getColaborador);
 router.delete('/delete_collaborator/:idCollaborator/:idCompany',deleteCollaborator, homeController.deleteCollaborator);
+router.put('/update_company/:idCompany', updateCompany, homeController.updateCompany)
 
 
 module.exports = router
