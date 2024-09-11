@@ -1,4 +1,4 @@
-<section class="containerColaboradores relative animate__animated animate__fadeIn my-10" *ngIf="colaborators">
+<section class="containerColaboradores relative animate__animated animate__fadeIn my-10"  *ngIf="colaborators">
     <div class="flex gap-5 my-12 mx-7 max-md:gap-2">
         <img src="../../../../assets/imgs/homeIcon/arrow.svg" alt="ICON SETA" class="w-6 max-md:w-4"
             *ngIf="!isToggleChangeTheme; else ligthIcon">
@@ -20,12 +20,12 @@
     </div>
 
     <div class="rounded-lg m-5 p-10 ">
-        <div>
+        <div *ngIf="colaborators.length > 0">
             <h1 class="text-5xl color-text-terciary font-bold max-md:text-3xl mb-12" *ngIf="colaborators">Colaboradores:
                 {{colaborators.length}} </h1>
         </div>
-        <div class="overflow-x-auto custom-scroll">
-            <ng-container *ngIf="colaborators">
+        <div class="overflow-x-auto overflow-y-hidden custom-scroll">
+            <ng-container *ngIf="colaborators.length > 0; else notCollaborators">
                 <table
                     class="bg-white rounded-lg containerColaboradores w-full table-auto scrollTable transition-transform duration-500 ease-in-out"
                     [ngClass]="
@@ -33,23 +33,35 @@
                     <thead class="bg-gradient-to-r  text-white" [ngClass]="
 isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-600'">
                         <tr>
-                            <th class="px-4 py-3 text-center text-base max-md:text-sm font-medium uppercase tracking-wider">Nome</th>
-                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">Posição
+                            <th
+                                class="px-4 py-3 text-center text-base max-md:text-sm font-medium uppercase tracking-wider">
+                                Nome</th>
+                            <th
+                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                Posição
                             </th>
-                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">Status</th>
-                            <th class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">CPF</th>
-                            <th class="px-4 py-3 text-center text-base  max-md:text-sm font-medium uppercase tracking-wider">Action</th>
+                            <th
+                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                Status</th>
+                            <th
+                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                CPF</th>
+                            <th
+                                class="px-4 py-3 text-center text-base  max-md:text-sm font-medium uppercase tracking-wider">
+                                Action</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200" *ngFor="let colaborador of colaborators">
                         <tr class="hover:bg-gray-50 transition duration-200">
                             <td class="px-4 py-2 whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
-                                <div class="text-sm max-md:text-xs font-medium text-gray-900 truncate">{{colaborador.nome}}</div>
+                                <div class="text-sm max-md:text-xs font-medium text-gray-900 truncate">
+                                    {{colaborador.nome}}</div>
                                 <div class="text-sm max-md:text-xs text-gray-500 truncate">{{colaborador.email}}</div>
                             </td>
                             <td
                                 class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
-                                <div class="text-sm max-md:text-xs text-gray-900 truncate">{{colaborador.position}}</div>
+                                <div class="text-sm max-md:text-xs text-gray-900 truncate">{{colaborador.position}}
+                                </div>
                             </td>
                             <td class="px-4 py-2 text-center align-middle">
                                 <span
@@ -66,7 +78,8 @@ isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-60
                                 class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40  overflow-hidden text-ellipsis max-md:text-xs">
                                 {{colaborador.cpf}}</td>
                             <td class="px-4 py-2 text-center align-middle">
-                                <button href="#" class="text-indigo-600 hover:text-indigo-900" (click)="deleteColaborator(colaborador._id)"><img
+                                <button href="#" class="text-indigo-600 hover:text-indigo-900"
+                                    (click)="deleteColaborator(colaborador._id)"><img
                                         src="../../../../assets/imgs/homeIcon/lixeira_ligth.svg"
                                         alt="Lixeira remover colaborador" class="w-4"></button>
                             </td>
@@ -75,8 +88,26 @@ isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-60
                     </tbody>
                 </table>
             </ng-container>
+            <ng-template #notCollaborators>
+                <h1 class="text-5xl font-semibold tracking-wider logoHeader my-16 text-center max-[900px]:text-3xl">
+                    <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">A</span>
+                    <span class="color-text-quaternary">dici</span>
+                    <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">one
+                    </span>
+                    <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">
+                        seu</span>
+                    <span class="color-text-quaternary"> pr</span>
+                    <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">ime</span>
+                    <span class="color-text-terciary" [ngClass]="{ 'color-text-white': isToggleChangeTheme }">ro </span>
+                    <span class="color-text-quaternary">colab</span>
+                    <span class="color-text-terciary"
+                        [ngClass]="{ 'color-text-white': isToggleChangeTheme }">orador...</span>
+
+                </h1>
+            </ng-template>
         </div>
-        <button class="absolute right-0 -bottom-4 buttonOpenModal max-[1000px]:right-16 max-[1000px]:-bottom-10" (click)="isToggleModalAddCollaboratores()">
+        <button class="absolute right-0 -bottom-4 buttonOpenModal max-[1000px]:right-16 max-[1000px]:-bottom-10"
+            (click)="isToggleModalAddCollaboratores()">
             <img src="../../../../assets/imgs/homeIcon/adicionar_ligth.svg" alt="Icon adicionar Ligth"
                 class="w-12 max-sm:w-10" *ngIf="!isToggleChangeTheme; else iconGrenn">
             <ng-template #iconGrenn>
@@ -85,6 +116,10 @@ isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-60
 
         </button>
     </div>
+
+
+
 </section>
 
-<app-modal-colaboradores *ngIf="isToggleModalNewCollaborator" (closeModalEvent)="modalEventClose()" (loadCreateCollaborator)="loadCollaborators()" ></app-modal-colaboradores>
+<app-modal-colaboradores *ngIf="isToggleModalNewCollaborator" (closeModalEvent)="modalEventClose()"
+    (loadCreateCollaborator)="loadCollaborators()"></app-modal-colaboradores>
