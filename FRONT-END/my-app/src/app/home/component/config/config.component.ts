@@ -8,58 +8,42 @@ import { ModalSidebarService } from '../../services/modalSidebar/modal-sidebar.s
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.scss']
 })
-export class ConfigComponent implements OnInit{
+export class ConfigComponent implements OnInit {
   constructor(private themeService: ThemeService, private context: ContextService, private apiService: ApiService,
- private modalSidebar: ModalSidebarService) {
+    private modalSidebar: ModalSidebarService) {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     });
   }
   dataCompany: any
-    isToggleChangeTheme: boolean = false;
+  isToggleChangeTheme: boolean = false;
   menuHamburger: boolean = false;
   cnpj: string = '';
   nome: string = '';
   email: string = '';
   company: string = '';
   idCompany: string = '';
-    message = {
+  message = {
     message: '',
     sucess: false
   }
   ngOnInit(): void {
-    this.context.idUser$.subscribe((id: string) => {
-    if(id){
-        this.apiService.getCompany(id).then((user: any) => {
-        user.subscribe((data: any) => {
-         if(data){
-          this.dataCompany = data
-         this.idCompany = data.data._id
-          this.nome = data.data.nome
-          this.email = data.data.email
-          this.company = data.data.company
-          this.cnpj = data.data.cnpj
-          
-         }
-        })
-      })
-    }
-    })
+    this.loadDataCompany()
   }
 
 
-  
-    clickMenuSidebar() {
+
+  clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;
     this.modalSidebar.toggleModal(this.menuHamburger);
   }
-  upadteCompany(){
-    if(this.nome === this.dataCompany.data.nome && this.email === this.dataCompany.data.email && this.cnpj === this.dataCompany.data.cnpj && this.company === this.dataCompany.data.company){
-      this.message= {
+  upadteCompany() {
+    if (this.nome === this.dataCompany.data.nome && this.email === this.dataCompany.data.email && this.cnpj === this.dataCompany.data.cnpj && this.company === this.dataCompany.data.company) {
+      this.message = {
         message: 'Nenhum dado foi alterado',
         sucess: false
       }
-      return 
+      return
     }
     const companyData = {
       nome: this.nome,
@@ -67,24 +51,40 @@ export class ConfigComponent implements OnInit{
       cnpj: this.cnpj,
       company: this.company
     }
-    if(this.idCompany){
+    if (this.idCompany) {
       this.apiService.updateCompany(companyData, this.idCompany).subscribe((user: any) => {
         console.log(user)
-        this.message= {
+        this.message = {
           message: user.message,
           sucess: true
         }
+        this.loadDataCompany()
         setTimeout(() => {
- this.message= {
-          message:'',
-          sucess: true
-        }
+          this.message = {
+            message: '',
+            sucess: true
+          }
         }, 4000)
-   
       });
-
     }
+  }
+  loadDataCompany(){
+    this.context.idUser$.subscribe((id: string) => {
+      if (id) {
+        this.apiService.getCompany(id).then((user: any) => {
+          user.subscribe((data: any) => {
+            if (data) {
+              this.dataCompany = data
+              this.idCompany = data.data._id
+              this.nome = data.data.nome
+              this.email = data.data.email
+              this.company = data.data.company
+              this.cnpj = data.data.cnpj
 
-    
+            }
+          })
+        })
+      }
+    })
   }
 }

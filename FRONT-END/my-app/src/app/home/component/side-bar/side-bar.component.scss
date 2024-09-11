@@ -1,4 +1,4 @@
-.sideBar{
+.sideBar {
   z-index: 300003;
 }
 a {
@@ -12,7 +12,6 @@ a {
   }
 }
 
-
 .menu-icon div {
   width: 25px;
   height: 3px;
@@ -20,7 +19,6 @@ a {
   margin: 4px 0;
   transition: transform 0.3s, opacity 0.3s;
   display: none;
- 
 }
 
 .menu-icon div:nth-child(1) {
@@ -51,18 +49,17 @@ a {
 }
 
 @media (max-height: 600px) {
-
   .sideBar {
     display: none;
   }
   .containerSideBarResponsiveLigth {
     background-color: #ffff !important;
     padding: 50px;
-        border: 0.1px solid #4067af71;
+    border: 0.1px solid #4067af71;
     border-radius: 10px;
-      box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-  -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-  -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
   }
   .containerSideBarResponsiveDark {
     background-color: var(--color-bg-secondary) !important;
@@ -92,18 +89,21 @@ a {
     z-index: 3003;
     cursor: pointer;
   }
-  .flexResponsiveButton{
+  .flexResponsiveButton {
     display: flex;
     gap: 10px;
   }
-  .exit-button{
+  .exit-button {
     display: block;
   }
-   .menu-icon div{
- display: block;
-}
+  .menu-icon div {
+    display: block;
+  }
 }
 @media (max-width: 950px) {
+    .menu-icon div{
+    display: block !important;;
+  }
   .sideBar {
     display: none;
   }
@@ -120,14 +120,14 @@ a {
     z-index: 3003;
     cursor: pointer;
   }
-    .containerSideBarResponsiveLigth {
+  .containerSideBarResponsiveLigth {
     background-color: #ffff !important;
     padding: 30px;
-        border: 0.1px solid #4067af71;
+    border: 0.1px solid #4067af71;
     border-radius: 10px;
-      box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-  -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-  -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+    -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
   }
   .containerSideBarResponsiveDark {
     background-color: var(--color-bg-secondary) !important;
@@ -146,10 +146,8 @@ a {
   .iconTheme {
     width: 1.5rem;
   }
-    .exit-button{
+  .exit-button {
     display: block;
   }
-  .menu-icon {
- display: block
-}
+
 }

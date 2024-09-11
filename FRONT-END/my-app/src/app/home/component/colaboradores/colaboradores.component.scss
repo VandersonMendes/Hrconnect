@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 .custom-scroll {
-    overflow-y: scroll;
+    // overflow-y: scroll;
     scrollbar-width: thin; /* Para Firefox */
     scrollbar-color: #22cc9f #2b324e; /* Cor da barra e do fundo */
 }
@@ -25,20 +25,19 @@
 
 
 // Menu Hamburger
-.menu-icon.darkMode > div {
-  background-color: #ffff;
-  display: none;
-}
 #menu-button {
   display: none;
 }
+menu-icon.darkMode > div {
+  background-color: #ffff;
+}
+
 .menu-icon div {
   width: 25px;
   height: 3px;
   background-color: #333;
   margin: 4px 0;
   transition: transform 0.3s, opacity 0.3s;
-  display: none;
 }
 /* Animações para o ícone de menu */
 .menu-icon.open div:nth-child(1) {

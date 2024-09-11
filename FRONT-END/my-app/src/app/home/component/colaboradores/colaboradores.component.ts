@@ -31,18 +31,10 @@ export class ColaboradoresComponent  {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     });
+  
   }
   ngOnInit(): void {
-    this.context.idUser$.subscribe((user: any) =>{
-      if(user){
-        this.apiService.getCollaborator(user).subscribe((res: any) => {
-            console.log(res)
-            this.colaborators = res;
-        })
-      }
-    });
-    
-
+    this.loadCollaborators();
   }
   clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;

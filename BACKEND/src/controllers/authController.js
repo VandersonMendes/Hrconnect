@@ -17,6 +17,7 @@ exports.registerUser = async (req, res) => {
          newListCollaborator.save();
        CompanyNew.save();
   }
+// Resolver erro de login
 
    res.status(200).json({message: 'Usário criado com sucesso!'});
   } catch (err) {

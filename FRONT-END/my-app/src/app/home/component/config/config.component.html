@@ -1,5 +1,5 @@
-<section class="containerColaboradores relative animate__animated animate__fadeIn my-10 px-20">
-    <div class="flex gap-5 my-12 mx-7 max-md:gap-2">
+<section class="containerColaboradores relative animate__animated animate__fadeIn my-10 px-20 max-[1000px]:px-0 mt-0">
+    <div class="flex gap-4 my-12 mx-7 max-md:gap-2">
         <img src="../../../../assets/imgs/homeIcon/arrow.svg" alt="ICON SETA" class="w-6 max-md:w-4"
             *ngIf="!isToggleChangeTheme; else ligthIcon">
         <ng-template #ligthIcon>
@@ -22,7 +22,7 @@
     <div class="modal raleway animated animate__animated animate__fadeInUp cursor-pointer"
         [ngClass]="{ 'darkMode': isToggleChangeTheme}">
         <div
-            class="bg-white containerModal flex flex-col items-center justify-center gap-16 rounded-xl color-bg-primary">
+            class="bg-white containerModal flex flex-col items-center justify-center gap-10 rounded-xl color-bg-primary">
             <h1 class="text-5xl max-md:text-4xl max-[400px]:text-2xl font-bold color-text-terciary ">Configurações
             </h1>
             <div class="relative">
@@ -58,7 +58,7 @@
                     </div>
                 </form>
             </div>
-               <p *ngIf="message.message"
+               <p 
             class="text-center text-green-600 font-bold mt-2 animated animate__animated animate__fadeIn"
             [ngClass]="{ 'text-red-600': !message.sucess}">
             {{ message.message }}
