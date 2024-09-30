@@ -8,7 +8,11 @@
     scrollbar-width: thin; /* Para Firefox */
     scrollbar-color: #22cc9f #2b324e; /* Cor da barra e do fundo */
 }
-
+.custom-scroll.darkMode {
+    // overflow-y: scroll;
+    scrollbar-width: thin; /* Para Firefox */
+    scrollbar-color: #b9dfd5 #4586f3; /* Cor da barra e do fundo */
+}
 .custom-scroll::-webkit-scrollbar {
     width: 12px;
 }
