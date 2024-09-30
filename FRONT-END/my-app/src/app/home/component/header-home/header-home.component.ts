@@ -20,19 +20,25 @@ constructor(private themeService: ThemeService, private context: ContextService,
      })
   }
    isToggleChangeTheme: boolean = false;
-   protected dataUser: any;
+  //  protected dataUser: any;
+
    isNameCompany: string = ''
    ngOnInit(): void {
+    this.context.returnidCompany()
       this.context.idUser$.subscribe((id: any) => {
         this.apiService.getCompany(id).then((user: any) => {
           user.subscribe((data: any) => {
-            this.dataUser = data;
-            if(this.dataUser.data.company.length > 19){
-              this.isNameCompany = this.dataUser.data.company.slice(0, 19) + '...'
+            console.log(data.data.company)
+            this.isNameCompany = data.data.company
+            console.log(this.isNameCompany)
+            // this.dataUser = data;
+            if(data.data.company.length > 19){
+              this.isNameCompany = data.data.company.slice(0, 19) + '...'
+              console.log(this.isNameCompany)
             }else{
-              this.isNameCompany = this.dataUser.data.company;
+              this.isNameCompany = data.data.company;
             }
-            console.log(this.dataUser.data.npme)
+            // console.log(this.dataUser.data.npme)
           })
         })
       })

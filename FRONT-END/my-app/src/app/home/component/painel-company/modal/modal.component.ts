@@ -1,20 +1,20 @@
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/serviceApi/api.service';
 import { ContextService } from '../../../../services/context/context.service';
-import { combineLatest } from 'rxjs';
 import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-modal',
-  standalone: true,
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule]
 })
 export class ModalComponent {
-  // modal$: boolean = true;
+ // modal$: boolean = true;
   @Input() IsModal: boolean = false;
   @Output() closeModalEvent = new EventEmitter();
   taks: string = '';
@@ -66,10 +66,7 @@ export class ModalComponent {
           })
         })
       }
- 
-
     })
-
 
   }
   isToggleChangeTheme: boolean = false;

@@ -7,6 +7,7 @@ import { ContextService } from 'src/app/services/context/context.service';
 import { ApiService } from 'src/app/services/serviceApi/api.service';
 import { AutoLoginService } from 'src/app/services/auto-login/auto-login.service';
 import { ModalColaboradoresComponent } from './modal-colaboradores/modal-colaboradores.component';
+import { ModalColaboradoresService } from '../../services/modalColaboradores/modal-colaboradores.service';
 
 @Component({
   selector: 'app-colaboradores',
@@ -21,13 +22,9 @@ export class ColaboradoresComponent  {
   isToggleModalNewCollaborator: boolean = false;
   isToggleChangeTheme: boolean = false;
     colaborators: Employees[]= [];
-    // nome: string = '';
-    // cpf: string = '';
-    // situation: string = '';
-    // email: string = '';
-    // position: string = '';
+
   
-  constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService, private context: ContextService, private apiService: ApiService, private autoLogionService: AutoLoginService) {
+  constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService, private context: ContextService, private apiService: ApiService, private autoLogionService: AutoLoginService, private modalColaboradoresService: ModalColaboradoresService) {
     themeService.isDarkMode$.subscribe((isDark: any) => {
       this.isToggleChangeTheme = isDark
     });
@@ -35,6 +32,10 @@ export class ColaboradoresComponent  {
   }
   ngOnInit(): void {
     this.loadCollaborators();
+    console.log(this.modalColaboradoresService.getValueModalColaboradores())
+    if(this.modalColaboradoresService.getValueModalColaboradores()){
+      this.isToggleModalNewCollaborator = true
+    }
   }
   clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;

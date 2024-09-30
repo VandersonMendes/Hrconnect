@@ -58,7 +58,7 @@
                     </div>
                 </form>
             </div>
-               <p 
+               <p *ngIf="message.message"
             class="text-center text-green-600 font-bold mt-2 animated animate__animated animate__fadeIn"
             [ngClass]="{ 'text-red-600': !message.sucess}">
             {{ message.message }}

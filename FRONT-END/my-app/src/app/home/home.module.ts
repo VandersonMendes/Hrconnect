@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PainelComponent } from './component/painel/painel.component';
 import { HomeRoutingModule } from './services/rotas/home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SideBarComponent } from './component/side-bar/side-bar.component';
@@ -10,24 +9,35 @@ import { FormsModule } from '@angular/forms';
 import { ColaboradoresComponent } from './component/colaboradores/colaboradores.component';
 import { ModalColaboradoresComponent } from './component/colaboradores/modal-colaboradores/modal-colaboradores.component';
 import { ConfigComponent } from './component/config/config.component';
+import { PainelCompanyComponent } from './component/painel-company/painel-company.component';
+import { AutoLoginService } from '../services/auto-login/auto-login.service';
 
+// export function initializeApp(appInitService: AutoLoginService): () => Promise<void> {
+//   return () => appInitService.autoLogin(false, false);
+// }
 @NgModule({
   imports: [
     HomeRoutingModule,
     CommonModule,
     SideBarComponent,
-    PainelComponent,
     HeaderComponent,
-        ColaboradoresComponent,
-      ModalColaboradoresComponent,
+    ColaboradoresComponent,
+    ModalColaboradoresComponent,
     HeaderHomeComponent,
-    FormsModule
+    FormsModule,
+     PainelCompanyComponent,
   ],
   declarations: [
     HomeComponent,
-    ConfigComponent
-    
-
+    ConfigComponent,
   ],
+  // providers: [
+  //    {
+  //     provide: APP_INITIALIZER,
+  //     useFactory: initializeApp,
+  //     deps: [AutoLoginService],
+  //     multi: true
+  //   }
+  // ]
 })
 export class HomeModule { }

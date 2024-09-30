@@ -18,7 +18,7 @@ import { AutoLoginService } from '../../../services/auto-login/auto-login.servic
 
 
 })
-export class AdvanceLoginComponent implements OnInit, OnDestroy {
+export class AdvanceLoginComponent implements OnInit {
   cnpj: string = '';
   senha: string = '';
   senhaConfirm: string = '';
@@ -27,10 +27,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
   buttonDisabled: boolean = false;
   userCreate: boolean = false
   constructor(private themeService: ThemeService,private context: ContextService, private router: Router, private apiService: ApiService, private loadingService: LoadingService, private autoLoginService: AutoLoginService) {
-    const prefersTheme = localStorage.getItem('theme');
-    if (prefersTheme === 'dark') {
-      this.isToggleChangeTheme = true
-    }
+
   }
   ngOnInit(): void {
     const prefersTheme = localStorage.getItem('theme');
@@ -38,9 +35,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
       this.isToggleChangeTheme = true
     }
   }
-  ngOnDestroy(): void {
 
-  }
   isToggleChangeTheme: boolean = false;
   isClickChangeTheme() {
     this.isToggleChangeTheme = !this.isToggleChangeTheme
@@ -94,7 +89,7 @@ export class AdvanceLoginComponent implements OnInit, OnDestroy {
                data.subscribe((data: any) => {
                  if(data.token){
                    localStorage.setItem('token', JSON.stringify(data.token));
-                   this.autoLoginService.autoLogin(true, false);
+                  //  this.autoLoginService.autoLogin(true, false);
                  }
                }, (error: any) => {
         

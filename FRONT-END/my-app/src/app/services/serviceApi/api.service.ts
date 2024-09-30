@@ -7,26 +7,30 @@ import { UserData } from 'src/app/interfaces/dataUser';
 })
 export class ApiService {
   constructor(private http: HttpClient) { }
-   urlBaseAuth = 'http://localhost:3000/auth'
-  async createUser(user: DataAvance) {
-    return await this.http.post<DataAvance>(`${this.urlBaseAuth}/register`, user);
+   urlBaseAuth = 'http://localhost:4000/auth'
+
+     async createUser(user: DataAvance) {
+    return  this.http.post<DataAvance>(`${this.urlBaseAuth}/registerCompany`, user);
   }
+  // teste(){
+  //   return this.http.get(`localhost:4000/`)
+  // }
     verificEmailExist(email: string): any{
-    return this.http.post(`${this.urlBaseAuth}/checkEmail`,{email});
+    return this.http.post(`${this.urlBaseAuth}/existEmail`,{email});
    }
    async login(email: string, password: string): Promise<any> {
-    return await this.http.post(`${this.urlBaseAuth}/login`,{ email, password})
+    return this.http.post(`${this.urlBaseAuth}/login`,{ email, password } )
    }
     async validate_token(token: string) {
     const tokenString = JSON.parse(token);
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${tokenString}`
     });
-    return  await this.http.get(`${this.urlBaseAuth}/token`, { headers });
+    return   this.http.get(`${this.urlBaseAuth}/token`, { headers });
   }
 
 
-  urlBaseHome = 'http://localhost:3000/home'
+  urlBaseHome = 'http://localhost:4000/home'
    async getCompany(id: string) {
     return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
