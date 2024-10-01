@@ -1,4 +1,4 @@
-<section class="flex items-center min-h-screen fixed sideBar">
+<section class="flex items-center min-h-screen fixed sideBar animate__animated animate__fadeInLeft" [ngClass]="{ 'open': sideBarMobile}">
   <nav class=" max-w-44 max w-full ml-4 relative">
 
     <ul
@@ -23,7 +23,8 @@
       </li>
       <li>
         <button>
-          <a href="/company" class="flexResponsiveButton">
+          <a href="/company
+          " class="flexResponsiveButton">
             <img src="../../../../assets/imgs/sideBar/home.svg" alt="Icon Painel" class="w-6 cursor-pointer">
 
           </a>

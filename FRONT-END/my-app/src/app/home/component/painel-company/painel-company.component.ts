@@ -38,7 +38,6 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
   ngOnInit(): void {
     this.context.idUser$.subscribe((id: string) => {
       this.apiService.getTask(id).subscribe((data: any) => {
-        console.log(data);
         if (data) {
           this.listTasks = data
   
@@ -53,7 +52,6 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
     })
   }
   IsModalDeletar(idTarefa: string) {
-    console.log(idTarefa)
     this.context.idUser$.subscribe((id: string) => {
       this.apiService.deleteTask(id, idTarefa).subscribe((data: any) => {
         if (data) {
@@ -63,14 +61,10 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
     })
   }
   checkedTask(idTarefa: string) {
-    console.log(idTarefa)
     this.isChecked = !this.isChecked
-    // console.log(this.isChecked)
-    console.log(this.isChecked)
     this.completedTask(idTarefa)
   }
   async completedTask(idTask: string) {
-    console.log(idTask)
     this.context.idUser$.subscribe((idCompany: string) => {
       if (idCompany) {
         this.apiService.completedTask(idTask, idCompany, this.isChecked).subscribe((data: any) => {
@@ -96,13 +90,6 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
   clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;
     this.modalSidebar.toggleModal(this.menuHamburger);
-  }
-  getTask(){
-    this.context.idUser$.subscribe((id: string) => {
-      this.apiService.getTask(id).subscribe((data: any) => {
-        console.log(data)
-      })
-    })
   }
   loadNewTaks() {
     this.context.idUser$.subscribe((id: string) => {

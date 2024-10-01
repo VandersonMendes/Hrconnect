@@ -1,5 +1,5 @@
-.sideBar {
-  z-index: 300003;
+.sideBar{
+  // z-index: 3003;
 }
 a {
   img {
@@ -12,13 +12,15 @@ a {
   }
 }
 
+
 .menu-icon div {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  // background-color: #333;
   margin: 4px 0;
   transition: transform 0.3s, opacity 0.3s;
   display: none;
+ 
 }
 
 .menu-icon div:nth-child(1) {
@@ -49,17 +51,18 @@ a {
 }
 
 @media (max-height: 600px) {
+
   .sideBar {
     display: none;
   }
   .containerSideBarResponsiveLigth {
     background-color: #ffff !important;
     padding: 50px;
-    border: 0.1px solid #4067af71;
+        border: 0.1px solid #4067af71;
     border-radius: 10px;
-    box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-    -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-    -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+      box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
   }
   .containerSideBarResponsiveDark {
     background-color: var(--color-bg-secondary) !important;
@@ -76,12 +79,12 @@ a {
   .iconResponsiveReverse {
     display: none;
   }
-  .sideBar.open {
+  .sideBar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,56 +92,53 @@ a {
     z-index: 3003;
     cursor: pointer;
   }
-  .flexResponsiveButton {
+  .flexResponsiveButton{
     display: flex;
     gap: 10px;
   }
-  .exit-button {
+  .exit-button{
     display: block;
   }
-  .menu-icon div {
-    display: block;
-  }
+   .menu-icon div{
+ display: block;
+}
 }
 @media (max-width: 950px) {
-    .menu-icon div{
-    display: block !important;;
-  }
   .sideBar {
     display: none;
   }
   .sideBar.open {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 10vh;
+    left: -15px;
+    // width: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    backdrop-filter: blur(2px);
+    align-items: center;
+    backdrop-filter: blur(1px);
     z-index: 3003;
     cursor: pointer;
   }
-  .containerSideBarResponsiveLigth {
+    .containerSideBarResponsiveLigth {
     background-color: #ffff !important;
     padding: 30px;
-    border: 0.1px solid #4067af71;
+        border: 0.1px solid #4067af71;
     border-radius: 10px;
-    box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-    -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
-    -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  //     box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  // -webkit-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
+  // -moz-box-shadow: 1px 2px 51px -6px rgba(6, 88, 246, 0.82);
   }
   .containerSideBarResponsiveDark {
     background-color: var(--color-bg-secondary) !important;
     padding: 30px;
     border: 0.4px solid #4067af48;
     border-radius: 10px;
-    box-shadow: 1px 2px 51px -6px #14bf916e;
-    -webkit-box-shadow: 1px 2px 51px -6px #14bf9171;
-    -moz-box-shadow: 1px 2px 51px -6px #14bf9175;
+    // box-shadow: 1px 2px 51px -6px #14bf916e;
+    // -webkit-box-shadow: 1px 2px 51px -6px #14bf9171;
+    // -moz-box-shadow: 1px 2px 51px -6px #14bf9175;
   }
-
   .iconResponsive {
     display: block;
   }
@@ -146,8 +146,10 @@ a {
   .iconTheme {
     width: 1.5rem;
   }
-  .exit-button {
+    .exit-button{
     display: block;
   }
-
+  .menu-icon {
+ display: block
+}
 }

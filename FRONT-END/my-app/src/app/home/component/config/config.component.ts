@@ -53,7 +53,6 @@ export class ConfigComponent implements OnInit {
     }
     if (this.idCompany) {
       this.apiService.updateCompany(companyData, this.idCompany).subscribe((user: any) => {
-        console.log(user)
         this.message = {
           message: user.message,
           sucess: true

@@ -44,7 +44,6 @@ export class ContextService {
      this.idUser.next(id);
    }
    returnIdUser(){
-     console.log(this.idUser.getValue())
      return this.idUser.getValue();
    }
      //  function return idCompanuy
@@ -57,7 +56,6 @@ export class ContextService {
         let id;
         this.apiService.validate_token(token).then(data => {
             data.subscribe((data: any) => {
-              console.log(data)
                 this.idUser.next(data.id)
             })
         })
