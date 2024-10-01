@@ -23,12 +23,9 @@ constructor(private themeService: ThemeService, private context: ContextService,
       this.context.idUser$.subscribe((id: any) => {
         this.apiService.getCompany(id).then((user: any) => {
           user.subscribe((data: any) => {
-            console.log(data.data.company)
             this.isNameCompany = data.data.company
-            console.log(this.isNameCompany)
             if(data.data.company.length > 19){
               this.isNameCompany = data.data.company.slice(0, 19) + '...'
-              console.log(this.isNameCompany)
             }else{
               this.isNameCompany = data.data.company;
             }
@@ -37,7 +34,6 @@ constructor(private themeService: ThemeService, private context: ContextService,
       })
            this.themeService.isDarkMode$.subscribe(( isDark: boolean) =>{
        this.isToggleChangeTheme = isDark
-        console.log(this.isToggleChangeTheme)
      })
    }
 }

@@ -65,7 +65,6 @@ export class AcountAcessComponent  {
       this.apiService.login(dateLogin.email, dateLogin.password).then(data => {
         data.subscribe((data: any) => {
           this.loadingService.show();
-          // console.log(data);
           localStorage.setItem('token', JSON.stringify(data.token));
           setInterval(() => {
              this.loginService.authenticateToken();
@@ -73,7 +72,6 @@ export class AcountAcessComponent  {
           }, 2000);
           
         }, (err: any) => {
-          console.log(err.error);
           this.errorForm = true
             this.errorMessage = err.error.message
         });

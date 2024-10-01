@@ -21,21 +21,18 @@ export class ColaboradoresComponent  {
   // modalSidebar: boolean = false
   isToggleModalNewCollaborator: boolean = false;
   isToggleChangeTheme: boolean = false;
-    colaborators: Employees[]= [];
-
-  
+  colaborators: Employees[]= [];
   constructor(private themeService: ThemeService, private modalSidebar: ModalSidebarService, private context: ContextService, private apiService: ApiService, private autoLogionService: AutoLoginService, private modalColaboradoresService: ModalColaboradoresService) {
-    themeService.isDarkMode$.subscribe((isDark: any) => {
-      this.isToggleChangeTheme = isDark
-    });
   
   }
   ngOnInit(): void {
     this.loadCollaborators();
-    console.log(this.modalColaboradoresService.getValueModalColaboradores())
     if(this.modalColaboradoresService.getValueModalColaboradores()){
       this.isToggleModalNewCollaborator = true
     }
+       this.themeService.isDarkMode$.subscribe((isDark: any) => {
+      this.isToggleChangeTheme = isDark
+    });
   }
   clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;
@@ -63,7 +60,6 @@ export class ColaboradoresComponent  {
     this.context.idUser$.subscribe((user: any) =>{
       if(user){
         this.apiService.getCollaborator(user).subscribe((res: any) => {
-            console.log(res)
             this.colaborators = res;
         })
       }

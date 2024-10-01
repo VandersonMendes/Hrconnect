@@ -35,7 +35,6 @@ export class ApiService {
     return  this.http.get(`${this.urlBaseHome}/company/${id}`);
   }
    async getStatus(id: string) {
-    console.log(id)
     return  this.http.get(`${this.urlBaseHome}/statusEmployee/${id}`);
   }
 
@@ -46,11 +45,9 @@ export class ApiService {
     return  this.http.get(`${this.urlBaseHome}/get_task/${idCompany}`);
   }
   deleteTask(idT: string, idC: string) {
-    console.log(idC, idT)
     return this.http.delete(`${this.urlBaseHome}/delete_task/${idT}/${idC}`);
   }
   completedTask(idTask: string, idCompany: string, completed: boolean) {
-    console.log(idCompany, completed, idTask)
     return  this.http.put(`${this.urlBaseHome}/completed_task`, {completed, idTask, idCompany });
   }
     getCollaborator(idCompany: string) {
@@ -58,7 +55,6 @@ export class ApiService {
   }
 
   async createCollaborator(newColaborator: any) {
-    console.log(newColaborator)
     return  this.http.put(`${this.urlBaseHome}/create_collaborator`, newColaborator);
   }
     deleteCollaborator(idCollaborator: string, idCompany: string) {

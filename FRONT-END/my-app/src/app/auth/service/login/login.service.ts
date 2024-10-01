@@ -27,7 +27,7 @@ export class LoginService {
             console.log('Error validating token', dataV.error);
             returnValue = false
            }
-           console.log(dataV);
+
            this.router.navigate(['/colaboradores']);
 
         })

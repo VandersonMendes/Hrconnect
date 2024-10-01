@@ -56,7 +56,6 @@ export class AccountCreateComponent implements OnInit {
     // this.router.navigate(['/entrar'], { queryParams: { name: this.name, email: this.email, company: this.company } });
     this.apiService.verificEmailExist(this.email).subscribe((data: any) => {
     }, (error: any) => {
-      console.log(error)
       this.errorMessage = error.error.message
       this.errorForm = error.error.erro
       return

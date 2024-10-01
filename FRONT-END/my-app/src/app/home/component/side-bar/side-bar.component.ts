@@ -15,6 +15,7 @@ export class SideBarComponent {
   sideBarMobile: boolean = false;
   constructor(private themeService: ThemeService, public logOutService: LogOutService, private modalSidebar: ModalSidebarService) {
     modalSidebar.modalLogin$.subscribe((modalValue: boolean) => {
+      console.log(modalValue)
       this.sideBarMobile = modalValue
     })
     const prefersTheme = localStorage.getItem('theme');
@@ -34,7 +35,6 @@ export class SideBarComponent {
   isClickChangeTheme(): void {
     this.isToggleChangeTheme = !this.isToggleChangeTheme;
     this.themeService.toggleDarkMode(!this.themeService.isDarkMode.value)
-    console.log(this.modalSidebar.getValueModal())
   }
 closeMenu(){
   this.modalSidebar.toggleModal(false);
