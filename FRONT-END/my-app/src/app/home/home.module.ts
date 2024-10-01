@@ -10,11 +10,6 @@ import { ColaboradoresComponent } from './component/colaboradores/colaboradores.
 import { ModalColaboradoresComponent } from './component/colaboradores/modal-colaboradores/modal-colaboradores.component';
 import { ConfigComponent } from './component/config/config.component';
 import { PainelCompanyComponent } from './component/painel-company/painel-company.component';
-import { AutoLoginService } from '../services/auto-login/auto-login.service';
-
-// export function initializeApp(appInitService: AutoLoginService): () => Promise<void> {
-//   return () => appInitService.autoLogin(false, false);
-// }
 @NgModule({
   imports: [
     HomeRoutingModule,
@@ -31,13 +26,6 @@ import { AutoLoginService } from '../services/auto-login/auto-login.service';
     HomeComponent,
     ConfigComponent,
   ],
-  // providers: [
-  //    {
-  //     provide: APP_INITIALIZER,
-  //     useFactory: initializeApp,
-  //     deps: [AutoLoginService],
-  //     multi: true
-  //   }
-  // ]
+
 })
 export class HomeModule { }

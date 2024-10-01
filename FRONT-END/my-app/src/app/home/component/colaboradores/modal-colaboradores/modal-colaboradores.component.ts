@@ -47,7 +47,7 @@ export class ModalColaboradoresComponent {
         message: 'Preencha todos os dados',
         sucess: false
       }
-      return
+      return 
     } else {
       this.message = {
         message: '',
@@ -68,7 +68,7 @@ export class ModalColaboradoresComponent {
         }
       }
     }
-
+    console.log(data)
     this.apiService.createCollaborator(data).then((res) => {
       res.subscribe((resp) => {
         if (resp) {

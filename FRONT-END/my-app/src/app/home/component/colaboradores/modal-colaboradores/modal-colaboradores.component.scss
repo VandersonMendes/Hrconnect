@@ -37,7 +37,7 @@ form {
 }
 .containerModal {
   max-width: 900px;
-  max-height: 500px;
+  max-height: 600px;
   height: 100%;
   width: 100%;
   z-index: 3001;
@@ -80,19 +80,17 @@ form {
   }
 }
 @media (max-width: 550px) {
-  .modal.modal.darkMode {
-    .containerModal {
-      width: 400px;
-      margin: 0 3rem;
-      max-height: 100%;
-    }
-  }
+   .containerModal {  
+    gap:1rem!important;
+  max-height: 800px;
+  height: 150%;
+}
   form {
     flex-direction: column;
   gap: 2rem;
     input,
     select {
-      width: 150px;
+      width: 200px;
       border: 0.4px solid #cccccc5b;
     }
   }
@@ -109,11 +107,16 @@ form {
     max-width: 300px;
     margin: 0 3rem;
   }
-   form {
-    input,
+         input,
     select {
       width: 150px;
       border: 0.4px solid #cccccc5b;
     }
-  }
+}
+@media (max-width: 300px) {
+    //    input,
+    // select {
+    //   width: 150px;
+    //   border: 0.4px solid #cccccc5b;
+    // }
 }
