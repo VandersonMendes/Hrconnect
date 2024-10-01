@@ -38,21 +38,23 @@ export class ApiService {
     console.log(id)
     return  this.http.get(`${this.urlBaseHome}/statusEmployee/${id}`);
   }
-  async createTask(idCompany: string, taks: string) {
-    return  this.http.put(`${this.urlBaseHome}/create_taks`, {idCompany, taks});
+
+  async createTask(idCompany: string, task: string) {
+    return  this.http.put(`${this.urlBaseHome}/create_task`, {idCompany, task});
   }
   getTask(idCompany: string) {
     return  this.http.get(`${this.urlBaseHome}/get_task/${idCompany}`);
   }
   deleteTask(idT: string, idC: string) {
-    return  this.http.delete(`${this.urlBaseHome}/delete_task/${idT}/${idC}`);
+    console.log(idC, idT)
+    return this.http.delete(`${this.urlBaseHome}/delete_task/${idT}/${idC}`);
   }
   completedTask(idTask: string, idCompany: string, completed: boolean) {
     console.log(idCompany, completed, idTask)
-    return  this.http.put(`${this.urlBaseHome}/completedTask`, {completed, idTask, idCompany });
+    return  this.http.put(`${this.urlBaseHome}/completed_task`, {completed, idTask, idCompany });
   }
     getCollaborator(idCompany: string) {
-    return  this.http.get(`${this.urlBaseHome}/getCollaborator/${idCompany}`);
+    return  this.http.get(`${this.urlBaseHome}/get_collaborator/${idCompany}`);
   }
 
   async createCollaborator(newColaborator: any) {

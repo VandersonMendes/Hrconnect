@@ -17,7 +17,7 @@ export class ModalComponent {
  // modal$: boolean = true;
   @Input() IsModal: boolean = false;
   @Output() closeModalEvent = new EventEmitter();
-  taks: string = '';
+  task: string = '';
   errorMessage: string = '';
   sucessMessage: string = '';
   protected companyID: string = '';
@@ -39,14 +39,14 @@ export class ModalComponent {
          this.load.emit(false)
   }
   changeTask() {
-    if (this.taks.length > 0) {
+    if (this.task.length > 0) {
       this.errorMessage = ''
     }
   }
   
   createTask() {
   
-    if (!this.taks) {
+    if (!this.task) {
       this.errorMessage = 'Preencha todos os campos'
       return
     } else {
@@ -54,7 +54,7 @@ export class ModalComponent {
     }
     this.context.idUser$.subscribe((id: string) => {
       if (id || this.companyID) {
-        this.apiService.createTask(this.companyID, this.taks).then(data => {
+        this.apiService.createTask(this.companyID, this.task).then(data => {
           data.subscribe((data: any) => {
             this.sucessMessage = data.message
             this.load.emit(false)

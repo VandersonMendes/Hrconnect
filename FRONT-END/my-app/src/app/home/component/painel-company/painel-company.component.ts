@@ -30,33 +30,32 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
   isToggleModalAddedTaks: boolean = false;
   isChecked: boolean = false
   checkedClass: boolean = false
+  isIdCompany: string = ''
   protected status: any
   protected dataUser: UserData[] = []
   protected listTasks: any
 
   ngOnInit(): void {
-    // this.autoLogionService.autoLogin(true, false)
     this.context.idUser$.subscribe((id: string) => {
       this.apiService.getTask(id).subscribe((data: any) => {
+        console.log(data);
         if (data) {
           this.listTasks = data
-          console.log(this.listTasks)
+  
 
         }
       })
       this.apiService.getStatus(id).then((data: any) => {
         data.subscribe((data: any) => {
           this.status = data.statusCount
-          console.log(this.status)
-
         })
       })
     })
-
   }
   IsModalDeletar(idTarefa: string) {
+    console.log(idTarefa)
     this.context.idUser$.subscribe((id: string) => {
-      this.apiService.deleteTask(idTarefa, id).subscribe((data: any) => {
+      this.apiService.deleteTask(id, idTarefa).subscribe((data: any) => {
         if (data) {
           this.loadNewTaks()
         }
@@ -64,9 +63,10 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
     })
   }
   checkedTask(idTarefa: string) {
+    console.log(idTarefa)
     this.isChecked = !this.isChecked
-    console.log(this.isChecked)
     // console.log(this.isChecked)
+    console.log(this.isChecked)
     this.completedTask(idTarefa)
   }
   async completedTask(idTask: string) {
@@ -89,15 +89,20 @@ constructor(private themeService: ThemeService, private modalSidebar: ModalSideb
   addedTaks() {
     this.isToggleModalAddedTaks = !this.isToggleModalAddedTaks
   }
-  modalAddedTaks() {
-    this.isToggleModalAddedTaks = !this.isToggleModalAddedTaks
-  }
+
   modalEventClose() {
     this.isToggleModalAddedTaks = false
   }
   clickMenuSidebar() {
     this.menuHamburger = !this.menuHamburger;
     this.modalSidebar.toggleModal(this.menuHamburger);
+  }
+  getTask(){
+    this.context.idUser$.subscribe((id: string) => {
+      this.apiService.getTask(id).subscribe((data: any) => {
+        console.log(data)
+      })
+    })
   }
   loadNewTaks() {
     this.context.idUser$.subscribe((id: string) => {

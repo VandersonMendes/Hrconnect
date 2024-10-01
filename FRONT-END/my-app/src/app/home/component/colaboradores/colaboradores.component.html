@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="rounded-lg m-5 p-10 ">
+    <div class="rounded-lg m-5 max-md:p-2 p-10">
         <div *ngIf="colaborators.length > 0">
             <h1 class="text-5xl color-text-terciary font-bold max-md:text-3xl mb-12" *ngIf="colaborators">Colaboradores:
                 {{colaborators.length}} </h1>
@@ -34,32 +34,32 @@
 isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-600'">
                         <tr>
                             <th
-                                class="px-4 py-3 text-center text-base max-md:text-sm font-medium uppercase tracking-wider">
+                                class="px-4 py-3 text-center text-base max-md:text-xs font-medium uppercase tracking-wider">
                                 Nome</th>
                             <th
-                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                class="px-4 py-3 text-center text-base max-md:text-xs  font-medium uppercase tracking-wider">
                                 Posição
                             </th>
                             <th
-                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                class="px-4 py-3 text-center text-base max-md:text-xs  font-medium uppercase tracking-wider">
                                 Status</th>
                             <th
-                                class="px-4 py-3 text-center text-base max-md:text-sm  font-medium uppercase tracking-wider">
+                                class="px-4 py-3 text-center text-base max-md:text-xs  font-medium uppercase tracking-wider">
                                 CPF</th>
                             <th
-                                class="px-4 py-3 text-center text-base  max-md:text-sm font-medium uppercase tracking-wider">
+                                class="px-4 py-3 text-center text-base  max-md:text-xs font-medium uppercase tracking-wider">
                                 Action</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200" *ngFor="let colaborador of colaborators">
                         <tr class="hover:bg-gray-50 transition duration-200">
-                            <td class="px-4 py-2 whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
+                            <td class="px-4 py-2 whitespace-nowrap max-w-24 overflow-hidden text-ellipsis">
                                 <div class="text-sm max-md:text-xs font-medium text-gray-900 truncate">
                                     {{colaborador.nome}}</div>
                                 <div class="text-sm max-md:text-xs text-gray-500 truncate">{{colaborador.email}}</div>
                             </td>
                             <td
-                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40 overflow-hidden text-ellipsis">
+                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-24 overflow-hidden text-ellipsis">
                                 <div class="text-sm max-md:text-xs text-gray-900 truncate">{{colaborador.position}}
                                 </div>
                             </td>
@@ -75,7 +75,7 @@ isToggleChangeTheme ? 'from-green-400 to-green-600' : ' from-blue-400 to-blue-60
                                     *ngIf="colaborador.situation === 'FE'">Ferias</span>
                             </td>
                             <td
-                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-40  overflow-hidden text-ellipsis max-md:text-xs">
+                                class="px-4 py-2 text-center align-middle whitespace-nowrap max-w-24  overflow-hidden text-ellipsis max-md:text-xs">
                                 {{colaborador.cpf}}</td>
                             <td class="px-4 py-2 text-center align-middle">
                                 <button href="#" class="text-indigo-600 hover:text-indigo-900"
